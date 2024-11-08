@@ -6,20 +6,19 @@ import {Lock, Mail, User} from '../../assets/icon';
 
 const SignIn = ({navigation}) => {
   return (
-      <ScrollView style={styles.container}>
-        <Header />
-        <Text style={styles.Title}>Welcome!</Text>
-        <Gap height={24} />
-        <TextInput placeholder="Username" icon={User} />
-        <Gap height={24} />
-        <TextInput placeholder="Password" icon={Lock} />
-        <Text style={styles.forgot}>Forgot Password?</Text>
-        <Gap height={30} />
-        <Button text="Sign In" onPress={() => navigation.navigate('Home')} />
-        <Gap height={168}/>
-        <View style={styles.footer}>
-        </View>
-      </ScrollView>
+    <ScrollView style={styles.container}>
+      <Header />
+      <Text style={styles.Title}>Welcome!</Text>
+      <Gap height={24} />
+      <TextInput placeholder="Username" icon={User} />
+      <Gap height={24} />
+      <TextInput placeholder="Password" icon={Lock} />
+      <Text style={styles.forgot}>Forgot Password?</Text>
+      <Gap height={30} />
+      <Button text="Sign In" onPress={() => navigation.navigate('Home')} />
+      <Gap height={168} />
+      <View style={styles.footer} />
+    </ScrollView>
   );
 };
 
