@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 0.5,
     borderColor: '#8f8f8f',
     borderRadius: 40,
-    paddingVertical: 10,
+    paddingVertical: 5,
     paddingHorizontal: 20,
     marginHorizontal: 20,
   },
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    color: '#8D92A3',
+    color: '#000000',
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 20,
   },
