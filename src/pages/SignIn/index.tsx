@@ -11,6 +11,7 @@ const SignIn = ({navigation}) => {
       <Text style={styles.Title}>Welcome!</Text>
       <TextInput
       placeholder="Username"
+      icon={User}
       />
     </ScrollView>
   );
