@@ -1,13 +1,18 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, Touchable, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {ScreenContainer} from 'react-native-screens';
+import { Button } from '../../atoms';
 
 const Header = () => {
   return (
     <View style={styles.container}>
       <View style={styles.sign}>
-        <Text style={styles.Title}>Sign In</Text>
-        <Text style={styles.Title}>Sign Up</Text>
+        <TouchableOpacity>
+          <Text style={styles.Title}>Sign In</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.Title}>Sign Up</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.whiteBar} />
     </View>
@@ -22,7 +27,10 @@ const styles = StyleSheet.create({
     padding: 95,
     borderBottomRightRadius: 70,
     borderBottomLeftRadius: 70,
-    elevation: 10,
+    borderBottomWidth: 3,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderColor: '#D4D4D4',
   },
   whiteBar: {
     backgroundColor: 'white',

@@ -31,16 +31,15 @@ const styles = StyleSheet.create({
     borderRightWidth: 0.5,
     borderColor: '#8f8f8f',
     borderRadius: 40,
-    paddingVertical: 5,
     paddingHorizontal: 20,
     marginHorizontal: 20,
   },
   iconContainer: {
-    marginRight: 10,
+    marginRight: 20,
   },
   input: {
     flex: 1,
-    color: '#000000',
+    color: 'black',
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 20,
   },
