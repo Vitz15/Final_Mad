@@ -16,6 +16,11 @@ const App = () => {
         component={SplashScreen}
         options={{headerShown: false}}
         />
+        <Stack.Screen
+        name="SignIn"
+        component={SignIn}
+        options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
