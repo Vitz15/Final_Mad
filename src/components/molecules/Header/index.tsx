@@ -2,19 +2,22 @@ import {ScrollView, StyleSheet, Text, Touchable, TouchableOpacity, View} from 'r
 import React from 'react';
 import {ScreenContainer} from 'react-native-screens';
 import { Button } from '../../atoms';
+import {useNavigation} from '@react-navigation/native';
 
 const Header = () => {
+  const navigation = useNavigation();
+  
+
   return (
     <View style={styles.container}>
       <View style={styles.sign}>
-        <TouchableOpacity>
-          <Text style={styles.Title}>Sign In</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+          <Text style={styles.Title}>Sign Up</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
           <Text style={styles.Title}>Sign Up</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.whiteBar} />
     </View>
   );
 };

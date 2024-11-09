@@ -2,6 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import SplashScreen from './src/pages/SplashScreen';
 import SignIn from './src/pages/SignIn';
+import SignUp from './src/pages/SignUp';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -19,6 +20,11 @@ const App = () => {
         <Stack.Screen
         name="SignIn"
         component={SignIn}
+        options={{headerShown: false}}
+        />
+        <Stack.Screen
+        name="SignUp"
+        component={SignUp}
         options={{headerShown: false}}
         />
       </Stack.Navigator>
