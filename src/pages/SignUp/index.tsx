@@ -8,7 +8,7 @@ const SignUp = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <Header />
-      <WhiteBar marginLeft={257} />
+      <WhiteBar marginLeft={250} />
       <Text style={styles.Title}>Create An Account</Text>
       <Gap height={24} />
       <TextInput placeholder="Full Name" icon={User} />

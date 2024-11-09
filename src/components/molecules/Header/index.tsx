@@ -12,7 +12,7 @@ const Header = () => {
     <View style={styles.container}>
       <View style={styles.sign}>
         <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-          <Text style={styles.Title}>Sign Up</Text>
+          <Text style={styles.Title}>Sign In</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
           <Text style={styles.Title}>Sign Up</Text>
