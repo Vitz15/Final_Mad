@@ -1,13 +1,14 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Button, Gap} from '../../components/atoms';
-import {Header, TextInput} from '../../components/molecules';
+import {Header, TextInput, WhiteBar} from '../../components/molecules';
 import {Lock, Mail, User} from '../../assets/icon';
 
 const SignIn = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <Header />
+      <WhiteBar marginLeft={ 87}/>
       <Text style={styles.Title}>Welcome!</Text>
       <Gap height={24} />
       <TextInput placeholder="Username" icon={User} />
