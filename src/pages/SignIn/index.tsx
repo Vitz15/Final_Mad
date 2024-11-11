@@ -1,14 +1,14 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Button, Gap} from '../../components/atoms';
-import {Header, TextInput, WhiteBar} from '../../components/molecules';
+import {Header, TextInput, WhiteBar, Footer} from '../../components/molecules';
 import {Lock, Mail, User} from '../../assets/icon';
 
 const SignIn = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <Header />
-      <WhiteBar marginLeft={ 87}/>
+      <WhiteBar marginLeft={87} />
       <Text style={styles.Title}>Welcome!</Text>
       <Gap height={24} />
       <TextInput placeholder="Username" icon={User} />
@@ -18,7 +18,7 @@ const SignIn = ({navigation}) => {
       <Gap height={30} />
       <Button text="Sign In" onPress={() => navigation.navigate('Home')} />
       <Gap height={168} />
-      <View style={styles.footer} />
+      <Footer />
     </ScrollView>
   );
 };
@@ -30,13 +30,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flex: 1,
   },
-  footer: {
-    backgroundColor: '#78C194',
-    marginTop: 25,
-    paddingVertical: 46,
-    borderTopLeftRadius: 55,
-    borderTopRightRadius: 55,
-  },
+
   forgot: {
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 16,

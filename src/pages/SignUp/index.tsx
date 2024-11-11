@@ -1,7 +1,7 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Button, Gap} from '../../components/atoms';
-import {Header, TextInput,WhiteBar} from '../../components/molecules';
+import {Header, TextInput, WhiteBar, Footer} from '../../components/molecules';
 import {Lock, Mail, User} from '../../assets/icon';
 
 const SignUp = ({navigation}) => {
@@ -21,7 +21,7 @@ const SignUp = ({navigation}) => {
       <Gap height={52} />
       <Button text="Sign Up" onPress={() => navigation.navigate('Home')} />
       <Gap height={20} />
-      <View style={styles.footer} />
+      <Footer />
     </ScrollView>
   );
 };
@@ -32,13 +32,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     flex: 1,
-  },
-  footer: {
-    backgroundColor: '#78C194',
-    marginTop: 25,
-    paddingVertical: 46,
-    borderTopLeftRadius: 55,
-    borderTopRightRadius: 55,
   },
   forgot: {
     fontFamily: 'SF-Pro-Display-Regular',
