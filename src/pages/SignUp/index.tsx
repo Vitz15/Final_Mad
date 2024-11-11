@@ -19,7 +19,11 @@ const SignUp = ({navigation}) => {
       <Gap height={24} />
       <TextInput placeholder="Password" icon={Lock} />
       <Gap height={52} />
-      <Button text="Sign Up" onPress={() => navigation.navigate('Home')} />
+      <Button
+        text="Sign Up"
+        type="normal"
+        onPress={() => navigation.navigate('Home')}
+      />
       <Gap height={20} />
       <Footer />
     </ScrollView>

@@ -1,7 +1,6 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
-import {ArrowBack} from '../../../assets/icon';
-import {positionStyle} from 'react-native-flash-message';
+import {ArrowBack, NullSquare} from '../../../assets/icon'; // Ensure janeDoe is defined correctly
 
 const Button = ({
   color = '#78C194',
@@ -10,25 +9,54 @@ const Button = ({
   type,
   icon,
   onPress,
+  source: Source,
+  style,
 }) => {
   if (type === 'icon-only') {
+    if (icon === 'arrow-back') {
+      return (
+        <TouchableOpacity
+          activeOpacity={0.5}
+          style={styles.backButton}
+          onPress={onPress}>
+          <ArrowBack />
+        </TouchableOpacity>
+      );
+    }
+
+    return null;
+  }
+
+  if (type === 'normal') {
     return (
       <TouchableOpacity
+        style={styles.button(color)}
         activeOpacity={0.5}
-        style={styles.backButton}
         onPress={onPress}>
-        {icon === 'arrow-back' && <ArrowBack />}
+        <Text style={styles.text(textColor)}>{text}</Text>
       </TouchableOpacity>
     );
   }
-  return (
-    <TouchableOpacity
-      style={styles.button(color)}
-      activeOpacity={0.5}
-      onPress={onPress}>
-      <Text style={styles.text(textColor)}>{text}</Text>
-    </TouchableOpacity>
-  );
+  if (type === 'list-left') {
+    return (
+      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+        <View style={style}>
+          <Source style={style} />
+        </View>
+      </TouchableOpacity>
+    );
+  }
+  if (type === 'list-right') {
+    return (
+      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+        <View style={style}>
+          <Source style={style} />
+        </View>
+      </TouchableOpacity>
+    );
+  }
+  // Fallback if no condition is met
+  return null;
 };
 
 export default Button;
@@ -50,5 +78,19 @@ const styles = StyleSheet.create({
   backButton: {
     width: 50,
     height: 50,
+  },
+  profile: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+  },
+  profileButton: {
+    width: 50,
+    height: 50,
+    position: 'absolute',
+    left: 320,
+    top: 32,
+    borderRadius: 10,
+    zIndex: 2,
   },
 });
