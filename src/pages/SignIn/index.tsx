@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 16,
     color: 'red',
-    textShadowColor: 'gray',
+    textShadowColor: 'rgba(255, 0, 0, 0.5)',
     textShadowOffset: {width: 0, height: 2},
     textShadowRadius: 5,
     textAlign: 'right',

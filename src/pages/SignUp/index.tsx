@@ -22,7 +22,7 @@ const SignUp = ({navigation}) => {
       <Button
         text="Sign Up"
         type="normal"
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('SignIn')}
       />
       <Gap height={20} />
       <Footer />

@@ -11,6 +11,7 @@ const Button = ({
   onPress,
   source: Source,
   style,
+  border,
 }) => {
   if (type === 'icon-only') {
     if (icon === 'arrow-back') {
@@ -40,7 +41,7 @@ const Button = ({
   if (type === 'list-left') {
     return (
       <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
-        <View style={style}>
+        <View style={border}>
           <Source style={style} />
         </View>
       </TouchableOpacity>
@@ -49,12 +50,13 @@ const Button = ({
   if (type === 'list-right') {
     return (
       <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
-        <View style={style}>
+        <View style={border}>
           <Source style={style} />
         </View>
       </TouchableOpacity>
     );
   }
+
   // Fallback if no condition is met
   return null;
 };
