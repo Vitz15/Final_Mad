@@ -13,4 +13,19 @@ import Gerd from './Gerd.svg';
 import Sepsis from './Sepsis.svg';
 import Diarhea from './Diarhea.svg';
 
-export {Azzure, Lock, Mail, User, Fever, Cough as Pneunomia};
+export {
+  Azzure,
+  Lock,
+  Mail,
+  User,
+  Fever,
+  Cough as Pneunomia,
+  Stroke,
+  Flu,
+  Asthma,
+  ChestPain,
+  Malaria,
+  Gerd,
+  Diarhea,
+  Sepsis,
+};

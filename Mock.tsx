@@ -11,5 +11,3 @@ const Mock = () => {
 };
 
 export default Mock;
-
-const styles = StyleSheet.create({});

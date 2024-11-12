@@ -7,7 +7,8 @@ const ListBar = ({type, bgColor, source}) => {
     return (
       <Button
         type="list-left"
-        style={styles.barLeft(bgColor)}
+        border={styles.borderLeft}
+        style={styles.barLeft}
         source={source}
       />
     );
@@ -16,7 +17,8 @@ const ListBar = ({type, bgColor, source}) => {
     return (
       <Button
         type="list-right"
-        style={styles.barRight(bgColor)}
+        border={styles.borderRight}
+        style={styles.barRight}
         source={source}
       />
     );
@@ -28,15 +30,36 @@ const ListBar = ({type, bgColor, source}) => {
 export default ListBar;
 
 const styles = StyleSheet.create({
-  barLeft: bgColor => ({
-    width: 511,
-    height: 100,
+  barLeft: {
+    flex: 1,
     flexDirection: 'row',
-  }),
-  barRight: bgColor => ({
-    width: 511,
-    height: 100,
-    marginLeft: 100,
+    backgroundColor: 'blue',
+    borderTopRightRadius: 15,
+    borderBottomRightRadius: 15,
+  },
+  barRight: {
+    flex: 1,
     flexDirection: 'row-reverse',
-  }),
+    backgroundColor: 'red',
+    borderTopLeftRadius: 15,
+    borderBottomLeftRadius: 15,
+  },
+  borderLeft: {
+    width: 380,
+    flexDirection: 'row',
+    backgroundColor: 'black',
+    borderTopRightRadius: 15,
+    borderBottomRightRadius: 15,
+    borderRightWidth: 10,
+    borderColor: 'red',
+  },
+  borderRight: {
+    width: 380,
+    marginRight: 41,
+    flexDirection: 'row-reverse',
+    borderWidth: 10,
+    borderColor: 'black',
+    borderTopLeftRadius: 15,
+    borderBottomLeftRadius: 15,
+  },
 });
