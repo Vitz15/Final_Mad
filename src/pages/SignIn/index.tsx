@@ -7,7 +7,7 @@ import {Lock, Mail, User} from '../../assets/icon';
 const SignIn = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
-      <Header />
+      <Header text="Sign In" text2="Sign Up" type="signPage" padding={95} />
       <WhiteBar marginLeft={87} />
       <Text style={styles.Title}>Welcome!</Text>
       <Gap height={24} />

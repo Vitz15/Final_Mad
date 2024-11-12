@@ -1,11 +1,9 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-
 const Top = () => {
   return (
     <View style={styles.container}>
-      
       <View>
         <Text style={styles.Hello}>Hello, John Doe</Text>
         <Text style={styles.Hope}>Hope You Stay Healthy</Text>
@@ -30,11 +28,11 @@ const styles = StyleSheet.create({
   Hello: {
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 24,
-    color: 'black'
+    color: 'black',
   },
   Hope: {
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 20,
-    color: 'black'
-  }
+    color: 'black',
+  },
 });
