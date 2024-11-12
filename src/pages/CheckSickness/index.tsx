@@ -17,7 +17,7 @@ import {Gap} from '../../components/atoms';
 
 const Sickness = () => {
   return (
-    <ScrollView style={styles}>
+    <ScrollView style={styles.bar}>
       <Gap height={33} />
       <ListBar type="left" source={Fever} />
       <Gap height={20} />

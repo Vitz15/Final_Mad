@@ -38,7 +38,7 @@ const Button = ({
       </TouchableOpacity>
     );
   }
-  if (type === 'list-right') {
+  if (type === 'list-left') {
     return (
       <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
         <View style={border}>
@@ -47,7 +47,7 @@ const Button = ({
       </TouchableOpacity>
     );
   }
-  if (type === 'list-left') {
+  if (type === 'list-right') {
     return (
       <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
         <View style={border}>
