@@ -12,6 +12,7 @@ import Malaria from './Nausea.svg';
 import Gerd from './Gerd.svg';
 import Sepsis from './Sepsis.svg';
 import Diarhea from './Diarhea.svg';
+import Picture from './Picture.svg';
 
 export {
   Azzure,
@@ -28,4 +29,5 @@ export {
   Gerd,
   Diarhea,
   Sepsis,
+  Picture
 };
