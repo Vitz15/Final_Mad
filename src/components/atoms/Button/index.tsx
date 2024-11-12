@@ -38,15 +38,6 @@ const Button = ({
       </TouchableOpacity>
     );
   }
-  if (type === 'list-left') {
-    return (
-      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
-        <View style={border}>
-          <Source style={style} />
-        </View>
-      </TouchableOpacity>
-    );
-  }
   if (type === 'list-right') {
     return (
       <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
@@ -56,6 +47,16 @@ const Button = ({
       </TouchableOpacity>
     );
   }
+  if (type === 'list-left') {
+    return (
+      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+        <View style={border}>
+          <Source style={style} />
+        </View>
+      </TouchableOpacity>
+    );
+  }
+
   // Fallback if no condition is met
   return null;
 };
