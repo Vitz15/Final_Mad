@@ -1,12 +1,18 @@
-import {ScrollView, StyleSheet, Text, Touchable, TouchableOpacity, View} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  Touchable,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import {ScreenContainer} from 'react-native-screens';
-import { Button } from '../../atoms';
+import {Button} from '../../atoms';
 import {useNavigation} from '@react-navigation/native';
 
 const Header = () => {
   const navigation = useNavigation();
-  
 
   return (
     <View style={styles.container}>

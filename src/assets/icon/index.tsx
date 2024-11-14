@@ -13,6 +13,7 @@ import Gerd from './Gerd.svg';
 import Sepsis from './Sepsis.svg';
 import Diarhea from './Diarhea.svg';
 import Picture from './Picture.svg';
+import SearchLogo from './Search.svg'
 
 export {
   Azzure,
@@ -29,5 +30,6 @@ export {
   Gerd,
   Diarhea,
   Sepsis,
-  Picture
+  Picture,
+  SearchLogo
 };

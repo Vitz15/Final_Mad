@@ -34,6 +34,11 @@ const App = () => {
           component={Home}
           options={{headerShown: false}}
         />
+        <Stack.Screen
+          name="Sickness"
+          component={Sickness}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
