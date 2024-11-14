@@ -8,11 +8,22 @@ const Footer = () => {
 export default Footer;
 
 const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
+  },
+  content: {
+    flexGrow: 1,
+  },
   footer: {
     backgroundColor: '#78C194',
-    marginTop: 25,
     paddingVertical: 46,
     borderTopLeftRadius: 55,
     borderTopRightRadius: 55,
+    position: 'absolute',    
+    bottom: -710,
+    left: 0,
+    right: 0,
   },
 });

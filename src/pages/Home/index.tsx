@@ -1,22 +1,32 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import NavBar from '../../components/molecules/NavBar';
-import {Header} from '../../components/molecules';
+import Top from '../../components/molecules/Top';
+import Footer from '../../components/molecules/Footer';
+import {MiniBox, Gap} from '../../components/atoms';
+import {HealthR, Virus} from '../../assets/icon';
+import {Trans} from '../../assets/icon';
 
 const Home = ({navigation}) => {
   return (
     <View>
-      <Header
-        text="Hello, John Doe"
-        text2="Hope You Stay Healthy"
-        type="homePage"
-        padding={50}
-      />
-      <NavBar navigation={navigation} />
+      <Top />
+      <Gap height={35} />
+      <View style={styles.container}>
+        <MiniBox icon={HealthR} />
+        <MiniBox icon={Trans} />
+        <MiniBox icon={Virus} />
+      </View>
+      <Footer />
     </View>
   );
 };
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+});
