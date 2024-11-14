@@ -15,8 +15,15 @@ import Diarhea from './Diarhea.svg';
 import Picture from './Picture.svg';
 import SearchLogo from './Search.svg';
 import Penicilin from './Rectangle 194.svg';
+import HealthR from './HealthRout.svg';
+import Trans from './Trans.svg';
+import Virus from './Virus.svg';
+
 
 export {
+  Virus,
+  Trans,
+  HealthR,
   Azzure,
   Lock,
   Mail,
