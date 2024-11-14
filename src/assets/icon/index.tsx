@@ -13,9 +13,14 @@ import Gerd from './Gerd.svg';
 import Sepsis from './Sepsis.svg';
 import Diarhea from './Diarhea.svg';
 import Picture from './Picture.svg';
-import SearchLogo from './Search.svg'
-
+import SearchLogo from './Search.svg';
+import HealthR from './HealthRout.svg';
+import Trans from './Trans.svg'
+import Virus from './Virus.svg'
 export {
+  Virus,
+  Trans,
+  HealthR,
   Azzure,
   Lock,
   Mail,
@@ -31,5 +36,5 @@ export {
   Diarhea,
   Sepsis,
   Picture,
-  SearchLogo
+  SearchLogo,
 };

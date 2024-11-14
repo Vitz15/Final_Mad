@@ -1,3 +1,4 @@
-import Button from "./Button";
-import Gap from "./Gap"
-export {Button, Gap};
+import Button from './Button';
+import Gap from './Gap';
+import MiniBox from './MiniBox';
+export {Button, Gap, MiniBox};
