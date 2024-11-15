@@ -9,8 +9,11 @@ const MiniBox = ({
   icon: IconComponent,
 }) => {
   return (
-    <View style={[styles.container, {backgroundColor, width, height}]}>
-      {IconComponent && <IconComponent style={styles.icon} />}
+    <View style={styles.wrapper}>
+      <View style={[styles.container, {backgroundColor, width, height}]}>
+        {IconComponent && <IconComponent style={styles.icon} />}
+      </View>
+      <Text style={styles.text}>{text}</Text>
     </View>
   );
 };
@@ -22,12 +25,21 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: 53,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
     elevation: 5,
+  },
+  wrapper: {
+    alignItems: 'center',
+    marginHorizontal: 35, 
+  },
+  text: {
+    marginTop: 0,
+    fontSize: 14,
+    color: '#000',
+    textAlign: 'center',
   },
   icon: {
     marginBottom: 4,

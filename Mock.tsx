@@ -22,7 +22,7 @@ import OrderMedicine from './src/pages/OrderMedicine';
 const Mock = () => {
   return (
     <View>
-      <OrderMedicine/>
+      <Home/>
     </View>
   );
 };

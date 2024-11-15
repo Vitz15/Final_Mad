@@ -21,9 +21,10 @@ const styles = StyleSheet.create({
     paddingVertical: 46,
     borderTopLeftRadius: 55,
     borderTopRightRadius: 55,
-    position: 'absolute',    
-    bottom: -710,
+    position: 'absolute',
+    bottom: 10,
     left: 0,
     right: 0,
+    zIndex: 0,
   },
 });

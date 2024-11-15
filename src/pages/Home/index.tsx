@@ -5,6 +5,11 @@ import {Footer, Menu} from '../../components/molecules';
 import {MiniBox, Gap} from '../../components/atoms';
 import {HealthR, Virus} from '../../assets/icon';
 import {Trans} from '../../assets/icon';
+import {OrderM} from '../../assets/icon';
+import {Presc} from '../../assets/icon';
+import {Symp} from '../../assets/icon';
+import {About} from '../../assets/icon';
+import OrderMedicine from '../OrderMedicine';
 
 const Home = ({navigation}) => {
   return (
@@ -17,7 +22,14 @@ const Home = ({navigation}) => {
         <MiniBox icon={Virus} />
       </View>
       <View style={styles.menuContainer}>
-        <Menu/>
+        <Gap height={11} />
+        <Menu icon={OrderM} />
+        <Gap height={24} />
+        <Menu icon={Presc} label='Prescription'  />
+        <Gap height={24} />
+        <Menu icon={Symp} label='Check Your Symptom' />
+        <Gap height={24} />
+        <Menu icon={About} label='About Us' />
       </View>
       <Footer />
     </View>

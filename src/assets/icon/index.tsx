@@ -29,9 +29,15 @@ import Loperamide from './Loperamide.svg'
 import Metformin from './Metformin.svg'
 import Paracetamol from './paracetamol.svg'
 import Paramex from './Paramex.svg'
-import OrderMedicine from './OrderMedicine.svg';
+import OrderM from './OrderMedicine.svg';
+import Presc from './Prescription.svg'
+import Symp from './symptom.svg'
+import About from './AboutUS.svg'
 
 export {
+  Symp,
+  About,
+  Presc,
   Virus,
   Trans,
   HealthR,
@@ -63,5 +69,5 @@ export {
   Metformin,
   Paracetamol,
   Paramex,
-  OrderMedicine
+  OrderM
 };

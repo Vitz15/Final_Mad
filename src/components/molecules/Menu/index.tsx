@@ -1,13 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { OrderMedicine } from '../../../assets/icon/';
 
-const OrderMedicineButton = ({ onPress }) => {
+const OrderMedicineButton = ({ onPress, icon: IconComponent, label = 'Order Medicine' }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.container}>
-        <OrderMedicine style={styles.image} resizeMode="contain" />
-        <Text style={styles.text}>Order Medicine</Text>
+        {IconComponent && <IconComponent style={styles.image} />}
+        <Text style={styles.text}>{label}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -16,7 +15,6 @@ const OrderMedicineButton = ({ onPress }) => {
 const styles = StyleSheet.create({
   button: {
     borderRadius: 10,
-    elevation: 3,
   },
   container: {
     backgroundColor: '#e0f0ff',
@@ -30,13 +28,16 @@ const styles = StyleSheet.create({
   },
   text: {
     position: 'absolute',
-    color: 'black',
+    color: 'white',
     fontSize: 24,
     fontFamily: 'SF-Pro-Display-Bold',
     zIndex: 1,
-    textAlign: 'center',
-    top: '20%',
-    right: '55%'
+    textAlign: 'left',
+    top: '5%',
+    left: 20,
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 0.5,
   },
   image: {
     width: 150,
