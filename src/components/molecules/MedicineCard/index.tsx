@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {Penicilin} from '../../../assets/icon';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const MedicationCard = () => {
+const MedicationCard = ({source: Source}) => {
   const [quantity, setQuantity] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -18,7 +17,8 @@ const MedicationCard = () => {
 
   return (
     <View style={styles.card}>
-      <Penicilin style={styles.image} />
+      <Source style={styles.image} />
+
       <View style={styles.textContainer}>
         <Text style={styles.name}>Penicillin</Text>
       </View>
@@ -34,7 +34,7 @@ const MedicationCard = () => {
       <TouchableOpacity
         onPress={toggleCheckbox}
         style={[styles.checkbox, isChecked && styles.checkboxChecked]}>
-        {isChecked && <Ionicons name="checkmark" size={16} color="white" />}
+        {isChecked && <Ionicons name="alarm" size={20} color="white" />}
       </TouchableOpacity>
     </View>
   );

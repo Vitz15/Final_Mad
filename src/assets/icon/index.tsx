@@ -18,7 +18,10 @@ import Penicilin from './Rectangle 194.svg';
 import HealthR from './HealthRout.svg';
 import Trans from './Trans.svg';
 import Virus from './Virus.svg';
-
+import High from './High.svg';
+import Sugar from './Sugar.svg';
+import Diphteria from './Diphteria.svg';
+import CSF from './CSF.svg';
 
 export {
   Virus,
@@ -40,5 +43,9 @@ export {
   Sepsis,
   Picture,
   SearchLogo,
-  Penicilin
+  Penicilin,
+  Sugar,
+  CSF,
+  High,
+  Diphteria,
 };
