@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
+    justifyContent: 'flex-end'
   },
   content: {
     flexGrow: 1,
@@ -26,5 +27,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 0,
+    marginVertical: -10,
   },
 });

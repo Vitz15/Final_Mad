@@ -24,8 +24,8 @@ const SignUp = ({navigation}) => {
         type="normal"
         onPress={() => navigation.navigate('SignIn')}
       />
-      <Gap height={20} />
-      <Footer />
+      <Gap height={160} />
+      <Footer/>
     </ScrollView>
   );
 };

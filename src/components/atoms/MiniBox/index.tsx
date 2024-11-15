@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 
 const MiniBox = ({
@@ -7,14 +7,17 @@ const MiniBox = ({
   width = 66,
   height = 63,
   icon: IconComponent,
+  onPress,
 }) => {
   return (
-    <View style={styles.wrapper}>
-      <View style={[styles.container, {backgroundColor, width, height}]}>
-        {IconComponent && <IconComponent style={styles.icon} />}
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      <View style={styles.wrapper}>
+        <View style={[styles.container, {backgroundColor, width, height}]}>
+          {IconComponent && <IconComponent style={styles.icon} />}
+        </View>
+        <Text style={styles.text}>{text}</Text>
       </View>
-      <Text style={styles.text}>{text}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -29,11 +32,10 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
-    elevation: 5,
   },
   wrapper: {
     alignItems: 'center',
-    marginHorizontal: 35, 
+    marginHorizontal: 35,
   },
   text: {
     marginTop: 0,
@@ -43,5 +45,8 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginBottom: 4,
+  },
+  button: {
+    borderRadius: 5,
   },
 });
