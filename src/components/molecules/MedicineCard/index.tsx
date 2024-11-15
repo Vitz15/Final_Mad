@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const MedicationCard = ({source: Source}) => {
+const MedicationCard = ({source: Source, name}) => {
   const [quantity, setQuantity] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -18,9 +17,8 @@ const MedicationCard = ({source: Source}) => {
   return (
     <View style={styles.card}>
       <Source style={styles.image} />
-
       <View style={styles.textContainer}>
-        <Text style={styles.name}>Penicillin</Text>
+        <Text style={styles.name}>{name}</Text>
       </View>
       <View style={styles.quantityContainer}>
         <TouchableOpacity onPress={decrement} style={styles.button}>
@@ -33,9 +31,8 @@ const MedicationCard = ({source: Source}) => {
       </View>
       <TouchableOpacity
         onPress={toggleCheckbox}
-        style={[styles.checkbox, isChecked && styles.checkboxChecked]}>
-        {isChecked && <Ionicons name="alarm" size={20} color="white" />}
-      </TouchableOpacity>
+        style={[styles.checkbox, isChecked && styles.checkboxChecked]}
+      />
     </View>
   );
 };
@@ -46,7 +43,7 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'white',
     borderRadius: 10,
     padding: 10,
     shadowColor: '#000',
@@ -54,6 +51,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 5,
     marginVertical: 5,
+    borderWidth: 2,
+    borderColor: '#dddd',
+    marginTop: 5,  
   },
   image: {
     width: 50,
@@ -93,14 +93,11 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 5,
+    borderColor: 'black',
+    borderRadius: 100,
     marginLeft: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   checkboxChecked: {
     backgroundColor: '#78C194',
-    borderColor: '#78C194',
   },
 });
