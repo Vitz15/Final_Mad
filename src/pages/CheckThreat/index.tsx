@@ -3,10 +3,10 @@ import React from 'react';
 import ListBar from '../../components/molecules/ListBar';
 import Search from '../../components/molecules/Search';
 import {
-  Fever,
-  Pneunomia,
-  Stroke,
-  Flu,
+  High,
+  Sugar,
+  Diphteria,
+  CSF,
   Asthma,
   ChestPain,
   Malaria,
@@ -17,29 +17,29 @@ import {
 } from '../../assets/icon';
 import {Gap} from '../../components/atoms';
 
-const Sickness = () => {
+const Threat = () => {
   return (
     <ScrollView>
-      <Search placeholder="Find Your Symptom" icon={SearchLogo} />
+      <Search placeholder="What is your concern? " icon={SearchLogo} />
       <View>
         <Gap height={33} />
-        <ListBar text="Fever" type="left" source={Fever} />
+        <ListBar text="High Blood" type="left" source={High} />
         <Gap height={20} />
-        <ListBar type="right" source={Pneunomia} />
+        <ListBar type="right" source={Sugar} />
         <Gap height={30} />
-        <ListBar type="left" source={Stroke} />
+        <ListBar text="Diphteria" type="left" source={Diphteria} />
         <Gap height={20} />
-        <ListBar type="right" source={Flu} />
+        <ListBar type="right" source={CSF} />
         <Gap height={30} />
-        <ListBar type="left" source={Asthma} />
+        <ListBar text="Asthma" type="left" source={Asthma} />
         <Gap height={20} />
         <ListBar type="right" source={ChestPain} />
         <Gap height={30} />
-        <ListBar type="left" source={Malaria} />
+        <ListBar text="Malaria" type="left" source={Malaria} />
         <Gap height={20} />
         <ListBar type="right" source={Gerd} />
         <Gap height={30} />
-        <ListBar type="left" source={Sepsis} />
+        <ListBar text="Sepsis" type="left" source={Sepsis} />
         <Gap height={30} />
         <ListBar type="right" source={Diarhea} />
         <Gap height={30} />
@@ -48,6 +48,6 @@ const Sickness = () => {
   );
 };
 
-export default Sickness;
+export default Threat;
 
 const styles = StyleSheet.create({});
