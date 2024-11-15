@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderWidth: 2,
     borderColor: '#dddd',
-    marginTop: 5,  
+    marginTop: 5,
   },
   image: {
     width: 50,
