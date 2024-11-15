@@ -6,7 +6,7 @@ const Top = () => {
   return (
     <View style={styles.container}>
       <View style={styles.profileContainer}>
-        <Picture style={styles.profileImage}/>
+        <Picture style={styles.profileImage} />
         <View style={styles.textContainer}>
           <Text style={styles.name}>John Doe</Text>
           <Text style={styles.message}>Hope You Stay Healthy!</Text>
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '600',
     color: 'black',
-
   },
   message: {
     fontFamily: 'SF-Pro-Display-Regular',

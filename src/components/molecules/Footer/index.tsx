@@ -22,8 +22,9 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 55,
     borderTopRightRadius: 55,
     position: 'absolute',
-    bottom: -680,
+    bottom: 10,
     left: 0,
     right: 0,
+    zIndex: 0,
   },
 });

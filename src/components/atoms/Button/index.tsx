@@ -12,6 +12,7 @@ const Button = ({
   source: Source,
   style,
   border,
+  overlap,
 }) => {
   if (type === 'icon-only') {
     if (icon === 'arrow-back') {
@@ -41,7 +42,18 @@ const Button = ({
   if (type === 'list-left') {
     return (
       <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
-        <View style={border}>
+        <View>
+          <Text style={overlap}>{text}</Text>
+          <Source style={style} />
+        </View>
+      </TouchableOpacity>
+    );
+  }
+  if (type === 'list-center') {
+    return (
+      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+        <View>
+          <Text>{text}</Text>
           <Source style={style} />
         </View>
       </TouchableOpacity>
@@ -51,6 +63,7 @@ const Button = ({
     return (
       <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
         <View style={border}>
+          <Text style={overlap}>{text}</Text>
           <Source style={style} />
         </View>
       </TouchableOpacity>
