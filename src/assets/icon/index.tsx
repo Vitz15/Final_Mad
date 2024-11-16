@@ -35,8 +35,8 @@ import Symp from './symptom.svg';
 import About from './AboutUS.svg';
 import ProfileIcon from './account_circle.svg';
 import HomeIcon from './cottage.svg';
-import ProfileWhite from '.account_circle_w.svg';
-import HomeWhite from '.cottage_w.svg';
+import ProfileWhite from './account_circle_w.svg';
+import HomeWhite from './cottage_w.svg';
 
 export {
   Symp,
