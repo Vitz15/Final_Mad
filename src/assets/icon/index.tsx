@@ -35,6 +35,8 @@ import Symp from './symptom.svg';
 import About from './AboutUS.svg';
 import ProfileIcon from './account_circle.svg';
 import HomeIcon from './cottage.svg';
+import ProfileWhite from '.account_circle_white.svg';
+import HomeWhite from '.cottage_w.svg';
 
 export {
   Symp,
@@ -74,4 +76,6 @@ export {
   OrderM,
   ProfileIcon,
   HomeIcon,
+  HomeWhite,
+  ProfileWhite,
 };
