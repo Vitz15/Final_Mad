@@ -1,7 +1,6 @@
-// src/components/molecules/NavBar/index.tsx
-
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {Home, Profile} from '../../../assets/icon';
 
 interface NavBarProps {
   navigation: any;
@@ -10,53 +9,39 @@ interface NavBarProps {
 const NavBar: React.FC<NavBarProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      {/* Tombol Home */}
       <TouchableOpacity
         onPress={() => navigation.navigate('Home')}
         style={styles.button}>
-        <Text style={styles.buttonText}>Home</Text>
+        <Home />
       </TouchableOpacity>
 
-      {/* Tombol SignIn */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate('SignIn')}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Sign In</Text>
-      </TouchableOpacity>
-
-      {/* Tombol SignUp */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate('SignUp')}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Sign Up</Text>
-      </TouchableOpacity>
-
-      {/* Tombol Sickness */}
       <TouchableOpacity
         onPress={() => navigation.navigate('CheckSickness')}
         style={styles.button}>
-        <Text style={styles.buttonText}>Sickness</Text>
+        <Profile />
       </TouchableOpacity>
     </View>
   );
 };
 
+export default NavBar;
+
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#6FCF97',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingVertical: 10,
-    backgroundColor: '#f8f9fa',
+    position: 'absolute',
+    bottom: 0, 
+    left: 0,
+    right: 0,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   button: {
     paddingHorizontal: 15,
     paddingVertical: 5,
   },
-  buttonText: {
-    fontSize: 16,
-    color: '#007bff',
-  },
 });
-
-export default NavBar;
