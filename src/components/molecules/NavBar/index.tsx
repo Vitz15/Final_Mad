@@ -1,20 +1,20 @@
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {useNavigation, useRoute} from '@react-navigation/native'; // Mengimpor useNavigation dan useRoute
+import {useRoute} from '@react-navigation/native'; // Menggunakan useRoute untuk mendapatkan rute aktif
 import {
   HomeIcon,
   ProfileIcon,
   HomeWhite,
   ProfileWhite,
-} from '../../../assets/icon'; // Perbaikan import untuk ProfileWhite
+} from '../../../assets/icon'; // Pastikan ikon putih tersedia
 
 interface NavBarProps {
   navigation: any;
 }
 
 const NavBar: React.FC<NavBarProps> = ({navigation}) => {
-  const route = useRoute(); // Mengambil rute saat ini
-  const {name} = route; // Mendapatkan nama halaman aktif (route)
+  const route = useRoute(); // Mengambil informasi rute aktif
+  const {name} = route; // Mendapatkan nama halaman aktif
 
   return (
     <View style={styles.container}>
@@ -23,15 +23,15 @@ const NavBar: React.FC<NavBarProps> = ({navigation}) => {
         onPress={() => navigation.navigate('Home')}
         style={styles.button}>
         {name === 'Home' ? <HomeWhite /> : <HomeIcon />}{' '}
-        {/* Ikon putih jika halaman Home */}
+        {/* Ikon putih jika halaman Home aktif */}
       </TouchableOpacity>
 
-      {/* Tombol Sickness dengan ikon berubah menjadi putih jika halaman aktif */}
+      {/* Tombol Profile dengan ikon berubah menjadi putih jika halaman aktif */}
       <TouchableOpacity
         onPress={() => navigation.navigate('CheckSickness')}
         style={styles.button}>
         {name === 'CheckSickness' ? <ProfileWhite /> : <ProfileIcon />}{' '}
-        {/* Ikon putih jika halaman Profile */}
+        {/* Ikon putih jika halaman CheckSickness aktif */}
       </TouchableOpacity>
     </View>
   );
