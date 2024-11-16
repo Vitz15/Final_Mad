@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {Home, Profile} from '../../../assets/icon';
+import {HomeIcon, ProfileIcon} from '../../../assets/icon'; // Pastikan nama ikon sesuai dengan yang Anda miliki
 
 interface NavBarProps {
   navigation: any;
@@ -12,13 +12,13 @@ const NavBar: React.FC<NavBarProps> = ({navigation}) => {
       <TouchableOpacity
         onPress={() => navigation.navigate('Home')}
         style={styles.button}>
-        <Home />
+        <HomeIcon />
       </TouchableOpacity>
 
       <TouchableOpacity
         onPress={() => navigation.navigate('CheckSickness')}
         style={styles.button}>
-        <Profile />
+        <ProfileIcon />
       </TouchableOpacity>
     </View>
   );
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 10,
     position: 'absolute',
-    bottom: 0, 
+    bottom: 0,
     left: 0,
     right: 0,
     borderTopLeftRadius: 20,

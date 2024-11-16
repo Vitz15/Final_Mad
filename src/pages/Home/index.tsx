@@ -1,4 +1,4 @@
-import {StyleSheet, Text,TouchableOpacity, ScrollView, View} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 import React from 'react';
 import Top from '../../components/molecules/Top';
 import {Footer, Menu} from '../../components/molecules';
@@ -10,15 +10,18 @@ import {Presc} from '../../assets/icon';
 import {Symp} from '../../assets/icon';
 import {About} from '../../assets/icon';
 import OrderMedicine from '../OrderMedicine';
+import NavBar from '../../components/molecules/NavBar'; // Mengimpor NavBar yang sudah benar
 
 const Home = ({navigation}) => {
   const handleOrderPress = () => {
     navigation.navigate('OrderMedicine'); // Pindah ke halaman OrderMedicinePage
   };
+
   return (
-    <View>
-      <Top />
-      <ScrollView style={styles.Scroll}>
+    <View style={styles.page}>
+      {/* Konten utama */}
+      <ScrollView style={styles.scroll}>
+        <Top />
         <Gap height={35} />
         <View style={styles.iconContainer}>
           <MiniBox icon={HealthR} />
@@ -31,13 +34,16 @@ const Home = ({navigation}) => {
             <Menu icon={OrderM} />
           </TouchableOpacity>
           <Gap height={24} />
-          <Menu icon={Presc} label="Prescription"  />
+          <Menu icon={Presc} label="Prescription" />
           <Gap height={24} />
           <Menu icon={Symp} label="Check Your Symptom" />
           <Gap height={24} />
           <Menu icon={About} label="About Us" />
         </View>
       </ScrollView>
+
+      {/* NavBar di bawah */}
+      <NavBar navigation={navigation} />
     </View>
   );
 };
@@ -45,16 +51,18 @@ const Home = ({navigation}) => {
 export default Home;
 
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+  page: {
+    flex: 1, // Mengisi seluruh layar
   },
-  Scroll: {
-    flexGrow: 0,
-    maxHeight: '84%',
+  scroll: {
+    flex: 1, // Konten utama menggulir dan mengisi ruang yang tersisa
+    paddingBottom: 100, // Memberikan ruang di bawah untuk footer dan navbar
   },
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
+  },
+  menuContainer: {
+    padding: 15,
   },
 });
