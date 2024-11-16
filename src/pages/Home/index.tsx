@@ -1,4 +1,4 @@
-import {StyleSheet, View, ScrollView} from 'react-native';
+import {StyleSheet, View, ScrollView, TouchableOpacity} from 'react-native'; // Mengimpor TouchableOpacity
 import React from 'react';
 import Top from '../../components/molecules/Top';
 import {Footer, Menu} from '../../components/molecules';
@@ -10,7 +10,7 @@ import {Presc} from '../../assets/icon';
 import {Symp} from '../../assets/icon';
 import {About} from '../../assets/icon';
 import OrderMedicine from '../OrderMedicine';
-import NavBar from '../../components/molecules/NavBar'; // Mengimpor NavBar yang sudah benar
+import NavBar from '../../components/molecules/NavBar';
 
 const Home = ({navigation}) => {
   const handleOrderPress = () => {
@@ -19,8 +19,8 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.page}>
-      {/* Konten utama */}
-      <ScrollView style={styles.scroll}>
+      {/* Konten utama di dalam ScrollView agar bisa digulir */}
+      <ScrollView contentContainerStyle={styles.scroll}>
         <Top />
         <Gap height={35} />
         <View style={styles.iconContainer}>
@@ -30,6 +30,7 @@ const Home = ({navigation}) => {
         </View>
         <View style={styles.menuContainer}>
           <Gap height={11} />
+          {/* Menambahkan TouchableOpacity untuk navigasi */}
           <TouchableOpacity onPress={handleOrderPress}>
             <Menu icon={OrderM} />
           </TouchableOpacity>
@@ -52,10 +53,9 @@ export default Home;
 
 const styles = StyleSheet.create({
   page: {
-    flex: 1, // Mengisi seluruh layar
+    flex: 1, // Membuat halaman menggunakan seluruh layar
   },
   scroll: {
-    flex: 1, // Konten utama menggulir dan mengisi ruang yang tersisa
     paddingBottom: 100, // Memberikan ruang di bawah untuk footer dan navbar
   },
   iconContainer: {
