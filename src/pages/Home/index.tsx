@@ -1,4 +1,10 @@
-import {StyleSheet, Text,TouchableOpacity, ScrollView, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  View,
+} from 'react-native';
 import React from 'react';
 import Top from '../../components/molecules/Top';
 import {Footer, Menu} from '../../components/molecules';
@@ -31,7 +37,7 @@ const Home = ({navigation}) => {
             <Menu icon={OrderM} />
           </TouchableOpacity>
           <Gap height={24} />
-          <Menu icon={Presc} label="Prescription"  />
+          <Menu icon={Presc} label="Prescription" />
           <Gap height={24} />
           <Menu icon={Symp} label="Check Your Symptom" />
           <Gap height={24} />
@@ -52,9 +58,13 @@ const styles = StyleSheet.create({
   Scroll: {
     flexGrow: 0,
     maxHeight: '84%',
+    backgroundColor: 'white',
   },
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
+  },
+  menuContainer: {
+    backgroundColor: 'white',
   },
 });

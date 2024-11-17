@@ -33,6 +33,7 @@ import OrderM from './OrderMedicine.svg';
 import Presc from './Prescription.svg'
 import Symp from './symptom.svg'
 import About from './AboutUS.svg'
+import Back from './back-button.svg'
 
 export {
   Symp,
@@ -69,5 +70,6 @@ export {
   Metformin,
   Paracetamol,
   Paramex,
-  OrderM
+  OrderM,
+  Back
 };

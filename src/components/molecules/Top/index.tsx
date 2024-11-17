@@ -1,8 +1,18 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image,TouchableOpacity} from 'react-native';
 import React from 'react';
-import {Picture} from '../../../assets/icon';
+import {Picture, Back} from '../../../assets/icon';
 
-const Top = () => {
+const Top = ({type, onBackPress}) => {
+  if (type === 'profile') {
+    return (
+      <View style={styles.usercontainer}>
+        <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
+          <Back style={styles.backIcon} />
+        </TouchableOpacity>
+        <Text style={styles.title}>User Profile</Text>
+      </View>
+    );
+  }
   return (
     <View style={styles.container}>
       <View style={styles.profileContainer}>
@@ -53,5 +63,35 @@ const styles = StyleSheet.create({
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 20,
     color: 'black',
+  },
+  usercontainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    paddingVertical: 25,
+    paddingHorizontal: 15,
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+  },
+  backButton: {
+    position: 'absolute',
+    left: 10,
+    padding: 5,
+  },
+  backIcon: {
+    width: 24,
+    height: 24,
+    resizeMode: 'contain',
+  },
+  title: {
+    flex: 1,
+    fontFamily: 'SF-Pro-Display-Bold',
+    textAlign: 'center',
+    fontSize: 20,
+    color: '#000',
   },
 });
