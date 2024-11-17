@@ -2,15 +2,16 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Button} from '../../atoms';
 
-const ListBar = ({type, source, text}) => {
+const ListBar = ({type, source, text, icon}) => {
   if (type === 'left') {
     return (
       <Button
         type="list-left"
+        icon="left"
         text={text}
         style={styles.barLeft}
         source={source}
-        overlap={styles.overlap}
+        overlap={styles.overlapLeft}
       />
     );
   }
@@ -33,7 +34,7 @@ const ListBar = ({type, source, text}) => {
         border={styles.borderRight}
         style={styles.barRight}
         source={source}
-        overlap={styles.overlap}
+        overlap={styles.overlapRight}
       />
     );
   }
@@ -47,9 +48,8 @@ const styles = StyleSheet.create({
   barLeft: {
     flex: 1,
     position: 'relative',
-    marginTop: 1,
+    marginTop: 0,
     flexDirection: 'row',
-    backgroundColor: 'blue',
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
     zIndex: 1,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     position: 'relative',
     flexDirection: 'row-reverse',
-    backgroundColor: 'red',
+
     borderTopLeftRadius: 15,
     borderBottomLeftRadius: 15,
     zIndex: 1,
@@ -68,10 +68,23 @@ const styles = StyleSheet.create({
     width: 415,
     flexDirection: 'row-reverse',
   },
-  overlap: {
+  overlapLeft: {
     fontFamily: 'SF-Pro-Display-Bold',
     fontSize: 20,
-    transform: [{translateX: 30}, {translateY: 70}],
+    transform: [{translateX: 30}, {translateY: 75}],
     zIndex: 2,
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: {width: 1, height: 1},
+    textShadowRadius: 0.5,
+  },
+  overlapRight: {
+    fontFamily: 'SF-Pro-Display-Bold',
+    fontSize: 20,
+    position: 'absolute',
+    transform: [{translateX: -205}, {translateY: 45}],
+    zIndex: 2,
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: {width: 1, height: 1},
+    textShadowRadius: 0.5,
   },
 });
