@@ -5,7 +5,7 @@ const OrderMedicineButton = ({ onPress, icon: IconComponent, label = 'Order Medi
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.container}>
-        {IconComponent && <IconComponent style={styles.image} />}
+        {IconComponent && <IconComponent  style={styles.image} />}
         <Text style={styles.text}>{label}</Text>
       </View>
     </TouchableOpacity>

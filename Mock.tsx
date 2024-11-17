@@ -18,12 +18,14 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from './src/pages/Home';
 import Threat from './src/pages/CheckThreat';
 import OrderMedicine from './src/pages/OrderMedicine';
+import Profile from './src/pages/Profile';
+import HealthRoutine from './src/pages/HealthRoutine';
 import Virus from './src/pages/VirusList';
 
 const Mock = () => {
   return (
     <View>
-      <Virus />
+      <HealthRoutine />
     </View>
   );
 };

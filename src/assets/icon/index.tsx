@@ -30,13 +30,14 @@ import Metformin from './Metformin.svg';
 import Paracetamol from './paracetamol.svg';
 import Paramex from './Paramex.svg';
 import OrderM from './OrderMedicine.svg';
-import Presc from './Prescription.svg';
-import Symp from './symptom.svg';
-import About from './AboutUS.svg';
+import Back from './back-button.svg';
 import TopRight from './top-right.svg';
 import BottomRight from './bottom-right.svg';
 import TopLeft from './top-left.svg';
 import BottomLeft from './bottom-left.svg';
+import Presc from './Prescription.svg';
+import Symp from './symptom.svg';
+import About from './AboutUS.svg';
 
 export {
   Symp,
@@ -74,6 +75,7 @@ export {
   Paracetamol,
   Paramex,
   OrderM,
+  Back,
   TopLeft,
   TopRight,
   BottomLeft,
