@@ -1,25 +1,26 @@
+// src/pages/Home/index.js
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  View,
-} from 'react-native';
+import {StyleSheet, ScrollView, View, TouchableOpacity} from 'react-native';
 import Top from '../../components/molecules/Top';
 import {Footer, Menu} from '../../components/molecules';
 import {MiniBox, Gap} from '../../components/atoms';
-import {HealthR, Virus} from '../../assets/icon';
-import {Trans} from '../../assets/icon';
-import {OrderM} from '../../assets/icon';
-import {Presc} from '../../assets/icon';
-import {Symp} from '../../assets/icon';
-import {About} from '../../assets/icon';
+import {
+  HealthR,
+  Virus,
+  Trans,
+  OrderM,
+  Presc,
+  Symp,
+  About,
+} from '../../assets/icon';
 import OrderMedicine from '../OrderMedicine';
 import NavBar from '../../components/molecules/NavBar';
 
 const Home = ({navigation}: {navigation: any}) => {
+  console.log('Home component rendering');
+
   const handleOrderPress = () => {
+    console.log('Navigating to OrderMedicine');
     navigation.navigate('OrderMedicine');
   };
 

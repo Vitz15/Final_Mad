@@ -1,6 +1,7 @@
+// src/components/molecules/NavBar/index.js
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {HomeIcon, ProfileIcon} from '../../../assets/icon';
+import {HomeIconW, ProfileIconW} from '../../../assets/icon'; // Adjust the import statement
 
 interface NavBarProps {
   navigation: any;
@@ -12,13 +13,13 @@ const NavBar: React.FC<NavBarProps> = ({navigation}) => {
       <TouchableOpacity
         onPress={() => navigation.navigate('Home')}
         style={styles.button}>
-        <HomeIcon />
+        <HomeIconW /> {/* Use the white version of HomeIcon */}
       </TouchableOpacity>
 
       <TouchableOpacity
         onPress={() => navigation.navigate('CheckSickness')}
         style={styles.button}>
-        <ProfileIcon />
+        <ProfileIconW /> {/* Use the white version of ProfileIcon */}
       </TouchableOpacity>
     </View>
   );

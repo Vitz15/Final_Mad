@@ -34,6 +34,8 @@ import Presc from './Prescription.svg';
 import Symp from './symptom.svg';
 import About from './AboutUS.svg';
 import Back from './back-button.svg';
+import HomeIcon from './cottage.svg';
+import ProfileIcon from './account_circle.svg';
 
 export {
   Symp,
@@ -72,4 +74,6 @@ export {
   Paramex,
   OrderM,
   Back,
+  HomeIcon,
+  ProfileIcon,
 };

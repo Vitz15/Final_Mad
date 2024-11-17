@@ -26,7 +26,7 @@ import Virus from './src/pages/VirusList';
 const Mock = () => {
   return (
     <View>
-      <HealthRoutine />
+      <Home />
     </View>
   );
 };
