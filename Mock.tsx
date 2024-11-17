@@ -19,11 +19,13 @@ import Home from './src/pages/Home';
 import Threat from './src/pages/CheckThreat';
 import OrderMedicine from './src/pages/OrderMedicine';
 import Profile from './src/pages/Profile';
+import Virus from './src/pages/VirusList';
+
 
 const Mock = () => {
   return (
     <View>
-      <Profile/>
+      <Threat />
     </View>
   );
 };
