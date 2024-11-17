@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {HomeIcon, ProfileIcon} from '../../../assets/icon'; // Pastikan nama ikon sesuai dengan yang Anda miliki
+import {HomeIcon, ProfileIcon} from '../../../assets/icon';
 
 interface NavBarProps {
   navigation: any;

@@ -18,6 +18,8 @@ import {
 import {Gap} from '../../components/atoms';
 
 const Threat = () => {
+  const text = 'Subarachnoid \nHemorrhage';
+
   return (
     <ScrollView>
       <Search placeholder="What is your concern? " icon={SearchLogo} />
@@ -25,23 +27,19 @@ const Threat = () => {
         <Gap height={33} />
         <ListBar text="High Blood" type="left" source={High} />
         <Gap height={20} />
-        <ListBar type="right" source={Sugar} />
-        <Gap height={30} />
+        <ListBar text="Blood Sugar" type="right" source={Sugar} />
         <ListBar text="Diphteria" type="left" source={Diphteria} />
         <Gap height={20} />
-        <ListBar type="right" source={CSF} />
-        <Gap height={30} />
+        <ListBar text="CSF          " type="right" source={CSF} />
         <ListBar text="Asthma" type="left" source={Asthma} />
         <Gap height={20} />
-        <ListBar type="right" source={ChestPain} />
-        <Gap height={30} />
-        <ListBar text="Malaria" type="left" source={Malaria} />
+        <ListBar text="Heart Attack" type="right" source={ChestPain} />
+        <ListBar text="Meningtis" type="left" source={Malaria} />
         <Gap height={20} />
-        <ListBar type="right" source={Gerd} />
+        <ListBar text="Gerd         " type="right" source={Gerd} />
+        <ListBar text={text} type="left" source={Sepsis} />
         <Gap height={30} />
-        <ListBar text="Sepsis" type="left" source={Sepsis} />
-        <Gap height={30} />
-        <ListBar type="right" source={Diarhea} />
+        <ListBar text="Diarhea   " type="right" source={Diarhea} />
         <Gap height={30} />
       </View>
     </ScrollView>

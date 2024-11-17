@@ -1,5 +1,11 @@
-import {StyleSheet, View, ScrollView, TouchableOpacity} from 'react-native'; // Mengimpor TouchableOpacity
 import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  View,
+} from 'react-native';
 import Top from '../../components/molecules/Top';
 import {Footer, Menu} from '../../components/molecules';
 import {MiniBox, Gap} from '../../components/atoms';
@@ -12,57 +18,55 @@ import {About} from '../../assets/icon';
 import OrderMedicine from '../OrderMedicine';
 import NavBar from '../../components/molecules/NavBar';
 
-const Home = ({navigation}) => {
+const Home = ({navigation}: {navigation: any}) => {
   const handleOrderPress = () => {
-    navigation.navigate('OrderMedicine'); // Pindah ke halaman OrderMedicinePage
+    navigation.navigate('OrderMedicine');
   };
 
   return (
     <View style={styles.page}>
-      {/* Konten utama di dalam ScrollView agar bisa digulir */}
       <ScrollView contentContainerStyle={styles.scroll}>
         <Top />
         <Gap height={35} />
         <View style={styles.iconContainer}>
-          <MiniBox icon={HealthR} />
-          <MiniBox icon={Trans} />
-          <MiniBox icon={Virus} />
+          <MiniBox icon={HealthR} onPress={() => {}} />
+          <MiniBox icon={Trans} onPress={() => {}} />
+          <MiniBox icon={Virus} onPress={() => {}} />
         </View>
         <View style={styles.menuContainer}>
           <Gap height={11} />
-          {/* Menambahkan TouchableOpacity untuk navigasi */}
           <TouchableOpacity onPress={handleOrderPress}>
-            <Menu icon={OrderM} />
+            <Menu icon={OrderM} onPress={() => {}} />
           </TouchableOpacity>
           <Gap height={24} />
-          <Menu icon={Presc} label="Prescription" />
+          <Menu icon={Presc} label="Prescription" onPress={() => {}} />
           <Gap height={24} />
-          <Menu icon={Symp} label="Check Your Symptom" />
+          <Menu icon={Symp} label="Check Your Symptom" onPress={() => {}} />
           <Gap height={24} />
-          <Menu icon={About} label="About Us" />
+          <Menu icon={About} label="About Us" onPress={() => {}} />
         </View>
       </ScrollView>
-
-      {/* NavBar di bawah */}
       <NavBar navigation={navigation} />
     </View>
   );
 };
 
-export default Home;
-
 const styles = StyleSheet.create({
   page: {
-    flex: 1, // Membuat halaman menggunakan seluruh layar
+    flex: 1,
   },
   scroll: {
-    paddingBottom: 100, // Memberikan ruang di bawah untuk footer dan navbar
+    flexGrow: 0,
+    maxHeight: '84%',
+    backgroundColor: 'white',
   },
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
   menuContainer: {
-    padding: 15,
+    backgroundColor: 'white',
   },
 });
+
+export default Home;
