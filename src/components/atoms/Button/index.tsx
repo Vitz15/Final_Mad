@@ -40,14 +40,16 @@ const Button = ({
     );
   }
   if (type === 'list-left') {
-    return (
-      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
-        <View>
-          <Text style={overlap}>{text}</Text>
-          <Source style={style} />
-        </View>
-      </TouchableOpacity>
-    );
+    if (icon === 'left') {
+      return (
+        <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+          <View>
+            <Text style={overlap}>{text}</Text>
+            <Source style={style} />
+          </View>
+        </TouchableOpacity>
+      );
+    }
   }
   if (type === 'list-center') {
     return (
