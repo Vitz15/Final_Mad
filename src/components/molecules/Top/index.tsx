@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image,TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Picture, Back} from '../../../assets/icon';
 
@@ -16,7 +16,7 @@ const Top = ({type, onBackPress}) => {
   return (
     <View style={styles.container}>
       <View style={styles.profileContainer}>
-        <Picture style={styles.profileImage} />
+        <Picture style={styles.profileImage}/>
         <View style={styles.textContainer}>
           <Text style={styles.name}>John Doe</Text>
           <Text style={styles.message}>Hope You Stay Healthy!</Text>
@@ -45,8 +45,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   profileImage: {
-    width: 50, //
-    height: 50,
     borderRadius: 25,
     marginRight: 15,
   },
