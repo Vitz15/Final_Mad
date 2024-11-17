@@ -23,7 +23,7 @@ import Virus from './src/pages/VirusList';
 const Mock = () => {
   return (
     <View>
-      <Threat />
+      <Virus />
     </View>
   );
 };
