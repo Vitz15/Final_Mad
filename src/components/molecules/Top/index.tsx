@@ -35,10 +35,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderBottomRightRadius: 20,
     borderBottomLeftRadius: 20,
-    borderBottomWidth: 3,
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderColor: '#D4D4D4',
   },
   profileContainer: {
     flexDirection: 'row',
