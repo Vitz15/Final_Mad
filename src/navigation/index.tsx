@@ -10,6 +10,7 @@ import Threat from '../pages/CheckThreat';
 import OrderMedicine from '../pages/OrderMedicine';
 import Cart from '../pages/Cart';
 import Virus from '../pages/VirusList';
+import CartPage from '../pages/Cart';
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -52,7 +53,7 @@ const Navigator = () => {
       />
       <Stack.Screen
         name="Cart"
-        component={Cart}
+        component={CartPage}
         options={{headerShown: false}}
       />
       <Stack.Screen
