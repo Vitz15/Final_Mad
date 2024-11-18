@@ -6,7 +6,7 @@ const Loading = () => {
   return (
     <View style={styles.container}>
       <LottieView
-        source={require('../../assets/icon/loading.json')}
+        source={require('../../../assets/icon/Loading.json')}
         autoPlay
         loop={true}
       />
