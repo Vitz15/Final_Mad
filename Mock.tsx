@@ -1,34 +1,13 @@
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import React from 'react';
-import Sickness from './src/pages/CheckSickness';
-import Search from './src/components/molecules/Search';
-import MedicationCard from './src/components/molecules/MedicineCard';
-import {
-  Penicilin,
-  Amlodipine,
-  Amoxan,
-  Aspirin,
-  Loperamide,
-  Metformin,
-  Paracetamol,
-  Paramex,
-} from './src/assets/icon';
-
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Home from './src/pages/Home';
-import Threat from './src/pages/CheckThreat';
+import React, {useState} from 'react';
+import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import Svg, {Path} from 'react-native-svg';
+import {NavBar} from './src/components/molecules';
 import OrderMedicine from './src/pages/OrderMedicine';
-import Profile from './src/pages/Profile';
-import HealthRoutine from './src/pages/HealthRoutine';
-import Virus from './src/pages/VirusList';
 
-
-const Mock = () => {
-  return (
-    <View>
-      <HealthRoutine/>
-    </View>
-  );
+const Navbar = () => {
+  return <OrderMedicine />;
 };
 
-export default Mock;
+const styles = StyleSheet.create({});
+
+export default Navbar;

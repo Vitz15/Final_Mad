@@ -35,6 +35,7 @@ const HealthRoutine = () => {
           source={require('../../assets/icon/Water.json')}
           style={{width: 300, height: 300}}
           autoPlay
+          loop={false}
         />
         <Text style={styles.title}>Try To Drink 15 Cups of Water A Day</Text>
         <View style={styles.questionContainer}>

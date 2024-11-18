@@ -27,9 +27,13 @@ const Home = ({navigation}) => {
       <ScrollView style={styles.Scroll}>
         <Gap height={35} />
         <View style={styles.iconContainer}>
-          <MiniBox icon={HealthR} />
-          <MiniBox icon={Trans} />
-          <MiniBox icon={Virus} />
+          <MiniBox text="Health Routine" icon={HealthR} />
+          <MiniBox text="Transaction" icon={Trans} />
+          <MiniBox
+            text="Virus List"
+            icon={Virus}
+            onPress={() => navigation.navigate('Virus')}
+          />
         </View>
         <View style={styles.menuContainer}>
           <Gap height={11} />
@@ -37,11 +41,23 @@ const Home = ({navigation}) => {
             <Menu icon={OrderM} />
           </TouchableOpacity>
           <Gap height={24} />
-          <Menu icon={Presc} label="Prescription" />
+          <Menu
+            icon={Presc}
+            label="Prescription"
+            onPress={() => navigation.navigate('Threat')}
+          />
           <Gap height={24} />
-          <Menu icon={Symp} label="Check Your Symptom" />
+          <Menu
+            icon={Symp}
+            label="Check Your Symptom"
+            onPress={() => navigation.navigate('Sickness')}
+          />
           <Gap height={24} />
-          <Menu icon={About} label="About Us" />
+          <Menu
+            icon={About}
+            label="About Us"
+            onPress={() => navigation.navigate('About')}
+          />
         </View>
       </ScrollView>
     </View>

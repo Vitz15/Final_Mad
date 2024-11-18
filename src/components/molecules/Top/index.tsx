@@ -16,7 +16,7 @@ const Top = ({type, onBackPress}) => {
   return (
     <View style={styles.container}>
       <View style={styles.profileContainer}>
-        <Picture style={styles.profileImage}/>
+        <Picture style={styles.profileImage} />
         <View style={styles.textContainer}>
           <Text style={styles.name}>John Doe</Text>
           <Text style={styles.message}>Hope You Stay Healthy!</Text>
@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderBottomRightRadius: 20,
     borderBottomLeftRadius: 20,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
+    borderBottomWidth: 3,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderColor: '#D4D4D4',
   },
   profileContainer: {
     flexDirection: 'row',
