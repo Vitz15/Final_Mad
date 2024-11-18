@@ -17,7 +17,7 @@ import {
 } from '../../assets/icon';
 import {Gap} from '../../components/atoms';
 
-const Virus = () => {
+const Sickness = () => {
   return (
     <ScrollView>
       <Search placeholder="Find Your Symptom" icon={SearchLogo} />
@@ -44,4 +44,4 @@ const Virus = () => {
   );
 };
 
-export default Virus;
+export default Sickness;

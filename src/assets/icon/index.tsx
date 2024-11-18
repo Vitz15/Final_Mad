@@ -39,7 +39,7 @@ import Presc from './Prescription.svg';
 import Symp from './symptom.svg';
 import About from './AboutUS.svg';
 import ArrowBack from './ArrowBack.svg';
-
+import Loading from './Loading.json';
 export {
   Symp,
   About,
@@ -82,4 +82,5 @@ export {
   BottomLeft,
   BottomRight,
   ArrowBack,
+  Loading,
 };

@@ -18,10 +18,15 @@ import {
 } from '../../assets/icon/virus';
 import {Button, Gap} from '../../components/atoms';
 
-const Virus = () => {
+const Virus = ({navigation}) => {
   return (
     <ScrollView>
-      <Button style={styles.title} text="Virus List" type="arrow-back" />
+      <Button
+        style={styles.title}
+        text="Virus List"
+        type="arrow-back"
+        onPress={() => navigation.goBack()}
+      />
 
       <View style={styles.container}>
         <Hiv style={styles.virusLeft} />
@@ -98,7 +103,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textShadowRadius: 2,
     textShadowColor: 'black',
-    transform: [{translateX: 150}, {translateY: -45}],
+    transform: [{translateX: 158}, {translateY: -45}],
   },
   container: {
     flexDirection: 'row',
