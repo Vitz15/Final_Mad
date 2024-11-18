@@ -1,9 +1,31 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import React, {useState, useContext, useEffect} from 'react';
+import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import {CartContext} from '../../../context/CartContext';
 
-const MedicationCard = ({source: Source, name}) => {
-  const [quantity, setQuantity] = useState(0);
-  const [isChecked, setIsChecked] = useState(false);
+interface MedicationCardProps {
+  id: number;
+  name: string;
+  price: number;
+}
+
+const MedicationCard: React.FC<MedicationCardProps> = ({
+  id,
+
+  name,
+  price,
+}) => {
+  const [quantity, setQuantity] = useState<number>(0);
+  const cartContext = useContext(CartContext);
+
+  if (!cartContext) {
+    throw new Error('MedicationCard must be used within a CartProvider');
+  }
+
+  const {updateCart} = cartContext;
+
+  useEffect(() => {
+    updateCart(id, {id, name, price, quantity});
+  }, [quantity]);
 
   const increment = () => setQuantity(quantity + 1);
   const decrement = () => {
@@ -12,13 +34,23 @@ const MedicationCard = ({source: Source, name}) => {
     }
   };
 
-  const toggleCheckbox = () => setIsChecked(!isChecked);
+  // Format the currency in Rupiah (IDR)
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+    }).format(amount);
+  };
+
+  const total = price && quantity ? price * quantity : 0;
 
   return (
     <View style={styles.card}>
       <Source style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.name}>{name}</Text>
+        <Text style={styles.price}>Price: {formatCurrency(price)}</Text>
+        <Text style={styles.totalPrice}>Total: {formatCurrency(total)}</Text>
       </View>
       <View style={styles.quantityContainer}>
         <TouchableOpacity onPress={decrement} style={styles.button}>
@@ -29,10 +61,6 @@ const MedicationCard = ({source: Source, name}) => {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        onPress={toggleCheckbox}
-        style={[styles.checkbox, isChecked && styles.checkboxChecked]}
-      />
     </View>
   );
 };
@@ -65,8 +93,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   name: {
-    fontFamily: 'SF-Pro-Display-Bold',
     fontSize: 20,
+    color: '#333',
+  },
+  price: {
+    fontSize: 16,
+    color: '#666',
+  },
+  totalPrice: {
+    fontSize: 16,
+    fontWeight: 'bold',
     color: '#333',
   },
   quantityContainer: {
@@ -88,16 +124,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginHorizontal: 10,
-  },
-  checkbox: {
-    width: 24,
-    height: 24,
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 100,
-    marginLeft: 10,
-  },
-  checkboxChecked: {
-    backgroundColor: '#78C194',
   },
 });

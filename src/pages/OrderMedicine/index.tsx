@@ -1,55 +1,60 @@
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import Search from '../../components/molecules/Search';
-import MedicationCard from '../../components/molecules/MedicineCard';
-import {Gap, Button} from '../../components/atoms';
-import {SearchLogo} from '../../assets/icon';
-import {
-  Penicilin,
-  Amlodipine,
-  Amoxan,
-  Aspirin,
-  Loperamide,
-  Metformin,
-  Paracetamol,
-  Paramex,
-} from '../../assets/icon';
-
 import React from 'react';
+import {StyleSheet, ScrollView, View} from 'react-native';
+import MedicationCard from '../../components/molecules/MedicineCard';
+import Search from '../../components/molecules/Search';
+import {SearchLogo} from '../../assets/icon';
+import {Button} from '../../components/atoms';
 
-const OrderMedicine = () => {
+const ProductListScreen = ({navigation}) => {
+  const products = [
+    // Example products array
+    {
+      id: 1,
+      name: 'Paracetamol',
+      price: 5000,
+    },
+    {
+      id: 2,
+      name: 'Paramex',
+      price: 7500,
+    },
+    // Add more products as needed
+  ];
+
   return (
-    <View>
-      <Search placeholder="Find Your Medicine? " icon={SearchLogo} />
-      <Gap height={30} />
-      <ScrollView style={styles.medicationScroll}>
-        <MedicationCard source={Penicilin} name="Penicilin" />
-        <MedicationCard source={Amlodipine} name="Amlodipine" />
-        <MedicationCard source={Amoxan} name="Amoxan" />
-        <MedicationCard source={Aspirin} name="Aspirin" />
-        <MedicationCard source={Loperamide} name="Loperamide" />
-        <MedicationCard source={Metformin} name="Metformin" />
-        <MedicationCard source={Paracetamol} name="Paracetamol" />
-        <MedicationCard source={Paramex} name="Paramex" />
+    <View style={styles.container}>
+      {/* Search component at the top */}
+      <Search placeholder="Find Your Medicine?" icon={SearchLogo} />
+
+      {/* ScrollView to list the MedicationCards */}
+      <ScrollView style={styles.scrollView}>
+        {products.map(product => (
+          <MedicationCard
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+          />
+        ))}
       </ScrollView>
-      <Gap height={30} />
-      <Button text="Add To Cart" type="normal" style={styles.button} />
+      <Button
+        text="Add To Cart"
+        type="normal"
+        style={styles.button}
+        onPress={() => navigation.navigate('Cart')}
+      />
     </View>
   );
 };
 
-export default OrderMedicine;
+export default ProductListScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
-
-  scrollContent: {
-    paddingBottom: 20, 
-  },
-  medicationScroll: {
-    flexGrow: 0, 
-    maxHeight: '71%', 
+  scrollView: {
+    marginTop: 10,
   },
 });
