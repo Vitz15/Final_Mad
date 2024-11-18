@@ -1,55 +1,47 @@
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import Search from '../../components/molecules/Search';
-import MedicationCard from '../../components/molecules/MedicineCard';
-import {Gap, Button} from '../../components/atoms';
-import {SearchLogo} from '../../assets/icon';
-import {
-  Penicilin,
-  Amlodipine,
-  Amoxan,
-  Aspirin,
-  Loperamide,
-  Metformin,
-  Paracetamol,
-  Paramex,
-} from '../../assets/icon';
-
 import React from 'react';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {HomeIconW, ProfileIconW} from '../../../assets/icon';
 
-const OrderMedicine = () => {
+interface NavBarProps {
+  navigation: any;
+}
+
+const NavBar: React.FC<NavBarProps> = ({navigation}) => {
   return (
-    <View>
-      <Search placeholder="Find Your Medicine? " icon={SearchLogo} />
-      <Gap height={30} />
-      <ScrollView style={styles.medicationScroll}>
-        <MedicationCard source={Penicilin} name="Penicilin" />
-        <MedicationCard source={Amlodipine} name="Amlodipine" />
-        <MedicationCard source={Amoxan} name="Amoxan" />
-        <MedicationCard source={Aspirin} name="Aspirin" />
-        <MedicationCard source={Loperamide} name="Loperamide" />
-        <MedicationCard source={Metformin} name="Metformin" />
-        <MedicationCard source={Paracetamol} name="Paracetamol" />
-        <MedicationCard source={Paramex} name="Paramex" />
-      </ScrollView>
-      <Gap height={30} />
-      <Button text="Add To Cart" type="normal" style={styles.button} />
+    <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Home')}
+        style={styles.button}>
+        <HomeIconW /> {/* Icon only */}
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => navigation.navigate('CheckSickness')}
+        style={styles.button}>
+        <ProfileIconW /> {/* Icon only */}
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default OrderMedicine;
+export default NavBar;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#6FCF97',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingVertical: 10,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
-
-  scrollContent: {
-    paddingBottom: 20, 
-  },
-  medicationScroll: {
-    flexGrow: 0, 
-    maxHeight: '71%', 
+  button: {
+    paddingHorizontal: 15,
+    paddingVertical: 5,
   },
 });

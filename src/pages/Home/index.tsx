@@ -1,4 +1,3 @@
-// src/pages/Home/index.js
 import React from 'react';
 import {StyleSheet, ScrollView, View, TouchableOpacity} from 'react-native';
 import Top from '../../components/molecules/Top';
@@ -13,15 +12,13 @@ import {
   Symp,
   About,
 } from '../../assets/icon';
-import OrderMedicine from '../OrderMedicine';
 import NavBar from '../../components/molecules/NavBar';
 
-const Home = ({navigation}: {navigation: any}) => {
-  console.log('Home component rendering');
-
+const Home = ({navigation}) => {
+  // Fungsi handleOrderPress
   const handleOrderPress = () => {
-    console.log('Navigating to OrderMedicine');
-    navigation.navigate('OrderMedicine');
+    console.log('Order Medicine button pressed');
+    navigation.navigate('OrderMedicine'); // Navigasi ke halaman OrderMedicine
   };
 
   return (
