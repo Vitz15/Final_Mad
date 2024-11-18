@@ -38,6 +38,7 @@ import BottomLeft from './bottom-left.svg';
 import Presc from './Prescription.svg';
 import Symp from './symptom.svg';
 import About from './AboutUS.svg';
+import ArrowBack from './ArrowBack.svg';
 
 export {
   Symp,
@@ -80,4 +81,5 @@ export {
   TopRight,
   BottomLeft,
   BottomRight,
+  ArrowBack,
 };

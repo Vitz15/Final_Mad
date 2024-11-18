@@ -73,8 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     transform: [{translateX: 30}, {translateY: 75}],
     zIndex: 2,
-    textShadowColor: 'rgba(0, 0, 0, 0.8)',
-    textShadowOffset: {width: 1, height: 1},
+    textShadowColor: 'black',
     textShadowRadius: 0.5,
   },
   overlapRight: {
@@ -83,8 +82,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     transform: [{translateX: -205}, {translateY: 45}],
     zIndex: 2,
-    textShadowColor: 'rgba(0, 0, 0, 0.8)',
-    textShadowOffset: {width: 1, height: 1},
+    textShadowColor: 'black',
     textShadowRadius: 0.5,
   },
 });

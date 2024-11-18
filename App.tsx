@@ -9,6 +9,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Threat from './src/pages/CheckThreat';
 import OrderMedicine from './src/pages/OrderMedicine';
+import Virus from './src/pages/VirusList';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,6 +50,11 @@ const App = () => {
         <Stack.Screen
           name="OrderMedicine"
           component={OrderMedicine}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Virus"
+          component={Virus}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

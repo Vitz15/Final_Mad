@@ -14,19 +14,18 @@ const Button = ({
   border,
   overlap,
 }) => {
-  if (type === 'icon-only') {
-    if (icon === 'arrow-back') {
-      return (
+  if (type === 'arrow-back') {
+    return (
+      <View style={styles.back}>
         <TouchableOpacity
           activeOpacity={0.5}
           style={styles.backButton}
           onPress={onPress}>
           <ArrowBack />
         </TouchableOpacity>
-      );
-    }
-
-    return null;
+        <Text style={style}>{text}</Text>
+      </View>
+    );
   }
 
   if (type === 'normal') {
@@ -95,6 +94,21 @@ const styles = StyleSheet.create({
   backButton: {
     width: 50,
     height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    left: 15,
+  },
+  back: {
+    backgroundColor: '#78C194',
+    width: 412,
+    height: 50,
+    borderBottomRightRadius: 55,
+    borderBottomLeftRadius: 55,
+    borderBottomWidth: 3,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderColor: '#D4D4D4',
+    marginBottom: 34,
   },
   profile: {
     width: 50,
