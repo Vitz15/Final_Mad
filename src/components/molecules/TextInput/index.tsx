@@ -1,19 +1,53 @@
-import {StyleSheet, Text, View, TextInput as Input} from 'react-native';
-import React from 'react';
-import {Lock, Mail, User} from '../../../assets/icon';
+import {
+  StyleSheet,
+  TextInput as Input,
+  View,
+  TouchableOpacity,
+} from 'react-native';
+import React, {useState} from 'react';
+import EyeOpenIcon from '../../../assets/icon/eye-open.svg'; 
+import EyeSlashIcon from '../../../assets/icon/eye-slash.svg'; 
+const TextInput = ({
+  label,
+  placeholder,
+  onChangeText,
+  icon: IconComponent,
+  secureTextEntry,
+  onSecureTextToggle,
+}) => {
+  const [isSecure, setIsSecure] = useState(secureTextEntry); 
 
-const TextInput = ({label, placeholder, onChangeText, icon: Icon}) => {
+ 
+  const toggleSecureTextEntry = () => {
+    setIsSecure(!isSecure); 
+    if (onSecureTextToggle) {
+      onSecureTextToggle(!isSecure); 
+    }
+  };
+
   return (
     <View style={styles.inputContainer}>
       <View style={styles.iconContainer}>
-        {Icon && <Icon width={24} height={24} />}
+        {IconComponent && <IconComponent width={24} height={24} />}
       </View>
       <Input
         style={styles.input}
         placeholder={placeholder}
         onChangeText={onChangeText}
         placeholderTextColor="#8D92A3"
+        secureTextEntry={isSecure} 
       />
+      {secureTextEntry && (
+        <TouchableOpacity
+          onPress={toggleSecureTextEntry}
+          style={styles.iconWrapper}>
+          {isSecure ? (
+            <EyeSlashIcon width={24} height={24} /> 
+          ) : (
+            <EyeOpenIcon width={24} height={24} /> 
+          )}
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -38,5 +72,8 @@ const styles = StyleSheet.create({
     color: 'black',
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 20,
+  },
+  iconWrapper: {
+    marginLeft: 10,
   },
 });

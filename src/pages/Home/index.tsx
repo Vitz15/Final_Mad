@@ -5,7 +5,7 @@ import {
   ScrollView,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Top from '../../components/molecules/Top';
 import {Footer, Menu} from '../../components/molecules';
 import {MiniBox, Gap} from '../../components/atoms';
@@ -16,10 +16,22 @@ import {Presc} from '../../assets/icon';
 import {Symp} from '../../assets/icon';
 import {About} from '../../assets/icon';
 import OrderMedicine from '../OrderMedicine';
+import {getDatabase, ref, onValue} from 'firebase/database';
 
-const Home = ({navigation}) => {
+const Home = ({navigation, route}) => {
+  const {uid} = route.params;
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    const db = getDatabase();
+    const userRef = ref(db, 'users/' + uid);
+    onValue(userRef, snapshot => {
+      const data = snapshot.val();
+      setUsername(data.username);
+    });
+  }, []);
   const handleOrderPress = () => {
-    navigation.navigate('OrderMedicine'); // Pindah ke halaman OrderMedicinePage
+    navigation.navigate('OrderMedicine');
   };
   return (
     <View>

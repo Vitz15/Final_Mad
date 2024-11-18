@@ -46,7 +46,6 @@ const MedicationCard: React.FC<MedicationCardProps> = ({
 
   return (
     <View style={styles.card}>
-      <Source style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.price}>Price: {formatCurrency(price)}</Text>
