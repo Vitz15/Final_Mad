@@ -10,11 +10,7 @@ const CartPage: React.FC = () => {
   }
 
   const {cart, getTotalPrice} = cartContext;
-
-  // Filter out items with quantity 0
   const cartItems = Object.values(cart).filter(item => item.quantity > 0);
-
-  // Function to format currency in Rupiah (IDR)
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('id-ID', {
       style: 'currency',

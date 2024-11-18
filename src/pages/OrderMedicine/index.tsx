@@ -1,32 +1,43 @@
 import React from 'react';
-import {StyleSheet, ScrollView, View} from 'react-native';
+import {StyleSheet, ScrollView, View, Image} from 'react-native';
 import MedicationCard from '../../components/molecules/MedicineCard';
 import Search from '../../components/molecules/Search';
 import {SearchLogo} from '../../assets/icon';
 import {Button} from '../../components/atoms';
+import {
+  Penicilin,
+  Amlodipine,
+  Amoxan,
+  Aspirin,
+  Loperamide,
+  Metformin,
+  Paracetamol,
+  Paramex,
+} from '../../assets/icon';
 
 const ProductListScreen = ({navigation}) => {
   const products = [
-    // Example products array
     {
       id: 1,
       name: 'Paracetamol',
       price: 5000,
+      image: require('../../assets/icon/paracetamol.svg'),
     },
     {
       id: 2,
       name: 'Paramex',
       price: 7500,
     },
-    // Add more products as needed
+    {
+      id: 3,
+      name: 'Penicilin',
+      price: 20000,
+    },
   ];
 
   return (
     <View style={styles.container}>
-      {/* Search component at the top */}
       <Search placeholder="Find Your Medicine?" icon={SearchLogo} />
-
-      {/* ScrollView to list the MedicationCards */}
       <ScrollView style={styles.scrollView}>
         {products.map(product => (
           <MedicationCard
@@ -34,13 +45,13 @@ const ProductListScreen = ({navigation}) => {
             id={product.id}
             name={product.name}
             price={product.price}
+            imageSource={Penicilin}
           />
         ))}
       </ScrollView>
       <Button
         text="Add To Cart"
         type="normal"
-        style={styles.button}
         onPress={() => navigation.navigate('Cart')}
       />
     </View>
