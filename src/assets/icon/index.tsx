@@ -36,6 +36,9 @@ import About from './AboutUS.svg';
 import Back from './back-button.svg';
 import HomeIcon from './cottage.svg';
 import ProfileIcon from './account_circle.svg';
+import HomeIconW from './cottage_w.svg';
+import ProfileIconW from './account_circle_w.svg';
+
 
 export {
   Symp,
@@ -76,4 +79,6 @@ export {
   Back,
   HomeIcon,
   ProfileIcon,
+  ProfileIconW,
+  HomeIconW,
 };
