@@ -7,15 +7,14 @@ import {CartProvider} from './src/context/CartContext';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CartPage from './src/pages/Cart';
-import Profile from './src/pages/Profile';
-import Sickness from './src/pages/CheckSickness';
-import Home from './src/pages/Home';
+import HealthRoutine from './src/pages/HealthRoutine';
 const Stack = createNativeStackNavigator();
 
 const Mock = () => {
   return (
     <NavigationContainer>
-      <CartProvider>
+      <HealthRoutine />
+      {/* <CartProvider>
         <Stack.Navigator>
           <Stack.Screen
             name="OrderMedicine"
@@ -28,7 +27,7 @@ const Mock = () => {
             options={{headerShown: false}}
           />
         </Stack.Navigator>
-      </CartProvider>
+      </CartProvider> */}
     </NavigationContainer>
   );
 };

@@ -21,10 +21,10 @@ const Threat = () => {
   const text = 'Subarachnoid \nHemorrhage';
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.container}>
       <Search placeholder="What is your concern? " icon={SearchLogo} />
       <View>
-        <Gap height={33} />
+        <Text style={styles.Title}>Try This Prescription</Text>
         <ListBar text="High Blood" type="left" source={High} />
         <ListBar text="Blood Sugar" type="right" source={Sugar} />
         <ListBar text="Diphteria" type="left" source={Diphteria} />
@@ -43,4 +43,15 @@ const Threat = () => {
 
 export default Threat;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  Title: {
+    textAlign: 'center',
+    fontFamily: 'SF-Pro-Display-Bold',
+    fontSize: 24,
+    color: 'black',
+    marginTop: 24,
+  },
+  container: {
+    backgroundColor: 'white'
+  }
+});

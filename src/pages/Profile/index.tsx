@@ -27,35 +27,16 @@ const Profile = () => {
           <View style={styles.line} />
         </View>
         <Button type="normal" text="Update Profile" textColor="white"/>
-
-const Profile = () => {
-  return (
-    <View>
-      <Top type="profile" />
-      <View style={styles.container}>
-        <View style={styles.backgroundContainer}>
-          <Picture width={100} height={200} style={styles.backgroundImage}/>
-        </View>
-        <View style={styles.profileContainer}>
-          <Picture style={styles.profileImage} />
-          <Text style={styles.profileName}>John Doe</Text>
-        </View>
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#78C194',
-    flex: 1,
-    backgroundColor: '#000',
-  },
-  backgroundImage: {
-    flex: 1,
-    width: 1000,
   },
   profileContainer: {
     alignItems: 'center',
@@ -79,6 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
+    paddingBottom: 100,
   },
   title: {
     fontFamily: 'SF-Pro-Display-Medium',
@@ -108,19 +90,5 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginVertical: 7,
     marginHorizontal: 24,
-    marginTop: 150,
-  },
-  profileImage: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    borderWidth: 3,
-    borderColor: '#fff',
-  },
-  profileName: {
-    marginTop: 15,
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#fff',
   },
 });

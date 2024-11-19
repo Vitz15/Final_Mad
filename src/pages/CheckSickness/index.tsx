@@ -21,6 +21,7 @@ const Sickness = () => {
   return (
     <ScrollView style={styles.container}>
       <Search placeholder="Find Your Symptom" icon={SearchLogo} />
+      <Text style={styles.Title}>Where does it hurt You?</Text>
       <View>
         <ListBar text="Fever" type="left" source={Fever} />
         <ListBar text="Pneunomia" type="right" source={Pneunomia} />
@@ -43,8 +44,14 @@ const Sickness = () => {
 export default Sickness;
 
 const styles = StyleSheet.create({
+  Title: {
+    textAlign: 'center',
+    fontFamily: 'SF-Pro-Display-Bold',
+    fontSize: 24,
+    color: 'black',
+    marginTop: 24,
+  },
   container: {
-    flex: 1,
-    backgroundColor: '#FFF8EF',
+    backgroundColor: 'white',
   },
 });

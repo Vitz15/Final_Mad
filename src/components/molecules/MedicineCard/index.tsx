@@ -6,10 +6,15 @@ interface MedicationCardProps {
   id: number;
   name: string;
   price: number;
-  image: any;
+  imageSource: any;
 }
 
-const MedicationCard: React.FC<MedicationCardProps> = ({id, name, price}) => {
+const MedicationCard: React.FC<MedicationCardProps> = ({
+  id,
+  imageSource,
+  name,
+  price,
+}) => {
   const [quantity, setQuantity] = useState<number>(0);
   const cartContext = useContext(CartContext);
 
@@ -30,7 +35,6 @@ const MedicationCard: React.FC<MedicationCardProps> = ({id, name, price}) => {
     }
   };
 
-  // Format the currency in Rupiah (IDR)
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('id-ID', {
       style: 'currency',
@@ -42,6 +46,7 @@ const MedicationCard: React.FC<MedicationCardProps> = ({id, name, price}) => {
 
   return (
     <View style={styles.card}>
+      <Image source={imageSource} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.price}>Price: {formatCurrency(price)}</Text>
@@ -79,8 +84,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   image: {
-    width: 50,
-    height: 50,
+    width: 80,
+    height: 80,
     borderRadius: 8,
     marginRight: 10,
   },
@@ -88,14 +93,17 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   name: {
+    fontFamily: 'SF-Pro-Display-Medium',
     fontSize: 20,
-    color: '#333',
+    color: 'black',
   },
   price: {
+    fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 16,
-    color: '#666',
+    color: 'black',
   },
   totalPrice: {
+    fontFamily: 'SF-Pro-Display-Bold',
     fontSize: 16,
     fontWeight: 'bold',
     color: '#333',
@@ -112,12 +120,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   buttonText: {
+    fontFamily: 'SF-Pro-Display-Medium',
     fontSize: 18,
     color: '#333',
   },
   quantity: {
+    fontFamily: 'SF-Pro-Display-Medium',
     fontSize: 16,
-    fontWeight: 'bold',
+
     marginHorizontal: 10,
   },
 });
