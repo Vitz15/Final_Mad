@@ -6,14 +6,10 @@ interface MedicationCardProps {
   id: number;
   name: string;
   price: number;
+  image: any;
 }
 
-const MedicationCard: React.FC<MedicationCardProps> = ({
-  id,
-
-  name,
-  price,
-}) => {
+const MedicationCard: React.FC<MedicationCardProps> = ({id, name, price}) => {
   const [quantity, setQuantity] = useState<number>(0);
   const cartContext = useContext(CartContext);
 
@@ -46,7 +42,6 @@ const MedicationCard: React.FC<MedicationCardProps> = ({
 
   return (
     <View style={styles.card}>
-      <Source style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.price}>Price: {formatCurrency(price)}</Text>

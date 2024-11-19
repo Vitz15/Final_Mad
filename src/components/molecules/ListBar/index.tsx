@@ -45,6 +45,9 @@ const ListBar = ({type, source, text, icon}) => {
 export default ListBar;
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+  },
   barLeft: {
     flex: 1,
     position: 'relative',
@@ -53,15 +56,17 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
     zIndex: 1,
+    transform: [{translateX: 0}, {translateY: -25}],
   },
   barRight: {
     flex: 1,
     position: 'relative',
     flexDirection: 'row-reverse',
-
+    borderBottomWidth: 3,
     borderTopLeftRadius: 15,
     borderBottomLeftRadius: 15,
     zIndex: 1,
+    transform: [{translateX: 0}, {translateY: -15}],
   },
 
   borderRight: {
@@ -71,7 +76,7 @@ const styles = StyleSheet.create({
   overlapLeft: {
     fontFamily: 'SF-Pro-Display-Bold',
     fontSize: 20,
-    transform: [{translateX: 30}, {translateY: 75}],
+    transform: [{translateX: 30}, {translateY: 55}],
     zIndex: 2,
     textShadowColor: 'black',
     textShadowRadius: 0.5,
@@ -80,7 +85,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SF-Pro-Display-Bold',
     fontSize: 20,
     position: 'absolute',
-    transform: [{translateX: -205}, {translateY: 45}],
+    transform: [{translateX: -205}, {translateY: 30}],
     zIndex: 2,
     textShadowColor: 'black',
     textShadowRadius: 0.5,

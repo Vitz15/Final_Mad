@@ -7,6 +7,9 @@ import {CartProvider} from './src/context/CartContext';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CartPage from './src/pages/Cart';
+import Profile from './src/pages/Profile';
+import Sickness from './src/pages/CheckSickness';
+import Home from './src/pages/Home';
 const Stack = createNativeStackNavigator();
 
 const Mock = () => {
@@ -16,7 +19,7 @@ const Mock = () => {
         <Stack.Navigator>
           <Stack.Screen
             name="OrderMedicine"
-            component={OrderMedicine}
+            component={Home}
             options={{headerShown: false}}
           />
           <Stack.Screen

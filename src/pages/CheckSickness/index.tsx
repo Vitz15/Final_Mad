@@ -19,29 +19,32 @@ import {Gap} from '../../components/atoms';
 
 const Sickness = () => {
   return (
-    <ScrollView>
+    <ScrollView style={styles.container}>
       <Search placeholder="Find Your Symptom" icon={SearchLogo} />
       <View>
-        <Gap height={33} />
         <ListBar text="Fever" type="left" source={Fever} />
-        <Gap height={20} />
         <ListBar text="Pneunomia" type="right" source={Pneunomia} />
+
         <ListBar text="Stroke" type="left" source={Stroke} />
-        <Gap height={20} />
         <ListBar text="Influenza" type="right" source={Flu} />
+
         <ListBar text="Asthma" type="left" source={Asthma} />
-        <Gap height={20} />
-        <ListBar text="Chest Pain" type="right" source={ChestPain} />
+        <ListBar text="Chest Pain  " type="right" source={ChestPain} />
+
         <ListBar text="Malaria" type="left" source={Malaria} />
-        <Gap height={20} />
-        <ListBar text="Gerd" type="right" source={Gerd} />
+        <ListBar text="Gerd         " type="right" source={Gerd} />
         <ListBar text="Sepsis" type="left" source={Sepsis} />
-        <Gap height={30} />
-        <ListBar text="Diarhea" type="right" source={Diarhea} />
-        <Gap height={30} />
+        <ListBar text="Diarhea    " type="right" source={Diarhea} />
       </View>
     </ScrollView>
   );
 };
 
 export default Sickness;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFF8EF',
+  },
+});

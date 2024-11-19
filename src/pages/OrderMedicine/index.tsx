@@ -12,6 +12,7 @@ const ProductListScreen = ({navigation}) => {
       id: 1,
       name: 'Paracetamol',
       price: 5000,
+      image: require('../../assets/icon/paracetamol.svg'),
     },
     {
       id: 2,
