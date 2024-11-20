@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Text, Image} from 'react-native';
 import Svg, {Path} from 'react-native-svg';
 import {NavBar} from './src/components/molecules';
 import OrderMedicine from './src/pages/OrderMedicine';
@@ -8,12 +8,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CartPage from './src/pages/Cart';
 import HealthRoutine from './src/pages/HealthRoutine';
+import AboutUs from './src/pages/AboutUs';
 const Stack = createNativeStackNavigator();
 
 const Mock = () => {
   return (
     <NavigationContainer>
-      <HealthRoutine/>
+      <AboutUs/>
       {/* <CartProvider>
         <Stack.Navigator>
           <Stack.Screen
