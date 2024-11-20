@@ -23,10 +23,9 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 55,
     borderTopRightRadius: 55,
     position: 'absolute',
-    bottom: 10,
+    bottom: 1,
     left: 0,
     right: 0,
     zIndex: 0,
-    marginVertical: -10,
   },
 });
