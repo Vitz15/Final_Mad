@@ -8,7 +8,7 @@ import {Button} from '../../components/atoms/';
 const Profile = () => {
   return (
     <View style={styles.container}>
-      <Top type="profile" />
+      <Top type="profile" text="User Profile" />
       <View style={styles.profileContainer}>
         <Picture style={styles.profileImage} />
         <Text style={styles.profileName}>John Doe</Text>
@@ -26,13 +26,13 @@ const Profile = () => {
           <Text style={styles.data}>johndoe123@gmail.com</Text>
           <View style={styles.line} />
         </View>
-        <Button type="normal" text="Update Profile" textColor="white"/>
+        <Button type="normal" text="Update Profile" textColor="white" />
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
 
 const styles = StyleSheet.create({
   container: {
