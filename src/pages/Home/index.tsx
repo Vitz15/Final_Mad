@@ -19,9 +19,6 @@ import {getDatabase, ref, onValue} from 'firebase/database';
 import CustomBottomNav from '../../components/molecules/NavBar';
 
 const Home = ({navigation}) => {
-  const handleOrderPress = () => {
-    navigation.navigate('OrderMedicine'); // Pindah ke halaman OrderMedicinePage
-  };
   return (
     <View style={styles.page}>
       <Top />
