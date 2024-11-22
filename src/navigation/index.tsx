@@ -10,6 +10,7 @@ import Virus from '../pages/VirusList';
 import CartPage from '../pages/Cart';
 import ProductListScreen from '../pages/OrderMedicine';
 import {CartProvider} from '../context/CartContext';
+import AboutUs from '../pages/AboutUs';
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -59,6 +60,11 @@ const Navigator = () => {
         <Stack.Screen
           name="Virus"
           component={Virus}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="About"
+          component={AboutUs}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

@@ -1,7 +1,24 @@
-import React, {useContext} from 'react';
-import {StyleSheet, Text, View, FlatList, Image} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  Alert,
+  ActivityIndicator,
+} from 'react-native';
 import {CartContext, CartItem} from '../../context/CartContext';
 import {Button} from '../../components/atoms';
+import {
+  getDatabase,
+  ref,
+  push,
+  set,
+  serverTimestamp,
+  onValue,
+} from 'firebase/database'; // Realtime Database
+import {app} from '../../config/Firebase'; // Your Firebase app config
 
 const CartPage: React.FC = ({navigation}) => {
   const cartContext = useContext(CartContext);
@@ -24,6 +41,70 @@ const CartPage: React.FC = ({navigation}) => {
   const discount = originalPrice * 0.5; // 50% discount
   const tax = 2000; // tax
   const totalPrice = originalPrice - discount + tax;
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [orderId, setOrderId] = useState<string | null>(null); // Store the order ID for confirmation
+
+  // Initialize Realtime Database
+  const db = getDatabase(app);
+
+  const handleCheckout = async () => {
+    setIsLoading(true); // Show loading spinner when checkout starts
+
+    const checkoutData = {
+      items: cartItems.map(item => ({
+        id: item.id,
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+        total: item.total,
+      })),
+      originalPrice: originalPrice,
+      discount: discount,
+      tax: tax,
+      totalPrice: totalPrice,
+      date: new Date().toISOString(), // Adding current date/time for the order
+      timestamp: serverTimestamp(), // Firebase server timestamp
+    };
+
+    try {
+      // Generate a new order key
+      const newOrderRef = push(ref(db, 'orders'));
+      // Set the order data at the new key location
+      await set(newOrderRef, checkoutData);
+
+      // Store the order ID for confirmation
+      setOrderId(newOrderRef.key);
+      console.log('Order placed with ID: ', newOrderRef.key);
+    } catch (error) {
+      console.error('Error placing order: ', error);
+      Alert.alert(
+        'Error',
+        'There was an error placing your order. Please try again.',
+      );
+    } finally {
+      setIsLoading(false); // Hide loading spinner after finishing
+    }
+  };
+
+  // Listen for order confirmation in Firebase using onValue (optional)
+  React.useEffect(() => {
+    if (orderId) {
+      const orderRef = ref(db, 'orders/' + orderId);
+      onValue(orderRef, snapshot => {
+        const orderData = snapshot.val();
+        if (orderData) {
+          console.log('Order confirmed:', orderData);
+          Alert.alert('Success', 'Your order has been placed successfully!', [
+            {
+              text: 'OK',
+              onPress: () => navigation.navigate('Home'), // Navigate back to Home or another screen
+            },
+          ]);
+        }
+      });
+    }
+  }, [orderId]);
 
   return (
     <View style={styles.container}>
@@ -83,12 +164,18 @@ const CartPage: React.FC = ({navigation}) => {
             <Button
               text="Checkout"
               type="normal"
-              onPress={() => navigation.navigate('Checkout')}
+              onPress={handleCheckout} // Handle checkout button press
             />
           </View>
         </>
       ) : (
         <Text style={styles.emptyText}>Your cart is empty.</Text>
+      )}
+      {isLoading && (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#0000ff" />
+          <Text style={styles.loadingText}>Processing your order...</Text>
+        </View>
       )}
     </View>
   );
@@ -109,7 +196,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textShadowRadius: 2,
     textShadowColor: 'black',
-
     transform: [{translateX: 178}, {translateY: -45}],
   },
   card: {
@@ -124,7 +210,7 @@ const styles = StyleSheet.create({
     borderLeftWidth: 3,
     borderRightWidth: 3,
     borderColor: 'rgba(0, 0, 0, 0.13)',
-    marginTop: 21,
+    marginTop: 31,
   },
   image: {
     width: 80,
@@ -196,23 +282,22 @@ const styles = StyleSheet.create({
   },
   paymentValue: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
   },
   checkoutButton: {
-    position: 'absolute',
-    bottom: 70,
-    left: 20,
-    right: 20,
-    paddingVertical: 15,
-    borderRadius: 100,
+    marginTop: 20,
   },
   emptyText: {
-    fontSize: 35,
-    fontFamily: 'SF-Pro-Display-Bold',
-    transform: [{translateX: 0}, {translateY: -350}],
-
-    textAlign: 'center',
-    color: '#888',
+    fontSize: 16,
+    color: '#777',
+  },
+  loadingContainer: {
+    position: 'absolute',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    marginTop: 10,
+    fontWeight: 'bold',
+    color: '#555',
   },
 });
