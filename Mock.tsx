@@ -13,23 +13,24 @@ const Stack = createNativeStackNavigator();
 
 const Mock = () => {
   return (
-    <NavigationContainer>
-      <AboutUs />
-      {/* <CartProvider>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="OrderMedicine"
-            component={OrderMedicine}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="Cart"
-            component={CartPage}
-            options={{headerShown: false}}
-          />
-        </Stack.Navigator>
-      </CartProvider> */}
-    </NavigationContainer>
+    <NavBar />
+    // <NavigationContainer>
+    //   <AboutUs />
+    //   {/* <CartProvider>
+    //     <Stack.Navigator>
+    //       <Stack.Screen
+    //         name="OrderMedicine"
+    //         component={OrderMedicine}
+    //         options={{headerShown: false}}
+    //       />
+    //       <Stack.Screen
+    //         name="Cart"
+    //         component={CartPage}
+    //         options={{headerShown: false}}
+    //       />
+    //     </Stack.Navigator>
+    //   </CartProvider> */}
+    // </NavigationContainer>
   );
 };
 

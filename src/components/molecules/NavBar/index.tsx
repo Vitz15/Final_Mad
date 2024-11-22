@@ -1,48 +1,36 @@
 import React from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import HomeIconW from '../../../assets/icon/HomeIconW.svg';
-import ProfileIconW from '../../../assets/icon/ProfileIconW.svg';
+import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
+import {useNavigationState, useNavigation} from '@react-navigation/native';
+import {Image} from 'react-native-svg';
 
-interface NavBarProps {
-  navigation: any;
-}
+const CustomBottomNav = () => {
+  const navigation = useNavigation();
+  const currentRoute =
+    navigation.getState()?.routes[navigation.getState().index]?.name;
 
-const NavBar: React.FC<NavBarProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Home')}
-        style={styles.button}>
-        <HomeIconW width={24} height={24} /> {/* Home Icon */}
+      {/* Home Tab */}
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <Text>jao</Text>
       </TouchableOpacity>
-
-      <TouchableOpacity
-        onPress={() => navigation.navigate('CheckSickness')}
-        style={styles.button}>
-        <ProfileIconW width={24} height={24} /> {/* Profile Icon */}
+      {/* Profile Tab */}
+      <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+        <Text>jao</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default NavBar;
+export default CustomBottomNav;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#6FCF97',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center',
     paddingVertical: 10,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
-  button: {
-    paddingHorizontal: 15,
-    paddingVertical: 5,
+    backgroundColor: '#78C194',
+    borderTopWidth: 1,
+    borderColor: '#ddd',
   },
 });

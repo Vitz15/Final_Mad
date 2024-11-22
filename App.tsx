@@ -7,7 +7,7 @@ import Profile from './src/pages/Profile';
 const App = () => {
   return (
     <NavigationContainer>
-      <Profile/>
+      <Navigator />{' '}
     </NavigationContainer>
   );
 };
