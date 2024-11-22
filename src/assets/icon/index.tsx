@@ -35,6 +35,11 @@ import ArrowBack from './ArrowBack.svg';
 import Loading from './Loading.json';
 import eyeopen from './eye-open.svg';
 import eyeslash from './eye-slash.svg';
+import Home from './HomeIcon.svg';
+import HomeW from './HomeIconW.svg';
+import Profile from './profile.svg';
+import ProfileW from './profileW.svg';
+
 export {
   eyeopen,
   eyeslash,
@@ -73,4 +78,8 @@ export {
   BottomRight,
   ArrowBack,
   Loading,
+  Home,
+  HomeW,
+  Profile,
+  ProfileW,
 };

@@ -5,6 +5,8 @@ import Search from '../../components/molecules/Search';
 import {SearchLogo} from '../../assets/icon';
 import {Button} from '../../components/atoms';
 import {getDatabase, ref, onValue} from 'firebase/database';
+import CustomBottomNav from '../../components/molecules/NavBar';
+import Home from '../Home';
 
 const ProductListScreen = ({navigation}) => {
   const [products, setProducts] = useState([]);
@@ -69,6 +71,11 @@ const ProductListScreen = ({navigation}) => {
           onPress={() => navigation.navigate('Cart')}
         />
       </View>
+      <CustomBottomNav
+        type="Other"
+        onPress={() => navigation.navigate('Home')}
+        onPress2={() => navigation.navigate('Profile')}
+      />
     </View>
   );
 };
