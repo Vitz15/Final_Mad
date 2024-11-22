@@ -201,9 +201,11 @@ const styles = StyleSheet.create({
   },
   checkoutButton: {
     position: 'absolute',
-    bottom: 20,
-    width: '90%',
-    alignSelf: 'center',
+    bottom: 70,
+    left: 20,
+    right: 20,
+    paddingVertical: 15,
+    borderRadius: 100,
   },
   emptyText: {
     fontSize: 35,

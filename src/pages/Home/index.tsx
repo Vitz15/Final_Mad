@@ -50,7 +50,10 @@ const Home = ({navigation, route}) => {
         <View style={styles.menuContainer}>
           <Gap height={11} />
           <TouchableOpacity onPress={handleOrderPress}>
-            <Menu icon={OrderM} />
+            <Menu
+              icon={OrderM}
+              onPress={() => navigation.navigate('OrderMedicine')}
+            />
           </TouchableOpacity>
           <Gap height={24} />
           <Menu
