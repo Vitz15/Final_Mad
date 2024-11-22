@@ -10,7 +10,6 @@ const CustomBottomNav = ({type, onPress, onPress2}) => {
         <TouchableOpacity>
           <HomeW />
         </TouchableOpacity>
-        {/* Profile Tab */}
         <TouchableOpacity onPress={onPress2}>
           <Profile />
         </TouchableOpacity>
@@ -20,11 +19,9 @@ const CustomBottomNav = ({type, onPress, onPress2}) => {
   if (type === 'Profile') {
     return (
       <View style={styles.container}>
-        {/* Home Tab */}
         <TouchableOpacity onPress={onPress}>
           <Home />
         </TouchableOpacity>
-        {/* Profile Tab */}
         <TouchableOpacity onPress={onPress2}>
           <ProfileW />
         </TouchableOpacity>
@@ -34,11 +31,9 @@ const CustomBottomNav = ({type, onPress, onPress2}) => {
   if (type === 'Other') {
     return (
       <View style={styles.container}>
-        {/* Home Tab */}
         <TouchableOpacity onPress={onPress}>
           <Home />
         </TouchableOpacity>
-        {/* Profile Tab */}
         <TouchableOpacity onPress={onPress2}>
           <Profile />
         </TouchableOpacity>
