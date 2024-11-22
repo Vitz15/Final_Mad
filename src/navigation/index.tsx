@@ -9,11 +9,15 @@ import Threat from '../pages/CheckThreat';
 import Virus from '../pages/VirusList';
 import CartPage from '../pages/Cart';
 import CustomBottomNav from '../components/molecules/NavBar';
+import ProductListScreen from '../pages/OrderMedicine';
+import {CartProvider} from '../context/CartContext';
+import AboutUs from '../pages/AboutUs';
+import Profile from '../pages/Profile';
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
   return (
-    <>
+    <CartProvider>
       <Stack.Navigator>
         <Stack.Screen
           name="SplashScreen"
@@ -47,7 +51,7 @@ const Navigator = () => {
         />
         <Stack.Screen
           name="OrderMedicine"
-          component={OrderMedicine}
+          component={ProductListScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen
@@ -60,8 +64,18 @@ const Navigator = () => {
           component={Virus}
           options={{headerShown: false}}
         />
+        <Stack.Screen
+          name="About"
+          component={AboutUs}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
-    </>
+    </CartProvider>
   );
 };
 

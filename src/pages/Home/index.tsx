@@ -16,23 +16,9 @@ import {Presc} from '../../assets/icon';
 import {Symp} from '../../assets/icon';
 import {About} from '../../assets/icon';
 import {getDatabase, ref, onValue} from 'firebase/database';
+import CustomBottomNav from '../../components/molecules/NavBar';
 
-const Home = ({navigation, route}) => {
-  const {uid} = route.params;
-  const [username, setUsername] = useState('');
-
-  useEffect(() => {
-    const db = getDatabase();
-    const userRef = ref(db, 'users/' + uid);
-    onValue(userRef, snapshot => {
-      const data = snapshot.val();
-      setUsername(data.username);
-    });
-  }, []);
-  const handleOrderPress = () => {
-    navigation.navigate('OrderMedicine');
-  };
-
+const Home = ({navigation}) => {
   return (
     <View style={styles.page}>
       <ScrollView contentContainerStyle={styles.scroll}>
@@ -49,12 +35,11 @@ const Home = ({navigation, route}) => {
         </View>
         <View style={styles.menuContainer}>
           <Gap height={11} />
-          <TouchableOpacity onPress={handleOrderPress}>
-            <Menu
-              icon={OrderM}
-              onPress={() => navigation.navigate('OrderMedicine')}
-            />
-          </TouchableOpacity>
+
+          <Menu
+            icon={OrderM}
+            onPress={() => navigation.navigate('OrderMedicine')}
+          />
           <Gap height={24} />
           <Menu
             icon={Presc}
@@ -75,6 +60,10 @@ const Home = ({navigation, route}) => {
           />
         </View>
       </ScrollView>
+      <CustomBottomNav
+        type="Home"
+        onPress2={() => navigation.navigate('Profile')}
+      />
     </View>
   );
 };

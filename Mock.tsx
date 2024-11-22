@@ -5,11 +5,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CartPage from './src/pages/Cart';
 import ProductListScreen from './src/pages/OrderMedicine';
+import CustomBottomNav from './src/components/molecules/NavBar';
 const Stack = createNativeStackNavigator();
 
 const Mock = () => {
   return (
-    <NavBar />
+    <CustomBottomNav />
     // <NavigationContainer>
     //   <AboutUs />
     //   {/* <CartProvider>
