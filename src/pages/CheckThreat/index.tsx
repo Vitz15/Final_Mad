@@ -16,28 +16,35 @@ import {
   SearchLogo,
 } from '../../assets/icon';
 import {Gap} from '../../components/atoms';
+import CustomBottomNav from '../../components/molecules/NavBar';
 
-const Threat = () => {
+const Threat = ({navigation}) => {
   const text = 'Subarachnoid \nHemorrhage';
 
   return (
-    <ScrollView style={styles.container}>
+    <View>
       <Search placeholder="What is your concern? " icon={SearchLogo} />
-      <View>
-        <Text style={styles.Title}>Try This Prescription</Text>
-        <ListBar text="High Blood" type="left" source={High} />
-        <ListBar text="Blood Sugar" type="right" source={Sugar} />
-        <ListBar text="Diphteria" type="left" source={Diphteria} />
-        <ListBar text="CSF          " type="right" source={CSF} />
-        <ListBar text="Asthma" type="left" source={Asthma} />
-        <ListBar text="Heart Attack" type="right" source={ChestPain} />
-        <ListBar text="Meningtis" type="left" source={Malaria} />
-        <ListBar text="Gerd         " type="right" source={Gerd} />
-        <ListBar text={text} type="left" source={Sepsis} />
-        <ListBar text="Diarhea   " type="right" source={Diarhea} />
-        <Gap height={30} />
-      </View>
-    </ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+        <View>
+          <Text style={styles.Title}>Try This Prescription</Text>
+          <ListBar text="High Blood" type="left" source={High} />
+          <ListBar text="Blood Sugar" type="right" source={Sugar} />
+          <ListBar text="Diphteria" type="left" source={Diphteria} />
+          <ListBar text="CSF          " type="right" source={CSF} />
+          <ListBar text="Asthma" type="left" source={Asthma} />
+          <ListBar text="Heart Attack" type="right" source={ChestPain} />
+          <ListBar text="Meningtis" type="left" source={Malaria} />
+          <ListBar text="Gerd         " type="right" source={Gerd} />
+          <ListBar text={text} type="left" source={Sepsis} />
+          <ListBar text="Diarhea   " type="right" source={Diarhea} />
+          <Gap height={30} />
+          <CustomBottomNav
+            type="Other"
+            onPress2={() => navigation.navigate('Profile')}
+          />
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -52,6 +59,6 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   container: {
-    backgroundColor: 'white'
-  }
+    backgroundColor: 'white',
+  },
 });

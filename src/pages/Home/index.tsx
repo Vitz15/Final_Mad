@@ -21,11 +21,15 @@ import CustomBottomNav from '../../components/molecules/NavBar';
 const Home = ({navigation}) => {
   return (
     <View style={styles.page}>
-      <ScrollView contentContainerStyle={styles.scroll}>
-        <Top />
+      <Top />
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.Scroll}>
         <Gap height={35} />
         <View style={styles.iconContainer}>
-          <MiniBox text="Health Routine" icon={HealthR} />
+          <MiniBox
+            text="Health Routine"
+            icon={HealthR}
+            onPress={() => navigation.navigate('HealthRoutine')}
+          />
           <MiniBox text="Transaction" icon={Trans} />
           <MiniBox
             text="Virus List"
@@ -71,15 +75,16 @@ const Home = ({navigation}) => {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
+    backgroundColor: 'white',
   },
   scroll: {
     flexGrow: 0,
-    maxHeight: '84%',
-    backgroundColor: 'white',
+    maxHeight: '70%',
   },
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
+    backgroundColor: 'white',
   },
   menuContainer: {
     backgroundColor: 'white',

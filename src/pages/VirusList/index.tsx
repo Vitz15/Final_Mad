@@ -17,86 +17,99 @@ import {
   Chickenpox,
 } from '../../assets/icon/virus';
 import {Button, Gap} from '../../components/atoms';
+import Top from '../../components/molecules/Top';
+import CustomBottomNav from '../../components/molecules/NavBar';
 
 const Virus = ({navigation}) => {
   return (
-    <ScrollView>
-      <Button
-        style={styles.title}
+    <View style={styles.colorback}>
+      <Top
+        type="profile"
         text="Virus List"
-        type="arrow-back"
+        backgroundColor="#78C194"
         onPress={() => navigation.goBack()}
       />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Gap height={30} />
+        <View style={styles.container}>
+          <Hiv style={styles.virusLeft} />
+          <Text style={styles.textLeft}>HIV</Text>
+          <TopRight style={styles.left} />
 
-      <View style={styles.container}>
-        <Hiv style={styles.virusLeft} />
-        <Text style={styles.textLeft}>HIV</Text>
-        <TopRight style={styles.left} />
+          <Hepatitis style={styles.virusRight} />
+          <Text style={styles.textRight}>HEPATITIS</Text>
+          <BottomLeft style={styles.right} />
+        </View>
+        <Gap height={6} />
+        <View style={styles.container}>
+          <Herpes style={styles.virusLeft} />
+          <Text style={styles.textLeft}>HERPES</Text>
+          <BottomRight style={styles.left} />
+          <Rabies style={styles.virusRight} />
+          <Text style={styles.textRight}>RABIES</Text>
+          <TopLeft style={styles.right} />
+        </View>
+        <Gap height={6} />
+        <View style={styles.container}>
+          <Pollo style={styles.virusLeft} />
+          <Text style={styles.textLeft}>POLLO</Text>
+          <TopRight style={styles.left} />
+          <Papilloma style={styles.virusRight} />
+          <Text style={styles.textRight}>PAPILLOMA</Text>
+          <BottomLeft style={styles.right} />
+        </View>
+        <Gap height={6} />
+        <View style={styles.container}>
+          <Mumps style={styles.virusLeft} />
+          <Text style={styles.textLeft}>MUMPS</Text>
+          <BottomRight style={styles.left} />
+          <Lassa style={styles.virusRight} />
+          <Text style={styles.textRight}>LASSA</Text>
+          <TopLeft style={styles.right} />
+        </View>
+        <Gap height={6} />
 
-        <Hepatitis style={styles.virusRight} />
-        <Text style={styles.textRight}>HEPATITIS</Text>
-        <BottomLeft style={styles.right} />
-      </View>
-      <Gap height={6} />
-      <View style={styles.container}>
-        <Herpes style={styles.virusLeft} />
-        <Text style={styles.textLeft}>HERPES</Text>
-        <BottomRight style={styles.left} />
-        <Rabies style={styles.virusRight} />
-        <Text style={styles.textRight}>RABIES</Text>
-        <TopLeft style={styles.right} />
-      </View>
-      <Gap height={6} />
-      <View style={styles.container}>
-        <Pollo style={styles.virusLeft} />
-        <Text style={styles.textLeft}>POLLO</Text>
-        <TopRight style={styles.left} />
-        <Papilloma style={styles.virusRight} />
-        <Text style={styles.textRight}>PAPILLOMA</Text>
-        <BottomLeft style={styles.right} />
-      </View>
-      <Gap height={6} />
-      <View style={styles.container}>
-        <Mumps style={styles.virusLeft} />
-        <Text style={styles.textLeft}>MUMPS</Text>
-        <BottomRight style={styles.left} />
-        <Lassa style={styles.virusRight} />
-        <Text style={styles.textRight}>LASSA</Text>
-        <TopLeft style={styles.right} />
-      </View>
-      <Gap height={6} />
-
-      <View style={styles.container}>
-        <Chikungunya style={styles.virusLeft} />
-        <Text style={styles.textLeft}>CHIKUGUNYA</Text>
-        <TopRight style={styles.left} />
-        <Rota style={styles.virusRight} />
-        <Text style={styles.textRight}>ROTA</Text>
-        <BottomLeft style={styles.right} />
-      </View>
-      <Gap height={6} />
-      <View style={styles.container}>
-        <Noro style={styles.virusLeft} />
-        <Text style={styles.textLeft}>NORO</Text>
-        <BottomRight style={styles.left} />
-        <Zika style={styles.virusRight} />
-        <Text style={styles.textRight}>ZIKA</Text>
-        <TopLeft style={styles.right} />
-      </View>
-      <View style={styles.container}>
-        <Chickenpox style={styles.virusLast} />
-        <Text style={styles.textLast}>
-          Chickenpox Virus {'\n'}(Varicella Zoster Virus)
-        </Text>
-        <View style={styles.last} />
-      </View>
-    </ScrollView>
+        <View style={styles.container}>
+          <Chikungunya style={styles.virusLeft} />
+          <Text style={styles.textLeft}>CHIKUGUNYA</Text>
+          <TopRight style={styles.left} />
+          <Rota style={styles.virusRight} />
+          <Text style={styles.textRight}>ROTA</Text>
+          <BottomLeft style={styles.right} />
+        </View>
+        <Gap height={6} />
+        <View style={styles.container}>
+          <Noro style={styles.virusLeft} />
+          <Text style={styles.textLeft}>NORO</Text>
+          <BottomRight style={styles.left} />
+          <Zika style={styles.virusRight} />
+          <Text style={styles.textRight}>ZIKA</Text>
+          <TopLeft style={styles.right} />
+        </View>
+        <View style={styles.container}>
+          <Chickenpox style={styles.virusLast} />
+          <Text style={styles.textLast}>
+            Chickenpox Virus {'\n'}(Varicella Zoster Virus)
+          </Text>
+          <View style={styles.last} />
+        </View>
+      </ScrollView>
+      <Gap height={35} />
+      <CustomBottomNav
+        type="Other"
+        onPress2={() => navigation.navigate('Profile')}
+        onPress={() => navigation.navigate('Home')}
+      />
+    </View>
   );
 };
 
 export default Virus;
 
 const styles = StyleSheet.create({
+  colorback: {
+    backgroundColor: 'white',
+  },
   title: {
     fontFamily: 'SF-Pro-Display-Medium',
     fontSize: 24,
@@ -110,6 +123,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 16,
+    backgroundColor: 'white',
   },
 
   left: {

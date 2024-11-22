@@ -22,7 +22,8 @@ const CustomBottomNav = ({type, onPress, onPress2}) => {
         <TouchableOpacity onPress={onPress}>
           <Home />
         </TouchableOpacity>
-        <TouchableOpacity onPress={onPress2}>
+        {/* Profile Tab */}
+        <TouchableOpacity>
           <ProfileW />
         </TouchableOpacity>
       </View>

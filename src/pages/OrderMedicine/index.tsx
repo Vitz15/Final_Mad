@@ -53,7 +53,9 @@ const ProductListScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Search placeholder="Find Your Medicine?" icon={SearchLogo} />
-      <ScrollView style={styles.scrollView}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={styles.scrollView}>
         {products.map(product => (
           <MedicationCard
             key={product.id}
