@@ -1,24 +1,37 @@
-import React from 'react';
-import {StyleSheet, ScrollView, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  View,
+} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import Top from '../../components/molecules/Top';
 import {Footer, Menu} from '../../components/molecules';
 import {MiniBox, Gap} from '../../components/atoms';
-import {
-  HealthR,
-  Virus,
-  Trans,
-  OrderM,
-  Presc,
-  Symp,
-  About,
-} from '../../assets/icon';
-import NavBar from '../../components/molecules/NavBar';
+import {HealthR, Virus} from '../../assets/icon';
+import {Trans} from '../../assets/icon';
+import {OrderM} from '../../assets/icon';
+import {Presc} from '../../assets/icon';
+import {Symp} from '../../assets/icon';
+import {About} from '../../assets/icon';
+import OrderMedicine from '../OrderMedicine';
+import {getDatabase, ref, onValue} from 'firebase/database';
 
-const Home = ({navigation}) => {
-  // Fungsi handleOrderPress
+const Home = ({navigation, route}) => {
+  const {uid} = route.params;
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    const db = getDatabase();
+    const userRef = ref(db, 'users/' + uid);
+    onValue(userRef, snapshot => {
+      const data = snapshot.val();
+      setUsername(data.username);
+    });
+  }, []);
   const handleOrderPress = () => {
-    console.log('Order Medicine button pressed');
-    navigation.navigate('OrderMedicine'); // Navigasi ke halaman OrderMedicine
+    navigation.navigate('OrderMedicine');
   };
 
   return (
@@ -27,9 +40,13 @@ const Home = ({navigation}) => {
         <Top />
         <Gap height={35} />
         <View style={styles.iconContainer}>
-          <MiniBox icon={HealthR} onPress={() => {}} />
-          <MiniBox icon={Trans} onPress={() => {}} />
-          <MiniBox icon={Virus} onPress={() => {}} />
+          <MiniBox text="Health Routine" icon={HealthR} />
+          <MiniBox text="Transaction" icon={Trans} />
+          <MiniBox
+            text="Virus List"
+            icon={Virus}
+            onPress={() => navigation.navigate('Virus')}
+          />
         </View>
         <View style={styles.menuContainer}>
           <Gap height={11} />
@@ -37,11 +54,23 @@ const Home = ({navigation}) => {
             <Menu icon={OrderM} onPress={() => {}} />
           </TouchableOpacity>
           <Gap height={24} />
-          <Menu icon={Presc} label="Prescription" onPress={() => {}} />
+          <Menu
+            icon={Presc}
+            label="Prescription"
+            onPress={() => navigation.navigate('Threat')}
+          />
           <Gap height={24} />
-          <Menu icon={Symp} label="Check Your Symptom" onPress={() => {}} />
+          <Menu
+            icon={Symp}
+            label="Check Your Symptom"
+            onPress={() => navigation.navigate('Sickness')}
+          />
           <Gap height={24} />
-          <Menu icon={About} label="About Us" onPress={() => {}} />
+          <Menu
+            icon={About}
+            label="About Us"
+            onPress={() => navigation.navigate('About')}
+          />
         </View>
       </ScrollView>
       <NavBar navigation={navigation} />

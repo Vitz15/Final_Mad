@@ -30,16 +30,21 @@ import Metformin from './Metformin.svg';
 import Paracetamol from './paracetamol.svg';
 import Paramex from './Paramex.svg';
 import OrderM from './OrderMedicine.svg';
+import Back from './back-button.svg';
+import TopRight from './top-right.svg';
+import BottomRight from './bottom-right.svg';
+import TopLeft from './top-left.svg';
+import BottomLeft from './bottom-left.svg';
 import Presc from './Prescription.svg';
 import Symp from './symptom.svg';
 import About from './AboutUS.svg';
-import Back from './back-button.svg';
-import HomeIcon from '../icon/cottage.svg';
-import ProfileIcon from '../icon/account_circle.svg';
-import HomeIconW from '../icon/cottage_w.svg';
-import ProfileIconW from '../icon/account_circle_w.svg';
-
+import ArrowBack from './ArrowBack.svg';
+import Loading from './Loading.json';
+import eyeopen from './eye-open.svg';
+import eyeslash from './eye-slash.svg';
 export {
+  eyeopen,
+  eyeslash,
   Symp,
   About,
   Presc,
@@ -76,8 +81,10 @@ export {
   Paramex,
   OrderM,
   Back,
-  HomeIcon,
-  ProfileIcon,
-  ProfileIconW,
-  HomeIconW,
+  TopLeft,
+  TopRight,
+  BottomLeft,
+  BottomRight,
+  ArrowBack,
+  Loading,
 };

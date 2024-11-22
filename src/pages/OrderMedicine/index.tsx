@@ -1,47 +1,71 @@
 import React from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {HomeIconW, ProfileIconW} from '../../../assets/icon';
+import {StyleSheet, ScrollView, View, Image} from 'react-native';
+import MedicationCard from '../../components/molecules/MedicineCard';
+import Search from '../../components/molecules/Search';
+import {SearchLogo} from '../../assets/icon';
+import {Button} from '../../components/atoms';
+import {
+  Penicilin,
+  Amlodipine,
+  Amoxan,
+  Aspirin,
+  Loperamide,
+  Metformin,
+  Paracetamol,
+  Paramex,
+} from '../../assets/icon';
 
-interface NavBarProps {
-  navigation: any;
-}
+const ProductListScreen = ({navigation}) => {
+  const products = [
+    {
+      id: 1,
+      name: 'Paracetamol',
+      price: 5000,
+      image: require('../../assets/icon/paracetamol.svg'),
+    },
+    {
+      id: 2,
+      name: 'Paramex',
+      price: 7500,
+    },
+    {
+      id: 3,
+      name: 'Penicilin',
+      price: 20000,
+    },
+  ];
 
-const NavBar: React.FC<NavBarProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Home')}
-        style={styles.button}>
-        <HomeIconW /> {/* Icon only */}
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        onPress={() => navigation.navigate('CheckSickness')}
-        style={styles.button}>
-        <ProfileIconW /> {/* Icon only */}
-      </TouchableOpacity>
+      <Search placeholder="Find Your Medicine?" icon={SearchLogo} />
+      <ScrollView style={styles.scrollView}>
+        {products.map(product => (
+          <MedicationCard
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            imageSource={Penicilin}
+          />
+        ))}
+      </ScrollView>
+      <Button
+        text="Add To Cart"
+        type="normal"
+        onPress={() => navigation.navigate('Cart')}
+      />
     </View>
   );
 };
 
-export default NavBar;
+export default ProductListScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#6FCF97',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    paddingVertical: 10,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    flex: 1,
+    backgroundColor: '#fff',
   },
-  button: {
-    paddingHorizontal: 15,
-    paddingVertical: 5,
+  scrollView: {
+    marginTop: 10,
   },
 });

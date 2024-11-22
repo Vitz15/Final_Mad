@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   wrapper: {
     alignItems: 'center',
     marginHorizontal: 35,
+    transform: [{translateX: 10}, {translateY: 0}],
   },
   text: {
     marginTop: 0,

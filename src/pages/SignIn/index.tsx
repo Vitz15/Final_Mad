@@ -1,29 +1,72 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Gap} from '../../components/atoms';
-import {Header, TextInput, WhiteBar, Footer} from '../../components/molecules';
+import {
+  Header,
+  TextInput,
+  Loading,
+  WhiteBar,
+  Footer,
+} from '../../components/molecules';
 import {Lock, Mail, User} from '../../assets/icon';
+import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
+import {showMessage} from 'react-native-flash-message';
 
 const SignIn = ({navigation}) => {
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const auth = getAuth();
+  const onSubmit = () => {
+    setLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        // Signed in
+        const user = userCredential.user;
+        // console.log(user);
+        setLoading(false);
+        showMessage({
+          message: 'Login Berhasil',
+          type: 'success',
+        });
+        navigation.navigate('Home', {uid: user.uid});
+      })
+      .catch(error => {
+        setLoading(false);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        showMessage({
+          message: error.message,
+          type: 'danger',
+        });
+      });
+  };
   return (
-    <ScrollView style={styles.container}>
-      <Header text="Sign In" text2="Sign Up" type="signPage" padding={95} />
-      <WhiteBar marginLeft={87} />
-      <Text style={styles.Title}>Welcome!</Text>
-      <Gap height={24} />
-      <TextInput placeholder="Username" icon={User} />
-      <Gap height={24} />
-      <TextInput placeholder="Password" icon={Lock} />
-      <Text style={styles.forgot}>Forgot Password?</Text>
-      <Gap height={30} />
-      <Button
-        text="Sign In"
-        type="normal"
-        onPress={() => navigation.navigate('Home')}
-      />
-      <Gap height={305} />
-      <Footer />
-    </ScrollView>
+    <>
+      <ScrollView style={styles.container}>
+        <Header text="Sign In" text2="Sign Up" type="signPage" padding={95} />
+        <WhiteBar marginLeft={87} />
+        <Text style={styles.Title}>Welcome!</Text>
+        <Gap height={24} />
+        <TextInput
+          placeholder="Email"
+          icon={Mail}
+          onChangeText={value => setEmail(value)}
+        />
+        <Gap height={24} />
+        <TextInput
+          placeholder="Password"
+          icon={Lock}
+          onChangeText={value => setPassword(value)}
+          secureTextEntry={true}
+        />
+        <Gap height={30} />
+        <Button text="Sign In" type="normal" onPress={onSubmit} />
+        <Gap height={320} />
+        <Footer />
+      </ScrollView>
+      {loading && <Loading />}
+    </>
   );
 };
 

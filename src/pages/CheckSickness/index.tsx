@@ -17,12 +17,12 @@ import {
 } from '../../assets/icon';
 import {Gap} from '../../components/atoms';
 
-const Virus = () => {
+const Sickness = () => {
   return (
-    <ScrollView>
+    <ScrollView style={styles.container}>
       <Search placeholder="Find Your Symptom" icon={SearchLogo} />
+      <Text style={styles.Title}>Where does it hurt You?</Text>
       <View>
-        <Gap height={33} />
         <ListBar text="Fever" type="left" source={Fever} />
         <Gap height={20} />
         <ListBar text="Pneunomia" type="right" source={Pneunomia} />
@@ -44,4 +44,17 @@ const Virus = () => {
   );
 };
 
-export default Virus;
+export default Sickness;
+
+const styles = StyleSheet.create({
+  Title: {
+    textAlign: 'center',
+    fontFamily: 'SF-Pro-Display-Bold',
+    fontSize: 24,
+    color: 'black',
+    marginTop: 24,
+  },
+  container: {
+    backgroundColor: 'white'
+  }
+});

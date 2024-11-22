@@ -2,21 +2,21 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Picture, Back} from '../../../assets/icon';
 
-const Top = ({type, onBackPress}) => {
+const Top = ({type, onBackPress,text}) => {
   if (type === 'profile') {
     return (
       <View style={styles.usercontainer}>
         <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
           <Back style={styles.backIcon} />
         </TouchableOpacity>
-        <Text style={styles.title}>User Profile</Text>
+        <Text style={styles.title}>{text}</Text>
       </View>
     );
   }
   return (
     <View style={styles.container}>
       <View style={styles.profileContainer}>
-        <Picture style={styles.profileImage}/>
+        <Picture style={styles.profileImage} />
         <View style={styles.textContainer}>
           <Text style={styles.name}>John Doe</Text>
           <Text style={styles.message}>Hope You Stay Healthy!</Text>
@@ -35,10 +35,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderBottomRightRadius: 20,
     borderBottomLeftRadius: 20,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
   },
   profileContainer: {
     flexDirection: 'row',
