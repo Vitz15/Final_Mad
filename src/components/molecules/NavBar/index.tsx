@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {HomeIconW, ProfileIconW} from '../../../assets/icon';
+import HomeIconW from '../../../assets/icon/HomeIconW.svg';
+import ProfileIconW from '../../../assets/icon/ProfileIconW.svg';
 
 interface NavBarProps {
   navigation: any;
@@ -12,13 +13,13 @@ const NavBar: React.FC<NavBarProps> = ({navigation}) => {
       <TouchableOpacity
         onPress={() => navigation.navigate('Home')}
         style={styles.button}>
-        <HomeIconW /> {/* Icon only */}
+        <HomeIconW width={24} height={24} /> {/* Home Icon */}
       </TouchableOpacity>
 
       <TouchableOpacity
         onPress={() => navigation.navigate('CheckSickness')}
         style={styles.button}>
-        <ProfileIconW /> {/* Icon only */}
+        <ProfileIconW width={24} height={24} /> {/* Profile Icon */}
       </TouchableOpacity>
     </View>
   );

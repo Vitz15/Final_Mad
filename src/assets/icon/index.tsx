@@ -34,11 +34,10 @@ import Presc from './Prescription.svg';
 import Symp from './symptom.svg';
 import About from './AboutUS.svg';
 import Back from './back-button.svg';
-import HomeIcon from './cottage.svg';
-import ProfileIcon from './account_circle.svg';
-import HomeIconW from './cottage_w.svg';
-import ProfileIconW from './account_circle_w.svg';
-
+import HomeIcon from '../icon/cottage.svg';
+import ProfileIcon from '../icon/account_circle.svg';
+import HomeIconW from '../icon/cottage_w.svg';
+import ProfileIconW from '../icon/account_circle_w.svg';
 
 export {
   Symp,
