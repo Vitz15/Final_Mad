@@ -13,6 +13,7 @@ import ProductListScreen from '../pages/OrderMedicine';
 import {CartProvider} from '../context/CartContext';
 import AboutUs from '../pages/AboutUs';
 import Profile from '../pages/Profile';
+import HealthRoutine from '../pages/HealthRoutine';
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -57,6 +58,11 @@ const Navigator = () => {
         <Stack.Screen
           name="Cart"
           component={CartPage}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HealthRoutine"
+          component={HealthRoutine}
           options={{headerShown: false}}
         />
         <Stack.Screen
