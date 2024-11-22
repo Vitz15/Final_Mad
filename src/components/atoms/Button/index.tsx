@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
     borderLeftWidth: 1,
     borderRightWidth: 1,
     borderColor: '#D4D4D4',
-    marginBottom: 34,
   },
   profile: {
     width: 50,

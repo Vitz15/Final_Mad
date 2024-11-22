@@ -17,8 +17,9 @@ export const CartProvider = ({children}) => {
         ...prevCart,
         [id]: {
           ...prevCart[id],
-          ...product,
-          total: product.price * product.quantity,
+          ...product, // Spread the product object
+          imageSource: product.imageSource, // Include imageSource here
+          total: product.price * product.quantity, // Calculate total
         },
       };
     });
@@ -26,7 +27,7 @@ export const CartProvider = ({children}) => {
 
   const getTotalPrice = () => {
     return Object.values(cart).reduce(
-      (sum, item) => sum + (item.total || 0),
+      (sum, item) => sum + (item.total || 0) + 1500,
       0,
     );
   };

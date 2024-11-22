@@ -27,7 +27,7 @@ import Amoxan from './Amoxan.svg';
 import Aspirin from './Aspirin.svg';
 import Loperamide from './Loperamide.svg';
 import Metformin from './Metformin.svg';
-import Paracetamol from './paracetamol.svg';
+import Paracetamol from './paracetamol.jpg';
 import Paramex from './Paramex.svg';
 import OrderM from './OrderMedicine.svg';
 import Back from './back-button.svg';
