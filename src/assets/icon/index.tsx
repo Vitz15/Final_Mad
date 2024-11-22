@@ -22,13 +22,6 @@ import High from './High.svg';
 import Sugar from './Sugar.svg';
 import Diphteria from './Diphteria.svg';
 import CSF from './CSF.svg';
-import Amlodipine from './Amlodipine.svg';
-import Amoxan from './Amoxan.svg';
-import Aspirin from './Aspirin.svg';
-import Loperamide from './Loperamide.svg';
-import Metformin from './Metformin.svg';
-import Paracetamol from './paracetamol.svg';
-import Paramex from './Paramex.svg';
 import OrderM from './OrderMedicine.svg';
 import Back from './back-button.svg';
 import TopRight from './top-right.svg';
@@ -72,13 +65,6 @@ export {
   CSF,
   High,
   Diphteria,
-  Amlodipine,
-  Amoxan,
-  Aspirin,
-  Loperamide,
-  Metformin,
-  Paracetamol,
-  Paramex,
   OrderM,
   Back,
   TopLeft,

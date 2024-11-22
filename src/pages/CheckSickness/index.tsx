@@ -24,21 +24,18 @@ const Sickness = () => {
       <Text style={styles.Title}>Where does it hurt You?</Text>
       <View>
         <ListBar text="Fever" type="left" source={Fever} />
-        <Gap height={20} />
         <ListBar text="Pneunomia" type="right" source={Pneunomia} />
+
         <ListBar text="Stroke" type="left" source={Stroke} />
-        <Gap height={20} />
         <ListBar text="Influenza" type="right" source={Flu} />
+
         <ListBar text="Asthma" type="left" source={Asthma} />
-        <Gap height={20} />
-        <ListBar text="Chest Pain" type="right" source={ChestPain} />
+        <ListBar text="Chest Pain  " type="right" source={ChestPain} />
+
         <ListBar text="Malaria" type="left" source={Malaria} />
-        <Gap height={20} />
-        <ListBar text="Gerd" type="right" source={Gerd} />
+        <ListBar text="Gerd         " type="right" source={Gerd} />
         <ListBar text="Sepsis" type="left" source={Sepsis} />
-        <Gap height={30} />
-        <ListBar text="Diarhea" type="right" source={Diarhea} />
-        <Gap height={30} />
+        <ListBar text="Diarhea    " type="right" source={Diarhea} />
       </View>
     </ScrollView>
   );
@@ -55,6 +52,6 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   container: {
-    backgroundColor: 'white'
-  }
+    backgroundColor: 'white',
+  },
 });

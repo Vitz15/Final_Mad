@@ -1,39 +1,52 @@
-import React from 'react';
-import {StyleSheet, ScrollView, View, Image} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, ScrollView, View, ActivityIndicator} from 'react-native';
 import MedicationCard from '../../components/molecules/MedicineCard';
 import Search from '../../components/molecules/Search';
 import {SearchLogo} from '../../assets/icon';
 import {Button} from '../../components/atoms';
-import {
-  Penicilin,
-  Amlodipine,
-  Amoxan,
-  Aspirin,
-  Loperamide,
-  Metformin,
-  Paracetamol,
-  Paramex,
-} from '../../assets/icon';
+import {getDatabase, ref, onValue} from 'firebase/database';
 
 const ProductListScreen = ({navigation}) => {
-  const products = [
-    {
-      id: 1,
-      name: 'Paracetamol',
-      price: 5000,
-      image: require('../../assets/icon/paracetamol.svg'),
-    },
-    {
-      id: 2,
-      name: 'Paramex',
-      price: 7500,
-    },
-    {
-      id: 3,
-      name: 'Penicilin',
-      price: 20000,
-    },
-  ];
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const db = getDatabase();
+    const productsRef = ref(db, 'products');
+
+    const unsubscribe = onValue(
+      productsRef,
+      snapshot => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          const productsArray = Object.keys(data).map(key => ({
+            id: key,
+            name: data[key].name,
+            price: data[key].price,
+            image: {uri: `data:image/jpeg;base64,${data[key].imageBase64}`}, // Convert Base64
+          }));
+          setProducts(productsArray);
+        } else {
+          console.error('No products data found in database.');
+        }
+        setLoading(false);
+      },
+      error => {
+        console.error('Error fetching products:', error);
+        setLoading(false);
+      },
+    );
+
+    return () => unsubscribe(); // Cleanup listener
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={styles.loaderContainer}>
+        <ActivityIndicator size="large" color="#000" />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -45,15 +58,17 @@ const ProductListScreen = ({navigation}) => {
             id={product.id}
             name={product.name}
             price={product.price}
-            imageSource={Penicilin}
+            imageSource={product.image}
           />
         ))}
       </ScrollView>
-      <Button
-        text="Add To Cart"
-        type="normal"
-        onPress={() => navigation.navigate('Cart')}
-      />
+      <View style={styles.button}>
+        <Button
+          text="Add To Cart"
+          type="normal"
+          onPress={() => navigation.navigate('Cart')}
+        />
+      </View>
     </View>
   );
 };
@@ -67,5 +82,19 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginTop: 10,
+    marginLeft: 18,
+  },
+  button: {
+    position: 'absolute',
+    bottom: 70,
+    left: 20,
+    right: 20,
+    paddingVertical: 15,
+    borderRadius: 100,
+  },
+  loaderContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

@@ -26,19 +26,14 @@ const Threat = () => {
       <View>
         <Text style={styles.Title}>Try This Prescription</Text>
         <ListBar text="High Blood" type="left" source={High} />
-        <Gap height={20} />
         <ListBar text="Blood Sugar" type="right" source={Sugar} />
         <ListBar text="Diphteria" type="left" source={Diphteria} />
-        <Gap height={20} />
         <ListBar text="CSF          " type="right" source={CSF} />
         <ListBar text="Asthma" type="left" source={Asthma} />
-        <Gap height={20} />
         <ListBar text="Heart Attack" type="right" source={ChestPain} />
         <ListBar text="Meningtis" type="left" source={Malaria} />
-        <Gap height={20} />
         <ListBar text="Gerd         " type="right" source={Gerd} />
         <ListBar text={text} type="left" source={Sepsis} />
-        <Gap height={30} />
         <ListBar text="Diarhea   " type="right" source={Diarhea} />
         <Gap height={30} />
       </View>

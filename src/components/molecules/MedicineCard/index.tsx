@@ -6,10 +6,15 @@ interface MedicationCardProps {
   id: number;
   name: string;
   price: number;
-  imageSource: any,
+  imageSource: any;
 }
 
-const MedicationCard: React.FC<MedicationCardProps> = ({id, imageSource, name, price}) => {
+const MedicationCard: React.FC<MedicationCardProps> = ({
+  id,
+  imageSource,
+  name,
+  price,
+}) => {
   const [quantity, setQuantity] = useState<number>(0);
   const cartContext = useContext(CartContext);
 
@@ -20,7 +25,7 @@ const MedicationCard: React.FC<MedicationCardProps> = ({id, imageSource, name, p
   const {updateCart} = cartContext;
 
   useEffect(() => {
-    updateCart(id, {id, name, price, quantity});
+    updateCart(id, {id, name, price, quantity, imageSource});
   }, [quantity]);
 
   const increment = () => setQuantity(quantity + 1);
@@ -67,21 +72,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'white',
-    borderRadius: 10,
+    borderRadius: 11,
     padding: 10,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
     marginVertical: 5,
-    borderWidth: 2,
-    borderColor: '#dddd',
-    marginTop: 5,
+    width: 374,
+    borderBottomWidth: 5,
+    borderLeftWidth: 3,
+    borderRightWidth: 3,
+    borderColor: 'rgba(0, 0, 0, 0.13)',
+    marginTop: 31,
   },
   image: {
-    width: 80,
-    height: 80,
-    borderRadius: 8,
+    width: 89,
+    height: 83,
+    borderRadius: 12,
     marginRight: 10,
   },
   textContainer: {
@@ -94,12 +98,12 @@ const styles = StyleSheet.create({
   },
   price: {
     fontFamily: 'SF-Pro-Display-Regular',
-    fontSize: 16,
+    fontSize: 14,
     color: 'black',
   },
   totalPrice: {
     fontFamily: 'SF-Pro-Display-Bold',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#333',
   },
@@ -110,7 +114,7 @@ const styles = StyleSheet.create({
   button: {
     paddingHorizontal: 10,
     paddingVertical: 5,
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: '#ddd',
     borderRadius: 5,
   },

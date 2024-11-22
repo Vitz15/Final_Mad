@@ -1,25 +1,20 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, TouchableOpacity, Text, Image} from 'react-native';
-import Svg, {Path} from 'react-native-svg';
-import {NavBar} from './src/components/molecules';
-import OrderMedicine from './src/pages/OrderMedicine';
 import {CartProvider} from './src/context/CartContext';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CartPage from './src/pages/Cart';
-import HealthRoutine from './src/pages/HealthRoutine';
-import AboutUs from './src/pages/AboutUs';
+import ProductListScreen from './src/pages/OrderMedicine';
 const Stack = createNativeStackNavigator();
 
 const Mock = () => {
   return (
     <NavigationContainer>
-      <AboutUs/>
-      {/* <CartProvider>
+      <CartProvider>
         <Stack.Navigator>
           <Stack.Screen
             name="OrderMedicine"
-            component={OrderMedicine}
+            component={ProductListScreen}
             options={{headerShown: false}}
           />
           <Stack.Screen
@@ -28,7 +23,7 @@ const Mock = () => {
             options={{headerShown: false}}
           />
         </Stack.Navigator>
-      </CartProvider> */}
+      </CartProvider>
     </NavigationContainer>
   );
 };
