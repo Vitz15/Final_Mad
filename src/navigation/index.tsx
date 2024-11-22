@@ -8,9 +8,11 @@ import Sickness from '../pages/CheckSickness';
 import Threat from '../pages/CheckThreat';
 import Virus from '../pages/VirusList';
 import CartPage from '../pages/Cart';
+import CustomBottomNav from '../components/molecules/NavBar';
 import ProductListScreen from '../pages/OrderMedicine';
 import {CartProvider} from '../context/CartContext';
 import AboutUs from '../pages/AboutUs';
+import Profile from '../pages/Profile';
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -65,6 +67,11 @@ const Navigator = () => {
         <Stack.Screen
           name="About"
           component={AboutUs}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

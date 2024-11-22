@@ -1,62 +1,64 @@
-// src/components/molecules/NavBar/index.tsx
-
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
+import {Home, HomeW, Profile, ProfileW} from '../../../assets/icon';
 
-interface NavBarProps {
-  navigation: any;
-}
-
-const NavBar: React.FC<NavBarProps> = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      {/* Tombol Home */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Home')}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Home</Text>
-      </TouchableOpacity>
-
-      {/* Tombol SignIn */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate('SignIn')}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Sign In</Text>
-      </TouchableOpacity>
-
-      {/* Tombol SignUp */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate('SignUp')}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Sign Up</Text>
-      </TouchableOpacity>
-
-      {/* Tombol Sickness */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate('CheckSickness')}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Sickness</Text>
-      </TouchableOpacity>
-    </View>
-  );
+const CustomBottomNav = ({type, onPress, onPress2}) => {
+  if (type === 'Home') {
+    return (
+      <View style={styles.container}>
+        {/* Home Tab */}
+        <TouchableOpacity>
+          <HomeW />
+        </TouchableOpacity>
+        {/* Profile Tab */}
+        <TouchableOpacity onPress={onPress2}>
+          <Profile />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+  if (type === 'Profile') {
+    return (
+      <View style={styles.container}>
+        {/* Home Tab */}
+        <TouchableOpacity onPress={onPress}>
+          <Home />
+        </TouchableOpacity>
+        {/* Profile Tab */}
+        <TouchableOpacity onPress={onPress2}>
+          <ProfileW />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+  if (type === 'Other') {
+    return (
+      <View style={styles.container}>
+        {/* Home Tab */}
+        <TouchableOpacity onPress={onPress}>
+          <Home />
+        </TouchableOpacity>
+        {/* Profile Tab */}
+        <TouchableOpacity onPress={onPress2}>
+          <Profile />
+        </TouchableOpacity>
+      </View>
+    );
+  }
 };
+
+export default CustomBottomNav;
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    borderTopLeftRadius: 55,
+    borderTopRightRadius: 55,
     alignItems: 'center',
     paddingVertical: 10,
-    backgroundColor: '#f8f9fa',
-  },
-  button: {
-    paddingHorizontal: 15,
-    paddingVertical: 5,
-  },
-  buttonText: {
-    fontSize: 16,
-    color: '#007bff',
+    backgroundColor: '#78C194',
+    borderTopWidth: 1,
+    borderColor: '#ddd',
   },
 });
-
-export default NavBar;

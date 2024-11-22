@@ -4,31 +4,43 @@ import {BlurView} from '@react-native-community/blur';
 import Top from '../../components/molecules/Top';
 import {Picture} from '../../assets/icon';
 import {Button} from '../../components/atoms/';
+import CustomBottomNav from '../../components/molecules/NavBar';
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   return (
-    <View style={styles.container}>
-      <Top type="profile" text="User Profile" />
-      <View style={styles.profileContainer}>
-        <Picture style={styles.profileImage} />
-        <Text style={styles.profileName}>John Doe</Text>
-      </View>
-      <View style={styles.information}>
-        <Text style={styles.title}>Your Information</Text>
-        <View style={styles.containerdata}>
-          <Text style={styles.dataName}>Full Name</Text>
-          <Text style={styles.data}>John Alberto Doe</Text>
-          <View style={styles.line} />
-          <Text style={styles.dataName}>Username</Text>
-          <Text style={styles.data}>John Doe</Text>
-          <View style={styles.line} />
-          <Text style={styles.dataName}>Email Address</Text>
-          <Text style={styles.data}>johndoe123@gmail.com</Text>
-          <View style={styles.line} />
+    <>
+      <View style={styles.container}>
+        <Top
+          type="profile"
+          text="User Profile"
+          onBackPress={() => navigation.goBack()}
+        />
+        <View style={styles.profileContainer}>
+          <Picture style={styles.profileImage} />
+          <Text style={styles.profileName}>John Doe</Text>
         </View>
-        <Button type="normal" text="Update Profile" textColor="white" />
+        <View style={styles.information}>
+          <Text style={styles.title}>Your Information</Text>
+          <View style={styles.containerdata}>
+            <Text style={styles.dataName}>Full Name</Text>
+            <Text style={styles.data}>John Alberto Doe</Text>
+            <View style={styles.line} />
+            <Text style={styles.dataName}>Username</Text>
+            <Text style={styles.data}>John Doe</Text>
+            <View style={styles.line} />
+            <Text style={styles.dataName}>Email Address</Text>
+            <Text style={styles.data}>johndoe123@gmail.com</Text>
+            <View style={styles.line} />
+          </View>
+          <Button type="normal" text="Update Profile" textColor="white" />
+        </View>
       </View>
-    </View>
+      <CustomBottomNav
+        type="Profile"
+        onPress={() => navigation.navigate('Home')}
+        onPress2={() => navigation.navigate('Profile')}
+      />
+    </>
   );
 };
 
@@ -60,7 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    paddingBottom: 100,
+    paddingBottom: 125,
   },
   title: {
     fontFamily: 'SF-Pro-Display-Medium',

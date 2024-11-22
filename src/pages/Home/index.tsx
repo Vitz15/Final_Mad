@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Top from '../../components/molecules/Top';
-import {Footer, Menu} from '../../components/molecules';
+import {Menu} from '../../components/molecules';
 import {MiniBox, Gap} from '../../components/atoms';
 import {HealthR, Virus} from '../../assets/icon';
 import {Trans} from '../../assets/icon';
@@ -15,28 +15,14 @@ import {OrderM} from '../../assets/icon';
 import {Presc} from '../../assets/icon';
 import {Symp} from '../../assets/icon';
 import {About} from '../../assets/icon';
-import OrderMedicine from '../OrderMedicine';
 import {getDatabase, ref, onValue} from 'firebase/database';
+import CustomBottomNav from '../../components/molecules/NavBar';
 
-const Home = ({navigation, route}) => {
-  const {uid} = route.params;
-  const [username, setUsername] = useState('');
-
-  useEffect(() => {
-    const db = getDatabase();
-    const userRef = ref(db, 'users/' + uid);
-    onValue(userRef, snapshot => {
-      const data = snapshot.val();
-      setUsername(data.username);
-    });
-  }, []);
-  const handleOrderPress = () => {
-    navigation.navigate('OrderMedicine');
-  };
+const Home = ({navigation}) => {
   return (
-    <View>
-      <Top />
-      <ScrollView style={styles.Scroll}>
+    <View style={styles.page}>
+      <ScrollView contentContainerStyle={styles.scroll}>
+        <Top />
         <Gap height={35} />
         <View style={styles.iconContainer}>
           <MiniBox text="Health Routine" icon={HealthR} />
@@ -49,12 +35,11 @@ const Home = ({navigation, route}) => {
         </View>
         <View style={styles.menuContainer}>
           <Gap height={11} />
-          <TouchableOpacity onPress={handleOrderPress}>
-            <Menu
-              icon={OrderM}
-              onPress={() => navigation.navigate('OrderMedicine')}
-            />
-          </TouchableOpacity>
+
+          <Menu
+            icon={OrderM}
+            onPress={() => navigation.navigate('OrderMedicine')}
+          />
           <Gap height={24} />
           <Menu
             icon={Presc}
@@ -75,18 +60,19 @@ const Home = ({navigation, route}) => {
           />
         </View>
       </ScrollView>
+      <CustomBottomNav
+        type="Home"
+        onPress2={() => navigation.navigate('Profile')}
+      />
     </View>
   );
 };
 
-export default Home;
-
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+  page: {
+    flex: 1,
   },
-  Scroll: {
+  scroll: {
     flexGrow: 0,
     maxHeight: '84%',
     backgroundColor: 'white',
@@ -99,3 +85,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 });
+
+export default Home;
