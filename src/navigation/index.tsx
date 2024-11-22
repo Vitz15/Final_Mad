@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SplashScreen from '../pages/SplashScreen';
 import SignIn from '../pages/SignIn';
@@ -7,8 +6,6 @@ import SignUp from '../pages/SignUp';
 import Home from '../pages/Home';
 import Sickness from '../pages/CheckSickness';
 import Threat from '../pages/CheckThreat';
-import OrderMedicine from '../pages/OrderMedicine';
-import Cart from '../pages/Cart';
 import Virus from '../pages/VirusList';
 import CartPage from '../pages/Cart';
 import CustomBottomNav from '../components/molecules/NavBar';
