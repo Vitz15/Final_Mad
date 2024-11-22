@@ -16,10 +16,11 @@ import {
   SearchLogo,
 } from '../../assets/icon';
 import {Gap} from '../../components/atoms';
+import CustomBottomNav from '../../components/molecules/NavBar';
 
-const Sickness = () => {
+const Sickness = navigation => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <Search placeholder="Find Your Symptom" icon={SearchLogo} />
       <Text style={styles.Title}>Where does it hurt You?</Text>
       <View>
