@@ -19,6 +19,7 @@ import {
   onValue,
 } from 'firebase/database'; // Realtime Database
 import {app} from '../../config/Firebase'; // Your Firebase app config
+import {Loading} from '../../components/molecules';
 
 const CartPage: React.FC = ({navigation}) => {
   const cartContext = useContext(CartContext);
@@ -75,7 +76,6 @@ const CartPage: React.FC = ({navigation}) => {
 
       // Store the order ID for confirmation
       setOrderId(newOrderRef.key);
-      console.log('Order placed with ID: ', newOrderRef.key);
     } catch (error) {
       console.error('Error placing order: ', error);
       Alert.alert(
@@ -94,7 +94,6 @@ const CartPage: React.FC = ({navigation}) => {
       onValue(orderRef, snapshot => {
         const orderData = snapshot.val();
         if (orderData) {
-          console.log('Order confirmed:', orderData);
           Alert.alert('Success', 'Your order has been placed successfully!', [
             {
               text: 'OK',
@@ -169,11 +168,13 @@ const CartPage: React.FC = ({navigation}) => {
           </View>
         </>
       ) : (
-        <Text style={styles.emptyText}>Your cart is empty.</Text>
+        <View style={styles.emptyContainer}>
+          <Text style={styles.emptyText}>Your cart is empty.</Text>
+        </View>
       )}
       {isLoading && (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#0000ff" />
+          <Loading />
           <Text style={styles.loadingText}>Processing your order...</Text>
         </View>
       )}
@@ -187,7 +188,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'space-between',
   },
   title: {
@@ -211,6 +211,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 3,
     borderColor: 'rgba(0, 0, 0, 0.13)',
     marginTop: 31,
+    marginLeft: 20,
   },
   image: {
     width: 80,
@@ -286,13 +287,20 @@ const styles = StyleSheet.create({
   checkoutButton: {
     marginTop: 20,
   },
+  emptyContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   emptyText: {
-    fontSize: 16,
+    fontSize: 19,
+    fontFamily: 'SF-Pro-Display-Bold',
+    bottom: 500,
     color: '#777',
+    alignContent: 'center',
   },
   loadingContainer: {
-    position: 'absolute',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   loadingText: {
     fontSize: 18,

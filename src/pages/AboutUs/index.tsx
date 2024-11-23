@@ -11,9 +11,9 @@ import slides from '../../../slide';
 import OnBoardingItem from '../onBoardingitem';
 import Top from '../../components/molecules/Top';
 import Paginator from '../../../paginator.tsx';
-import { Footer } from '../../components/molecules/index.tsx';
+import {Footer} from '../../components/molecules/index.tsx';
 
-const AboutUs = () => {
+const AboutUs = ({navigation}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef(null);
@@ -24,7 +24,7 @@ const AboutUs = () => {
   const viewConfig = useRef({viewAreaCoveragePercentThreshold: 50}).current;
   return (
     <View style={styles.container}>
-      <Top type="profile" text="About Us" />
+      <Top type="profile" text="About Us" onPress={() => navigation.goBack()} />
       <View>
         <FlatList
           data={slides}
@@ -49,7 +49,6 @@ const AboutUs = () => {
       <Paginator data={slides} scrollX={scrollX} />
       <View style={styles.contact}>
         <Text style={styles.hello}>Also Contact Me At :</Text>
-        
       </View>
     </View>
   );
@@ -70,6 +69,6 @@ const styles = StyleSheet.create({
     color: 'black',
     fontFamily: 'SF-Pro-Display-Medium',
     fontSize: 20,
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 });

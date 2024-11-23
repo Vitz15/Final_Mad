@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  motto : {
+  motto: {
     fontFamily: 'SF-Pro-Display-Bold',
     fontSize: 24,
     color: 'lightblue',
     textAlign: 'center',
     fontWeight: 'bold',
-  }
+  },
 });

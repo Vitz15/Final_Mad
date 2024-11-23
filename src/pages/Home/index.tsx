@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   scroll: {
     flexGrow: 0,
-    maxHeight: '84%',
+    maxHeight: '150%',
     backgroundColor: 'white',
   },
   iconContainer: {
