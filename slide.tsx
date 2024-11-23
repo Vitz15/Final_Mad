@@ -14,7 +14,7 @@ export default [
     id: '2',
     title: 'Lapian, Jonathan',
     description: 'Toast',
-    image: require('./src/assets/icon/lapianAbout.jpg'),
+    image: require('./src/assets/icon/lapianAbout.png'),
     background: require('./src/assets/icon/grassBg.jpg'),
     emailtitle: 'Email Address',
     email: 's22310315@student.unklab.ac.id',
@@ -53,5 +53,5 @@ export default [
     email: 'laheaganteng@gmail.com',
     phone: 'Phone Number',
     number: '+62-896-9562-7930',
-  }
+  },
 ];

@@ -27,8 +27,18 @@ const Threat = ({navigation}) => {
       <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
         <View>
           <Text style={styles.Title}>Try This Prescription</Text>
-          <ListBar text="High Blood" type="left" source={High} />
-          <ListBar text="Blood Sugar" type="right" source={Sugar} />
+          <ListBar
+            text="High Blood"
+            type="left"
+            source={High}
+            onPress={() => navigation.navigate('HighBloodPres')}
+          />
+          <ListBar
+            text="Blood Sugar"
+            type="right"
+            source={Sugar}
+            onPress={() => navigation.navigate('BloodSugarPres')}
+          />
           <ListBar text="Diphteria" type="left" source={Diphteria} />
           <ListBar text="CSF          " type="right" source={CSF} />
           <ListBar text="Asthma" type="left" source={Asthma} />

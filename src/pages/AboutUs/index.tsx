@@ -15,7 +15,9 @@ import {Gmail, Github, Instagram, Vector1} from '../../assets/icon';
 import CustomBottomNav from '../../components/molecules/NavBar';
 import Gap from '../../components/atoms/Gap';
 
-const AboutUs = ({navigation}) => {
+const AboutUs = ({navigation, route}) => {
+  const {uid} = route.params;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef(null);
@@ -71,8 +73,8 @@ const AboutUs = ({navigation}) => {
         <Gap height={30} />
         <CustomBottomNav
           type="Other"
-          onPress2={() => navigation.navigate('Profile')}
-          onPress={() => navigation.navigate('Home')}
+          onPress2={() => navigation.navigate('Profile', {uid: uid})}
+          onPress={() => navigation.navigate('Home', {uid: uid})}
         />
       </View>
     </View>

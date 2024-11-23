@@ -3,7 +3,7 @@ import {StyleSheet, ScrollView, View, ActivityIndicator} from 'react-native';
 import MedicationCard from '../../components/molecules/MedicineCard';
 import Search from '../../components/molecules/Search';
 import {SearchLogo} from '../../assets/icon';
-import {Button} from '../../components/atoms';
+import {Button, Gap} from '../../components/atoms';
 import {getDatabase, ref, onValue} from 'firebase/database';
 import CustomBottomNav from '../../components/molecules/NavBar';
 import Home from '../Home';
@@ -66,6 +66,7 @@ const ProductListScreen = ({navigation}) => {
           />
         ))}
       </ScrollView>
+      <Gap height={70} />
       <View style={styles.button}>
         <Button
           text="Add To Cart"

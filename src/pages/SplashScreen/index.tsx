@@ -10,14 +10,12 @@ const SplashScreen = ({navigation}) => {
   }, []);
   return (
     <View style={styles.container}>
-      <Text style={styles.motto}>Assure You to keep Healthy</Text>
       <LottieView
         source={require('../../assets/icon/logo.json')}
         style={{width: 300, height: 300}}
         autoPlay
         loop={false}
       />
-      <Text style={styles.motto}>Azzure Pharmacy</Text>
     </View>
   );
 };
@@ -27,15 +25,16 @@ export default SplashScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#78C194',
     justifyContent: 'center',
     alignItems: 'center',
+
   },
-  motto : {
+  motto: {
     fontFamily: 'SF-Pro-Display-Bold',
     fontSize: 24,
     color: 'lightblue',
     textAlign: 'center',
     fontWeight: 'bold',
-  }
+  },
 });

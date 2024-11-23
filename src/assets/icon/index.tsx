@@ -47,6 +47,8 @@ import HighBlood from './HighBloodPrescription.svg';
 import Pneunomiaimage from './Pneunomia.svg';
 import Feverimage from './FeverImage.svg';
 import Strokeimage from './StrokeImage.svg';
+import BloodSugar from './BloodSugar.svg';
+
 export {
   Strokeimage,
   Feverimage,
@@ -97,4 +99,5 @@ export {
   HomeW,
   Profile,
   ProfileW,
+  BloodSugar,
 };

@@ -3,8 +3,8 @@
  */
 
 import {AppRegistry} from 'react-native';
-import Mock from './Mock';
+import App from './App';
 import './src/config/Firebase';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => Mock);
+AppRegistry.registerComponent(appName, () => App);
