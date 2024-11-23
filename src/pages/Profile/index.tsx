@@ -1,14 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, TextInput} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import Top from '../../components/molecules/Top';
 import {Picture} from '../../assets/icon';
-
 import {getDatabase, ref, onValue, update} from 'firebase/database';
 import {getAuth} from 'firebase/auth';
-
 import {Button, Gap} from '../../components/atoms/';
-
 import CustomBottomNav from '../../components/molecules/NavBar';
+import {launchImageLibrary} from 'react-native-image-picker';
+import RNFS from 'react-native-fs';
 
 const Profile = ({navigation, route}) => {
   const {uid} = route.params;
@@ -16,6 +22,7 @@ const Profile = ({navigation, route}) => {
   const [userData, setUserData] = useState(null);
   const [username, setUsername] = useState('');
   const [isEditing, setIsEditing] = useState(false);
+  const [photo, setPhoto] = useState(null); 
 
   const auth = getAuth();
   const db = getDatabase();
@@ -29,6 +36,7 @@ const Profile = ({navigation, route}) => {
         if (data) {
           setUserData(data);
           setUsername(data.username);
+          setPhoto(data.photo || null); 
         } else {
           console.log('No user data found');
         }
@@ -36,20 +44,69 @@ const Profile = ({navigation, route}) => {
     } else {
       console.log('User is not authenticated');
     }
-  }, []);
+  }, [uid]);
+
   const handleSave = () => {
     const userRef = ref(db, 'users/' + uid);
-    update(userRef, {
+    const updates = {
       username: username,
-    })
+    };
+    if (photo) {
+      updates.photo = photo; 
+    }
+
+    update(userRef, updates)
       .then(() => {
         setIsEditing(false);
-        setUserData(prevData => ({...prevData, username}));
+        setUserData(prevData => ({...prevData, username, photo}));
         alert('Profile updated successfully!');
       })
       .catch(error => {
         console.error('Error updating profile:', error);
         alert('Failed to update profile.');
+      });
+  };
+
+  const pickImage = () => {
+    launchImageLibrary({mediaType: 'photo', quality: 0.5}, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.errorMessage) {
+        console.log('ImagePicker Error: ', response.errorMessage);
+      } else {
+        const selectedPhoto = response.assets[0].uri;
+        setPhoto(selectedPhoto);
+        convertImageToBase64(selectedPhoto);
+      }
+    });
+  };
+
+  const convertImageToBase64 = uri => {
+    RNFS.readFile(uri, 'base64')
+      .then(base64String => {
+        setPhoto(base64String); 
+        saveImageToDatabase(base64String); 
+      })
+      .catch(error => {
+        console.error('Error converting image to base64:', error);
+      });
+  };
+
+  const saveImageToDatabase = base64Image => {
+    const userRef = ref(db, 'users/' + uid);
+    update(userRef, {photo: base64Image})
+      .then(() => {
+        console.log('Image successfully uploaded to Realtime Database!');
+        onValue(userRef, snapshot => {
+          const data = snapshot.val();
+          if (data) {
+            setUserData(data);
+            setPhoto(data.photo); 
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error uploading image to Realtime Database:', error);
       });
   };
 
@@ -60,12 +117,22 @@ const Profile = ({navigation, route}) => {
       </View>
     );
   }
+
   return (
     <>
       <View style={styles.container}>
-        <Top type="profile" text="User Profile" backgroundColor='#ffffff'/>
+        <Top type="profile" text="User Profile" backgroundColor="#ffffff" />
         <View style={styles.profileContainer}>
-          <Picture style={styles.profileImage} />
+          <TouchableOpacity onPress={pickImage}>
+            {photo ? (
+              <Image
+                source={{uri: `data:image/jpeg;base64,${photo}`}}
+                style={styles.profileImage}
+              />
+            ) : (
+              <Picture style={styles.profileImage} />
+            )}
+          </TouchableOpacity>
           <Text style={styles.profileName}>{userData.username}</Text>
         </View>
 
@@ -134,6 +201,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderColor: 'white',
     borderWidth: 5,
+    width: 100,
+    height: 100,
+    borderRadius: 50,
   },
   profileName: {
     fontFamily: 'SF-Display-Pro-Bold',
@@ -170,7 +240,6 @@ const styles = StyleSheet.create({
     marginLeft: 43,
     marginTop: 20,
   },
-
   line: {
     borderBottomColor: '#000000',
     borderBottomWidth: 1,
