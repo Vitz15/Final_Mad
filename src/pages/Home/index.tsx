@@ -1,4 +1,5 @@
-import {StyleSheet, ScrollView, View} from 'react-native';
+// Home.js
+import {StyleSheet, ScrollView, View, Text, Image} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Top from '../../components/molecules/Top';
 import {Menu} from '../../components/molecules';
@@ -11,12 +12,12 @@ import {Symp} from '../../assets/icon';
 import {About} from '../../assets/icon';
 import {getDatabase, ref, onValue} from 'firebase/database';
 import {getAuth} from 'firebase/auth';
-
 import CustomBottomNav from '../../components/molecules/NavBar';
 
 const Home = ({navigation, route}) => {
   const {uid} = route.params;
   const [userName, setUsername] = useState(null);
+  const [photo, setPhoto] = useState(null);
 
   const auth = getAuth();
   const db = getDatabase();
@@ -29,6 +30,11 @@ const Home = ({navigation, route}) => {
         const data = snapshot.val();
         if (data) {
           setUsername(data.username);
+          if (data.photoBase64) {
+            setPhoto(`data:image/jpg;base64,${data.photoBase64}`);
+          } else {
+            setPhoto(data.photoURL);
+          }
         } else {
           console.log('No user data found');
         }
@@ -36,10 +42,18 @@ const Home = ({navigation, route}) => {
     } else {
       console.log('User is not authenticated');
     }
-  }, []);
+  }, [uid]);
+
+  const isDataLoaded = userName && photo;
+
   return (
     <View style={styles.page}>
-      <Top name={userName} />
+      {isDataLoaded ? (
+        <Top name={userName} photo={photo} />
+      ) : (
+        <Text>Loading...</Text>
+      )}
+
       <ScrollView showsVerticalScrollIndicator={false} style={styles.scroll}>
         <Gap height={35} />
         <View style={styles.iconContainer}>
@@ -61,7 +75,6 @@ const Home = ({navigation, route}) => {
         </View>
         <View style={styles.menuContainer}>
           <Gap height={11} />
-
           <Menu
             icon={OrderM}
             onPress={() => navigation.navigate('OrderMedicine', {uid: uid})}
@@ -101,9 +114,29 @@ const styles = StyleSheet.create({
   },
   scroll: {
     flexGrow: 0,
-    maxHeight: '70%',
-    maxHeight: '150%',
+    maxHeight: '100%',
     backgroundColor: 'white',
+  },
+  profileContainer: {
+    alignItems: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  profilePhoto: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: 'gray',
+  },
+  profileText: {
+    fontSize: 16,
+    color: 'gray',
+  },
+  userName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
   },
   iconContainer: {
     flexDirection: 'row',

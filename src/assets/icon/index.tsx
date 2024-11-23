@@ -48,8 +48,9 @@ import Pneunomiaimage from './Pneunomia.svg';
 import Feverimage from './FeverImage.svg';
 import Strokeimage from './StrokeImage.svg';
 import BloodSugar from './BloodSugar.svg';
-
+import NullP from './Null.jpg';
 export {
+  NullP,
   Strokeimage,
   Feverimage,
   Pneunomiaimage,

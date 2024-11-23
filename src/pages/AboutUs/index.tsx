@@ -30,7 +30,7 @@ const AboutUs = ({navigation, route}) => {
   return (
     <View style={styles.colorback}>
       <View style={styles.container}>
-        <Top type="profile" text="About Us" />
+        <Top type="profile" text="About Us" backgroundColor='#ffffff'/>
         <View>
           <FlatList
             data={slides}

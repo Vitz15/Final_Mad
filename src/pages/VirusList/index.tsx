@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import {TopRight, BottomLeft, BottomRight, TopLeft} from '../../assets/icon';
 import {
   Hiv,
@@ -20,7 +20,9 @@ import {Button, Gap} from '../../components/atoms';
 import Top from '../../components/molecules/Top';
 import CustomBottomNav from '../../components/molecules/NavBar';
 
-const Virus = ({navigation}) => {
+const Virus = ({navigation, route}) => {
+  const {uid} = route.params;
+
   return (
     <View style={styles.colorback}>
       <Top
@@ -97,8 +99,8 @@ const Virus = ({navigation}) => {
       <Gap height={35} />
       <CustomBottomNav
         type="Other"
-        onPress2={() => navigation.navigate('Profile')}
-        onPress={() => navigation.navigate('Home')}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
       />
     </View>
   );

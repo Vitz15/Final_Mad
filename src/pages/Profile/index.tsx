@@ -44,7 +44,7 @@ const Profile = ({navigation, route}) => {
     })
       .then(() => {
         setIsEditing(false);
-        setUserData(prevData => ({...prevData, username})); // Update local state with new username
+        setUserData(prevData => ({...prevData, username}));
         alert('Profile updated successfully!');
       })
       .catch(error => {
@@ -63,11 +63,7 @@ const Profile = ({navigation, route}) => {
   return (
     <>
       <View style={styles.container}>
-        <Top
-          type="profile"
-          text="User Profile"
-          onPress={() => navigation.goBack()}
-        />
+        <Top type="profile" text="User Profile" backgroundColor='#ffffff'/>
         <View style={styles.profileContainer}>
           <Picture style={styles.profileImage} />
           <Text style={styles.profileName}>{userData.username}</Text>
@@ -100,7 +96,7 @@ const Profile = ({navigation, route}) => {
             <View style={styles.line} />
           </View>
 
-          <Gap height={20}/>
+          <Gap height={20} />
 
           <Button
             type="normal"
@@ -108,8 +104,6 @@ const Profile = ({navigation, route}) => {
             textColor="white"
             onPress={() => (isEditing ? handleSave() : setIsEditing(true))}
           />
-
-       
         </View>
       </View>
 
@@ -128,8 +122,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#78C194',
     flex: 1,
-
-  
   },
   profileContainer: {
     alignItems: 'center',
