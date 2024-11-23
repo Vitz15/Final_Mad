@@ -39,11 +39,15 @@ const Home = ({navigation, route}) => {
   }, []);
   return (
     <View style={styles.page}>
-      <ScrollView contentContainerStyle={styles.scroll}>
-        <Top name={userName} />
+      <Top name={userName} />
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.scroll}>
         <Gap height={35} />
         <View style={styles.iconContainer}>
-          <MiniBox text="Health Routine" icon={HealthR} />
+          <MiniBox
+            text="Health Routine"
+            icon={HealthR}
+            onPress={() => navigation.navigate('HealthRoutine')}
+          />
           <MiniBox text="Transaction" icon={Trans} />
           <MiniBox
             text="Virus List"
@@ -89,15 +93,18 @@ const Home = ({navigation, route}) => {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
+    backgroundColor: 'white',
   },
   scroll: {
     flexGrow: 0,
+    maxHeight: '70%',
     maxHeight: '150%',
     backgroundColor: 'white',
   },
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
+    backgroundColor: 'white',
   },
   menuContainer: {
     backgroundColor: 'white',

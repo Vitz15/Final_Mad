@@ -3,8 +3,9 @@ import React, {useState} from 'react';
 import Top from '../../components/molecules/Top';
 import LottieView from 'lottie-react-native';
 import {Picker} from '@react-native-picker/picker';
+import CustomBottomNav from '../../components/molecules/NavBar';
 
-const HealthRoutine = () => {
+const HealthRoutine = ({navigation}) => {
   const [selectedValue, setSelectedValue] = useState('');
 
   return (
@@ -124,6 +125,11 @@ const HealthRoutine = () => {
           </Picker>
         </View>
       </ScrollView>
+      <CustomBottomNav
+        type="Other"
+        onPress2={() => navigation.navigate('Profile')}
+        onPress={() => navigation.navigate('Home')}
+      />
     </View>
   );
 };
@@ -137,7 +143,7 @@ const styles = StyleSheet.create({
   routineContainer: {
     backgroundColor: 'white',
     flexGrow: 0,
-    maxHeight: '80%',
+    maxHeight: '78%',
   },
   scrollContent: {
     alignItems: 'center',

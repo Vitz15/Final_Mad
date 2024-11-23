@@ -2,10 +2,10 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Picture, Back} from '../../../assets/icon';
 
-const Top = ({type, onPress, text, name}) => {
+const Top = ({type, onPress, text, name, backgroundColor = '#FFFFFF'}) => {
   if (type === 'profile') {
     return (
-      <View style={styles.usercontainer}>
+      <View style={[styles.usercontainer, {backgroundColor}]}>
         <TouchableOpacity onPress={onPress} style={styles.backButton}>
           <Back style={styles.backIcon} />
         </TouchableOpacity>
