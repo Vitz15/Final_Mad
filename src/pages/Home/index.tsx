@@ -30,7 +30,11 @@ const Home = ({navigation}) => {
             icon={HealthR}
             onPress={() => navigation.navigate('HealthRoutine')}
           />
-          <MiniBox text="Transaction" icon={Trans} />
+          <MiniBox
+            text="Transaction"
+            icon={Trans}
+            onPress={() => navigation.navigate('Cart')}
+          />
           <MiniBox
             text="Virus List"
             icon={Virus}
