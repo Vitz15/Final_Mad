@@ -1,12 +1,65 @@
-import React from 'react';
-import {StyleSheet, Text, View, Image, ImageBackground} from 'react-native';
-import {BlurView} from '@react-native-community/blur';
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, Text, View, TextInput} from 'react-native';
 import Top from '../../components/molecules/Top';
 import {Picture} from '../../assets/icon';
+
+import {getDatabase, ref, onValue, update} from 'firebase/database';
+import {getAuth} from 'firebase/auth';
+
 import {Button, Gap} from '../../components/atoms/';
+
 import CustomBottomNav from '../../components/molecules/NavBar';
 
-const Profile = ({navigation}) => {
+const Profile = ({navigation, route}) => {
+  const {uid} = route.params;
+
+  const [userData, setUserData] = useState(null);
+  const [username, setUsername] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+
+  const auth = getAuth();
+  const db = getDatabase();
+
+  useEffect(() => {
+    const user = auth.currentUser;
+    if (user) {
+      const userRef = ref(db, 'users/' + uid);
+      onValue(userRef, snapshot => {
+        const data = snapshot.val();
+        if (data) {
+          setUserData(data);
+          setUsername(data.username);
+        } else {
+          console.log('No user data found');
+        }
+      });
+    } else {
+      console.log('User is not authenticated');
+    }
+  }, []);
+  const handleSave = () => {
+    const userRef = ref(db, 'users/' + uid);
+    update(userRef, {
+      username: username,
+    })
+      .then(() => {
+        setIsEditing(false);
+        setUserData(prevData => ({...prevData, username})); // Update local state with new username
+        alert('Profile updated successfully!');
+      })
+      .catch(error => {
+        console.error('Error updating profile:', error);
+        alert('Failed to update profile.');
+      });
+  };
+
+  if (!userData) {
+    return (
+      <View style={styles.container}>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
   return (
     <>
       <View style={styles.container}>
@@ -17,29 +70,53 @@ const Profile = ({navigation}) => {
         />
         <View style={styles.profileContainer}>
           <Picture style={styles.profileImage} />
-          <Text style={styles.profileName}>John Doe</Text>
+          <Text style={styles.profileName}>{userData.username}</Text>
         </View>
+
         <View style={styles.information}>
           <Text style={styles.title}>Your Information</Text>
           <View style={styles.containerdata}>
-            <Text style={styles.dataName}>Full Name</Text>
-            <Text style={styles.data}>John Alberto Doe</Text>
-            <View style={styles.line} />
             <Text style={styles.dataName}>Username</Text>
-            <Text style={styles.data}>John Doe</Text>
+            {isEditing ? (
+              <TextInput
+                style={styles.data}
+                value={username}
+                onChangeText={setUsername}
+              />
+            ) : (
+              <Text style={styles.data}>{userData.username}</Text>
+            )}
+
             <View style={styles.line} />
+
+            <Text style={styles.dataName}>Full Name</Text>
+            <Text style={styles.data}>{userData.fullName}</Text>
+
+            <View style={styles.line} />
+
             <Text style={styles.dataName}>Email Address</Text>
-            <Text style={styles.data}>johndoe123@gmail.com</Text>
+            <Text style={styles.data}>{userData.email}</Text>
+
             <View style={styles.line} />
           </View>
+
           <Gap height={20}/>
-          <Button type="normal" text="Update Profile" textColor="white" />
+
+          <Button
+            type="normal"
+            text={isEditing ? 'Save Changes' : 'Update Profile'}
+            textColor="white"
+            onPress={() => (isEditing ? handleSave() : setIsEditing(true))}
+          />
+
+       
         </View>
       </View>
+
       <CustomBottomNav
         type="Profile"
-        onPress={() => navigation.navigate('Home')}
-        onPress2={() => navigation.navigate('Profile')}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
       />
     </>
   );
@@ -50,7 +127,9 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#78C194',
-    marginBottom: -18
+    flex: 1,
+
+  
   },
   profileContainer: {
     alignItems: 'center',
@@ -99,6 +178,7 @@ const styles = StyleSheet.create({
     marginLeft: 43,
     marginTop: 20,
   },
+
   line: {
     borderBottomColor: '#000000',
     borderBottomWidth: 1,

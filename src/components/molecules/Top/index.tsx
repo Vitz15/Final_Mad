@@ -4,7 +4,9 @@ import {Picture, Back} from '../../../assets/icon';
 import {Button} from '../../atoms';
 import Navigator from '../../../navigation';
 
-const Top = ({type, onPress, navigation, text, backgroundColor = '#FFFFFF'}) => {
+
+const Top = ({type, onPress, navigation,text, name, backgroundColor = '#FFFFFF'}) => {
+
   if (type === 'profile') {
     return (
       <View style={[styles.usercontainer, {backgroundColor}]}>
@@ -25,7 +27,7 @@ const Top = ({type, onPress, navigation, text, backgroundColor = '#FFFFFF'}) => 
       <View style={styles.profileContainer}>
         <Picture style={styles.profileImage} />
         <View style={styles.textContainer}>
-          <Text style={styles.name}>John Doe</Text>
+          <Text style={styles.name}>{name}</Text>
           <Text style={styles.message}>Hope You Stay Healthy!</Text>
         </View>
       </View>

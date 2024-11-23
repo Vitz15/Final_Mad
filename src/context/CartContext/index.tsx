@@ -27,7 +27,7 @@ export const CartProvider = ({children}) => {
 
   const getTotalPrice = () => {
     return Object.values(cart).reduce(
-      (sum, item) => sum + (item.total || 0) + 1500,
+      (sum, item) => sum + (item.total || 0),
       0,
     );
   };
