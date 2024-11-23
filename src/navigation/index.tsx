@@ -14,6 +14,8 @@ import {CartProvider} from '../context/CartContext';
 import AboutUs from '../pages/AboutUs';
 import Profile from '../pages/Profile';
 import HealthRoutine from '../pages/HealthRoutine';
+import HighBloodPressureCard from '../pages/Prescription/HighBlood';
+import BloodSugarPres from '../pages/Prescription/BloodSugar';
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -78,6 +80,16 @@ const Navigator = () => {
         <Stack.Screen
           name="Profile"
           component={Profile}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HighBloodPres"
+          component={HighBloodPressureCard}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="BloodSugarPres"
+          component={BloodSugarPres}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

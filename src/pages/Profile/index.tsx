@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, Image, ImageBackground} from 'react-native';
 import {BlurView} from '@react-native-community/blur';
 import Top from '../../components/molecules/Top';
 import {Picture} from '../../assets/icon';
-import {Button} from '../../components/atoms/';
+import {Button, Gap} from '../../components/atoms/';
 import CustomBottomNav from '../../components/molecules/NavBar';
 
 const Profile = ({navigation}) => {
@@ -13,7 +13,7 @@ const Profile = ({navigation}) => {
         <Top
           type="profile"
           text="User Profile"
-          onBackPress={() => navigation.goBack()}
+          onPress={() => navigation.goBack()}
         />
         <View style={styles.profileContainer}>
           <Picture style={styles.profileImage} />
@@ -32,6 +32,7 @@ const Profile = ({navigation}) => {
             <Text style={styles.data}>johndoe123@gmail.com</Text>
             <View style={styles.line} />
           </View>
+          <Gap height={20}/>
           <Button type="normal" text="Update Profile" textColor="white" />
         </View>
       </View>
@@ -49,6 +50,7 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#78C194',
+    marginBottom: -18
   },
   profileContainer: {
     alignItems: 'center',
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SF-Display-Pro-Bold',
     marginTop: 15,
     fontSize: 20,
-    color: 'white',
+    color: 'black',
   },
   information: {
     backgroundColor: 'white',
