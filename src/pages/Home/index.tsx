@@ -46,13 +46,13 @@ const Home = ({navigation, route}) => {
           <MiniBox
             text="Health Routine"
             icon={HealthR}
-            onPress={() => navigation.navigate('HealthRoutine')}
+            onPress={() => navigation.navigate('HealthRoutine', {uid: uid})}
           />
           <MiniBox text="Transaction" icon={Trans} />
           <MiniBox
             text="Virus List"
             icon={Virus}
-            onPress={() => navigation.navigate('Virus')}
+            onPress={() => navigation.navigate('Virus', {uid: uid})}
           />
         </View>
         <View style={styles.menuContainer}>
@@ -60,25 +60,25 @@ const Home = ({navigation, route}) => {
 
           <Menu
             icon={OrderM}
-            onPress={() => navigation.navigate('OrderMedicine')}
+            onPress={() => navigation.navigate('OrderMedicine', {uid: uid})}
           />
           <Gap height={24} />
           <Menu
             icon={Presc}
             label="Prescription"
-            onPress={() => navigation.navigate('Threat')}
+            onPress={() => navigation.navigate('Threat', {uid: uid})}
           />
           <Gap height={24} />
           <Menu
             icon={Symp}
             label="Check Your Symptom"
-            onPress={() => navigation.navigate('Sickness')}
+            onPress={() => navigation.navigate('Sickness', {uid: uid})}
           />
           <Gap height={24} />
           <Menu
             icon={About}
             label="About Us"
-            onPress={() => navigation.navigate('About')}
+            onPress={() => navigation.navigate('About', {uid: uid})}
           />
         </View>
       </ScrollView>
