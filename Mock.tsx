@@ -6,12 +6,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CartPage from './src/pages/Cart';
 import ProductListScreen from './src/pages/OrderMedicine';
 import CustomBottomNav from './src/components/molecules/NavBar';
-import FeverCard from './src/pages/Symptom/Fever';
+import StrokeCard from './src/pages/Symptom/Stroke';
 const Stack = createNativeStackNavigator();
 
 const Mock = () => {
   return (
-    <FeverCard />
+    <StrokeCard />
     //<CustomBottomNav />
     // <NavigationContainer>
     //   <AboutUs />

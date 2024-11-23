@@ -1,49 +1,45 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Pneunomiaimage} from '../../../assets/icon';
+import {Strokeimage} from '../../../assets/icon';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const PneunomiaCard = ({navigation}) => {
+const StrokeCard = ({navigation}) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <Pneunomiaimage style={styles.cardImage} />
+        <Strokeimage style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>
         <View style={styles.textContainer}>
           <View style={styles.symptomContainer}>
             <Gap height={34} />
-            <Text style={styles.title}>Pneunomia</Text>
+            <Text style={styles.title}>Stroke</Text>
             <Gap height={21} />
             <View style={styles.reasonContainer}>
               <View style={styles.selection}>
                 <Text style={styles.reasonText}>
-                  • Cough, often persistent, may produce mucus or blood. {'\n'}•
-                  Shortness of breath, difficulty breathing even with light
-                  activity.{'\n'}• Chest pain, sharp or stabbing pain when
-                  taking deep breaths or coughing. {'\n'}• Fever, elevated body
-                  temperature, often above 38°C (100.4°F).
-                  {'\n'}• Chills and sweating, feeling cold followed by episodes
-                  of sweating. {'\n'}• Fatigue, extreme tiredness and weakness.
-                  {'\n'}• Loss of appetite, reduced desire to eat.{'\n'}•
-                  Confusion or mental changes, especially common in older adults
-                  or those with weakened immune systems.{'\n'}• Muscle aches,
-                  general discomfort or soreness in muscles.{'\n'}• Bluish skin
-                  or lips, in severe cases due to lack of oxygen.
+                  • Sudden numbness or weakness in the face, arm, or leg,
+                  especially on one side of the body.
+                  {'\n'}• Confusion, trouble speaking, or understanding speech.
+                  {'\n'}• Trouble seeing in one or both eyes. {'\n'}• Difficulty
+                  walking, dizziness, loss of balance or coordination.
+                  {'\n'}• Sudden severe headache with no known cause. {'\n'}•
+                  Nausea or vomiting (especially with a hemorrhagic stroke).
+                  {'\n'}• Difficulty swallowing or drooping on one side of the
+                  face.
                 </Text>
               </View>
             </View>
             <Gap height={21} />
-            <Text style={styles.symptomTitle}>
-              Pneunomia can be caused by :
-            </Text>
+            <Text style={styles.symptomTitle}>Stroke can be caused by :</Text>
             <Gap height={21} />
             <Text style={styles.symptomText}>
-              Viral infections, Bacterial infections, Fungal infections,
-              Aspiration, Weak immune system, Inhalation of toxic substances,
-              Underlying chronic diseases, Environmental factors
+              Blocked blood flow (ischemic stroke), Burst blood vessel
+              (hemorrhagic stroke), High blood pressure, Heart disease,
+              Diabetes, Smoking, Excessive alcohol consumption, High
+              cholesterol, Sedentary lifestyle, Family history of stroke.
             </Text>
           </View>
         </View>
@@ -57,7 +53,7 @@ const PneunomiaCard = ({navigation}) => {
   );
 };
 
-export default PneunomiaCard;
+export default StrokeCard;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -84,7 +80,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textContainer: {
-    paddingBottom: 88,
+    paddingBottom: 170,
   },
   title: {
     marginTop: 10,
