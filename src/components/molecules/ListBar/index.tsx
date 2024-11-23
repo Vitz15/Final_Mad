@@ -2,7 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Button} from '../../atoms';
 
-const ListBar = ({type, source, text, icon}) => {
+const ListBar = ({type, source, text, icon, navigation, onPress}) => {
   if (type === 'left') {
     return (
       <Button
@@ -12,6 +12,7 @@ const ListBar = ({type, source, text, icon}) => {
         style={styles.barLeft}
         source={source}
         overlap={styles.overlapLeft}
+        onPress={onPress}
       />
     );
   }
@@ -23,6 +24,7 @@ const ListBar = ({type, source, text, icon}) => {
         border={styles.center}
         style={styles.center}
         source={source}
+        onPress={onPress}
       />
     );
   }
@@ -35,6 +37,7 @@ const ListBar = ({type, source, text, icon}) => {
         style={styles.barRight}
         source={source}
         overlap={styles.overlapRight}
+        onPress={onPress}
       />
     );
   }

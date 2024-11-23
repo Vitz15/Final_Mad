@@ -22,7 +22,6 @@ const CustomBottomNav = ({type, onPress, onPress2}) => {
         <TouchableOpacity onPress={onPress}>
           <Home />
         </TouchableOpacity>
-        {/* Profile Tab */}
         <TouchableOpacity>
           <ProfileW />
         </TouchableOpacity>
@@ -31,7 +30,7 @@ const CustomBottomNav = ({type, onPress, onPress2}) => {
   }
   if (type === 'Other') {
     return (
-      <View style={styles.container}>
+      <View style={styles.profile}>
         <TouchableOpacity onPress={onPress}>
           <Home />
         </TouchableOpacity>
@@ -57,4 +56,15 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#ddd',
   },
+  profile: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    borderTopLeftRadius: 55,
+    borderTopRightRadius: 55,
+    alignItems: 'center',
+    paddingVertical: 10,
+    backgroundColor: '#78C194',
+    borderTopWidth: 1,
+    borderColor: '#ddd',
+  }
 });

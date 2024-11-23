@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import {StyleSheet, Text, View, FlatList, Image} from 'react-native';
 import {CartContext, CartItem} from '../../context/CartContext';
 import {Button} from '../../components/atoms';
+import CustomBottomNav from '../../components/molecules/NavBar';
 
 const CartPage: React.FC = ({navigation}) => {
   const cartContext = useContext(CartContext);
@@ -36,6 +37,7 @@ const CartPage: React.FC = ({navigation}) => {
       {cartItems.length > 0 ? (
         <>
           <FlatList
+            showsVerticalScrollIndicator={false}
             data={cartItems}
             keyExtractor={(item: CartItem) => item.id.toString()}
             renderItem={({item}) => (
@@ -138,14 +140,14 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'SF-Pro-Display-Bold',
+    color: 'black',
     marginBottom: 5,
   },
   details: {
     fontSize: 14,
     fontFamily: 'SF-Pro-Display-Medium',
-    fontWeight: 'bold',
-    color: '#555',
+    color: 'black',
     transform: [{translateX: 0}, {translateY: 28}],
   },
   total: {
@@ -160,16 +162,18 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 160,
     borderTopWidth: 1,
-    borderColor: '#ddd',
+    borderColor: 'black',
     width: '100%',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: 'white',
   },
   summaryTitle: {
     fontSize: 18,
     fontFamily: 'SF-Pro-Display-Bold',
     marginBottom: 10,
+    color: 'black',
   },
   summaryRow: {
+    backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 8,
@@ -180,24 +184,29 @@ const styles = StyleSheet.create({
     marginTop: 15,
     borderTopWidth: 1,
     paddingTop: 10,
-    borderColor: '#ddd',
+    borderColor: 'black',
+    backgroundColor: 'white',
   },
   summaryLabel: {
+    fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 16,
-    color: '#555',
+    color: 'black',
   },
   summaryValue: {
+    fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 16,
-    color: '#333',
+    color: 'black',
   },
   paymentLabel: {
+    fontFamily: 'SF-Pro-Display-Bold',
     fontSize: 18,
-    fontWeight: 'bold',
+    color: 'black',
   },
   paymentValue: {
+    fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: 'black',
   },
   checkoutButton: {
     position: 'absolute',
@@ -211,7 +220,6 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontFamily: 'SF-Pro-Display-Bold',
     transform: [{translateX: 0}, {translateY: -350}],
-
     textAlign: 'center',
     color: '#888',
   },

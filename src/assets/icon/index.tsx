@@ -44,6 +44,7 @@ import Github from './Github.svg';
 import Instagram from './instagram.svg';
 import Vector1 from './Vector1.svg';
 import HighBlood from './HighBloodPrescription.svg';
+import BloodSugar from './BloodSugar.svg';
 
 export {
   HighBlood,
@@ -92,4 +93,5 @@ export {
   HomeW,
   Profile,
   ProfileW,
+  BloodSugar,
 };
