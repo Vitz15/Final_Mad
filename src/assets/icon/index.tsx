@@ -44,8 +44,9 @@ import Github from './Github.svg';
 import Instagram from './instagram.svg';
 import Vector1 from './Vector1.svg';
 import HighBlood from './HighBloodPrescription.svg';
-
+import Pneunomiaimage from './Pneunomia.svg';
 export {
+  Pneunomiaimage,
   HighBlood,
   Vector1,
   Gmail,
