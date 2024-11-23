@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Picture, Back} from '../../../assets/icon';
 
-const Top = ({type, onPress, text}) => {
+const Top = ({type, onPress, text, name}) => {
   if (type === 'profile') {
     return (
       <View style={styles.usercontainer}>
@@ -18,7 +18,7 @@ const Top = ({type, onPress, text}) => {
       <View style={styles.profileContainer}>
         <Picture style={styles.profileImage} />
         <View style={styles.textContainer}>
-          <Text style={styles.name}>John Doe</Text>
+          <Text style={styles.name}>{name}</Text>
           <Text style={styles.message}>Hope You Stay Healthy!</Text>
         </View>
       </View>
