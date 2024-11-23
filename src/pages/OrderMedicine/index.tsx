@@ -8,7 +8,8 @@ import {getDatabase, ref, onValue} from 'firebase/database';
 import CustomBottomNav from '../../components/molecules/NavBar';
 import Home from '../Home';
 
-const ProductListScreen = ({navigation}) => {
+const ProductListScreen = ({navigation, route}) => {
+  const {uid} = route.params;
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -76,8 +77,8 @@ const ProductListScreen = ({navigation}) => {
       </View>
       <CustomBottomNav
         type="Other"
-        onPress={() => navigation.navigate('Home')}
-        onPress2={() => navigation.navigate('Profile')}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
       />
     </View>
   );

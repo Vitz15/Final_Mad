@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View, Image} from 'react-native';
 import React, {useState} from 'react';
 import {Button, Gap} from '../../components/atoms';
 import {
@@ -8,22 +8,35 @@ import {
   WhiteBar,
   Footer,
 } from '../../components/molecules';
-import {Lock, Mail, User} from '../../assets/icon';
+import {Lock, Mail} from '../../assets/icon';
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
+import {getDatabase, ref, get} from 'firebase/database';
 import {showMessage} from 'react-native-flash-message';
 
 const SignIn = ({navigation}) => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [photo, setPhoto] = useState(null); 
   const auth = getAuth();
+
   const onSubmit = () => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
-        // Signed in
         const user = userCredential.user;
-        // console.log(user);
+        const db = getDatabase();
+
+        get(ref(db, 'users/' + user.uid + '/photoBase64'))
+          .then(snapshot => {
+            if (snapshot.exists()) {
+              setPhoto(snapshot.val()); 
+            }
+          })
+          .catch(error => {
+            console.log('Error fetching photo:', error.message);
+          });
+
         setLoading(false);
         showMessage({
           message: 'Login Berhasil',
@@ -33,14 +46,13 @@ const SignIn = ({navigation}) => {
       })
       .catch(error => {
         setLoading(false);
-        const errorCode = error.code;
-        const errorMessage = error.message;
         showMessage({
           message: error.message,
           type: 'danger',
         });
       });
   };
+
   return (
     <>
       <ScrollView style={styles.container}>
@@ -61,6 +73,11 @@ const SignIn = ({navigation}) => {
           secureTextEntry={true}
         />
         <Gap height={30} />
+        {photo && (
+          <View style={styles.photoContainer}>
+            <Image source={{uri: photo}} style={styles.profilePhoto} />
+          </View>
+        )}
         <Button text="Sign In" type="normal" onPress={onSubmit} />
         <Gap height={320} />
         <Footer />
@@ -98,5 +115,16 @@ const styles = StyleSheet.create({
     textShadowColor: 'gray',
     textShadowOffset: {width: 0, height: 4},
     textShadowRadius: 5,
+  },
+  photoContainer: {
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  profilePhoto: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: 'gray',
   },
 });

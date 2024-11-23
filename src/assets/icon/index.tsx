@@ -44,9 +44,16 @@ import Github from './Github.svg';
 import Instagram from './instagram.svg';
 import Vector1 from './Vector1.svg';
 import HighBlood from './HighBloodPrescription.svg';
+import Pneunomiaimage from './Pneunomia.svg';
+import Feverimage from './FeverImage.svg';
+import Strokeimage from './StrokeImage.svg';
 import BloodSugar from './BloodSugar.svg';
-
+import NullP from './Null.jpg';
 export {
+  NullP,
+  Strokeimage,
+  Feverimage,
+  Pneunomiaimage,
   HighBlood,
   Vector1,
   Gmail,

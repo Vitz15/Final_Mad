@@ -5,7 +5,7 @@ import {Header, TextInput, WhiteBar, Footer} from '../../components/molecules';
 import {Lock, Mail, User} from '../../assets/icon';
 import {showMessage} from 'react-native-flash-message';
 import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
-import {getDatabase, ref, set} from 'firebase/database';
+import {getDatabase, ref, set, get} from 'firebase/database';
 
 const SignUp = ({navigation}) => {
   const [fullName, setFullName] = useState('');
@@ -13,30 +13,44 @@ const SignUp = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const createUser = () => {
+  const createUser = async () => {
     const auth = getAuth();
     const db = getDatabase();
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(userCredential => {
-        // Signed up
-        const user = userCredential.user;
-        // console.log(user);
-        set(ref(db, 'users/' + user.uid), {
-          fullName: fullName,
-          username: username,
-          email: email,
-        });
-        navigation.navigate('SignIn');
-      })
-      .catch(error => {
-        showMessage({
-          message: error.message,
-          type: 'danger',
-        });
-        // ..
+    try {
+      const defaultPhotoSnapshot = await get(ref(db, 'users/Image'));
+      const defaultPhotoBase64 = defaultPhotoSnapshot.exists()
+        ? defaultPhotoSnapshot.val()
+        : '';
+
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      const user = userCredential.user;
+
+      await set(ref(db, 'users/' + user.uid), {
+        fullName: fullName,
+        username: username,
+        email: email,
+        photoBase64: defaultPhotoBase64,
       });
+
+      showMessage({
+        message: 'User successfully created!',
+        type: 'success',
+      });
+
+      navigation.navigate('SignIn');
+    } catch (error) {
+      showMessage({
+        message: error.message,
+        type: 'danger',
+      });
+    }
   };
+
   return (
     <ScrollView style={styles.container}>
       <Header text="Sign In" text2="Sign Up" type="signPage" padding={95} />
@@ -67,16 +81,7 @@ const SignUp = ({navigation}) => {
         onChangeText={value => setPassword(value)}
       />
       <Gap height={52} />
-      <Button
-        text="Sign Up"
-        type="normal"
-        onPress={async () => {
-          const success = await createUser(); // Tunggu hingga createUser selesai
-          if (success) {
-            navigation.navigate('SignIn'); // Navigasi ke SignIn jika berhasil
-          }
-        }}
-      />
+      <Button text="Sign Up" type="normal" onPress={createUser} />
       <Gap height={160} />
       <Footer />
     </ScrollView>
