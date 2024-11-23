@@ -1,13 +1,22 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Picture, Back} from '../../../assets/icon';
+import {Button} from '../../atoms';
+import Navigator from '../../../navigation';
 
-const Top = ({type, onPress, text, name, backgroundColor = '#FFFFFF'}) => {
+
+const Top = ({type, onPress, navigation,text, name, backgroundColor = '#FFFFFF'}) => {
+
   if (type === 'profile') {
     return (
       <View style={[styles.usercontainer, {backgroundColor}]}>
-        <TouchableOpacity onPress={onPress} style={styles.backButton}>
-          <Back style={styles.backIcon} />
+        <TouchableOpacity
+          activeOpacity={0.5}
+          style={styles.backButton}
+          onPress={() => {
+            navigation.goBack();
+          }}>
+          <Back />
         </TouchableOpacity>
         <Text style={styles.title}>{text}</Text>
       </View>
@@ -75,11 +84,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 10,
     padding: 5,
-  },
-  backIcon: {
-    width: 24,
-    height: 24,
-    resizeMode: 'contain',
   },
   title: {
     flex: 1,

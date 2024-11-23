@@ -11,7 +11,6 @@ const Stack = createNativeStackNavigator();
 
 const Mock = () => {
   return (
-    <HighBloodPressureCard />
     //<CustomBottomNav />
     // <NavigationContainer>
     //   <AboutUs />

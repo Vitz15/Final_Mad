@@ -2,9 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, TextInput} from 'react-native';
 import Top from '../../components/molecules/Top';
 import {Picture} from '../../assets/icon';
-import {Button} from '../../components/atoms/';
+
 import {getDatabase, ref, onValue, update} from 'firebase/database';
 import {getAuth} from 'firebase/auth';
+
+import {Button, Gap} from '../../components/atoms/';
+
 import CustomBottomNav from '../../components/molecules/NavBar';
 
 const Profile = ({navigation, route}) => {
@@ -63,7 +66,7 @@ const Profile = ({navigation, route}) => {
         <Top
           type="profile"
           text="User Profile"
-          onBackPress={() => navigation.goBack()}
+          onPress={() => navigation.goBack()}
         />
         <View style={styles.profileContainer}>
           <Picture style={styles.profileImage} />
@@ -97,12 +100,16 @@ const Profile = ({navigation, route}) => {
             <View style={styles.line} />
           </View>
 
+          <Gap height={20}/>
+
           <Button
             type="normal"
             text={isEditing ? 'Save Changes' : 'Update Profile'}
             textColor="white"
             onPress={() => (isEditing ? handleSave() : setIsEditing(true))}
           />
+
+       
         </View>
       </View>
 
@@ -121,6 +128,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#78C194',
     flex: 1,
+
+  
   },
   profileContainer: {
     alignItems: 'center',
@@ -138,7 +147,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SF-Display-Pro-Bold',
     marginTop: 15,
     fontSize: 20,
-    color: 'white',
+    color: 'black',
   },
   information: {
     backgroundColor: 'white',

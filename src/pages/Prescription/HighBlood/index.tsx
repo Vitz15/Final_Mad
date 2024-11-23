@@ -57,8 +57,8 @@ const HighBloodPressureCard = ({navigation}) => {
       </View>
       <CustomBottomNav
         type="Other"
-        onPress2={() => navigation.navigate('Profile')}
         onPress={() => navigation.navigate('Home')}
+        onPress2={() => navigation.navigate('Profile')}
       />
     </View>
   );
@@ -69,6 +69,7 @@ export default HighBloodPressureCard;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
+    backgroundColor: 'white'
   },
   cardImageContainer: {
     width: '100%',
