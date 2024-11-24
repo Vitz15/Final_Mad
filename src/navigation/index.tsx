@@ -20,7 +20,8 @@ import FlashMessage from 'react-native-flash-message';
 import Diptheria from '../pages/Prescription/Diptheria';
 import AsthmaPres from '../pages/Prescription/Asthma';
 import CSFPres from '../pages/Prescription/CSF';
-import HeartAttack from '../pages/Prescription/HeartAttack';
+import HeartAttackPres from '../pages/Prescription/HeartAttack';
+import MeningitisPres from '../pages/Prescription/Meningtis';
 
 const Stack = createNativeStackNavigator();
 
@@ -114,8 +115,13 @@ const Navigator = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="HeartAttack"
-          component={HeartAttack}
+          name="HeartAttackPres"
+          component={HeartAttackPres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MeningitisPres"
+          component={MeningitisPres}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

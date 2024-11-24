@@ -55,6 +55,7 @@ import Diarrhea from './Diarrhea.svg';
 import Gerdpres from './Gerdpres.svg'
 import Heartattack from './heartattack.svg'
 import Hemorrhage from './hemorrhage.svg'
+import Meningitis from './meningitis.svg'
 
 export {
   NullP,
@@ -114,4 +115,5 @@ export {
   Gerdpres,
   Heartattack,
   Hemorrhage,
+  Meningitis
 };

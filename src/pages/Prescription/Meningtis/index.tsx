@@ -1,28 +1,28 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Diptheria as Dipth, Heartattack} from '../../../assets/icon';
+import {Diptheria as Dipth, Meningitis} from '../../../assets/icon';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const HeartAttackPres = ({navigation, route}) => {
+const MeningitisPres = ({navigation, route}) => {
   const {uid} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <Heartattack style={styles.cardImage} />
+        <Meningitis style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>
         <View style={styles.textContainer}>
           <View style={styles.prescriptionContainer}>
             <Gap height={34} />
-            <Text style={styles.title}>Heart Attack</Text>
+            <Text style={styles.title}>Meningitis</Text>
             <Gap height={11} />
             <Text style={styles.prescriptionText}>
-              A heart attack is a serious cardiac condition that occurs when the
-              heart muscle does not receive an adequate blood supply. This
-              disrupts the heart's ability to pump blood throughout the body. If
-              not treated promptly, a heart attack can lead to death.
+              Meningitis is inflammation of the meninges, the protective layers
+              surrounding the brain and spinal cord. Meningitis can sometimes be
+              difficult to recognize, as it has early symptoms similar to the
+              flu, such as fever and headache.
             </Text>
             <Gap height={21} />
             <Text style={styles.prescriptionTitle}>
@@ -30,31 +30,34 @@ const HeartAttackPres = ({navigation, route}) => {
             </Text>
             <Gap height={21} />
             <Text style={styles.prescriptionText}>
-              Medications: Aspirin, Nitroglycerin, Beta-blockers (e.g.,
-              Metoprolol), ACE inhibitors (e.g., Lisinopril), Statins (e.g.,
-              Atorvastatin){'\n'}Dosage: As prescribed by a healthcare provider,
-              with some medications taken daily for prevention and others
-              administered during an acute event
+              Medications: Antibiotics (e.g., Ceftriaxone, Vancomycin),
+              Antiviral medications (e.g., Acyclovir, Ganciclovir), Pain
+              relievers (e.g., Acetaminophen, Ibuprofen), Corticosteroids (e.g.,
+              Dexamethasone){'\n'}Dosage: As prescribed by a healthcare
+              provider; typically, antibiotics or antivirals are administered
+              intravenously for bacterial or viral infections, and pain
+              relievers are given as needed for symptom management.
             </Text>
           </View>
+
           <View style={styles.adviceContainer}>
             <Text style={styles.adviceTitle}>Doctor's Advise:</Text>
             <View style={styles.selection}>
               <Gap height={21} />
               <Text style={styles.adviceText}>
-                • Lifestyle modifications, maintain a heart-healthy diet low in
-                saturated fats, avoid smoking, and reduce alcohol intake.{'\n'}•
-                Manage stress, practice stress-reducing techniques, like deep
-                breathing or mindfulness, as stress can impact heart health.
-                {'\n'}• Take medications as prescribed, follow the prescribed
-                schedule carefully to support heart health and prevent future
-                events.
+                • Seek immediate medical attention, because meningitis is a
+                serious condition and requires prompt treatment. If you
+                experience symptoms such as fever, headache, stiff neck, or
+                sensitivity to light, contact a healthcare provider immediately.
+                {'\n'}• Must vaccination, consider vaccination against certain
+                types of meningitis (e.g., meningococcal, pneumococcal) to help
+                prevent future infections, as advised by your doctor.
               </Text>
             </View>
           </View>
         </View>
       </View>
-      <Gap height={15} />
+      <Gap height={0} />
       <CustomBottomNav
         type="Other"
         onPress={() => navigation.navigate('Home', {uid: uid})}
@@ -64,7 +67,7 @@ const HeartAttackPres = ({navigation, route}) => {
   );
 };
 
-export default HeartAttackPres;
+export default MeningitisPres;
 
 const styles = StyleSheet.create({
   mainContainer: {
