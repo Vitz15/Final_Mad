@@ -81,7 +81,7 @@ const Sickness = ({navigation, route}) => {
             text="Sepsis"
             type="left"
             source={Sepsis}
-            onPress={() => navigation.navigate('DiarheaCard', {uid: uid})}
+            onPress={() => navigation.navigate('SepsisCard', {uid: uid})}
           />
           <ListBar
             text="Diarhea    "

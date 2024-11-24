@@ -57,6 +57,7 @@ export default InfluenzaCard;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
+    backgroundColor: 'white',
   },
   cardImageContainer: {
     width: '100%',
@@ -79,42 +80,42 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textContainer: {
-    paddingBottom: 255,
+    paddingBottom: 55,
   },
   title: {
     marginTop: 10,
     fontFamily: 'SF-Pro-Display-Bold',
     fontSize: 20,
-    color: '#333',
+    color: 'black',
   },
-  symptomContainer: {
+  prescriptionContainer: {
     width: '100%',
     marginBottom: 15,
   },
-  symptomTitle: {
+  prescriptionTitle: {
     fontFamily: 'SF-Pro-Display-Medium',
     fontSize: 16,
-    color: '#333',
+    color: 'black',
   },
-  symptomText: {
+  prescriptionText: {
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 14,
-    color: '#555',
+    color: 'black',
   },
-  reasonContainer: {
+  adviceContainer: {
     width: '100%',
   },
-  reasonTitle: {
+  adviceTitle: {
     fontFamily: 'SF-Pro-Display-Medium',
     fontSize: 16,
-    color: '#333',
+    color: 'black',
   },
-  reasonText: {
+  adviceText: {
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 14,
-    color: '#555',
+    color: 'black',
   },
   selection: {
-    paddingHorizontal: 8,
+    paddingHorizontal: 15,
   },
 });
