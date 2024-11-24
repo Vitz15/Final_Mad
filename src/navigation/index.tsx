@@ -25,6 +25,7 @@ import MeningitisPres from '../pages/Prescription/Meningtis';
 import {Gerdpres} from '../assets/icon';
 import GerdPres from '../pages/Prescription/Gerd';
 import HemorrhagePres from '../pages/Prescription/Hemorrhage';
+import DiarrheaPres from '../pages/Prescription/Diarrhea';
 
 const Stack = createNativeStackNavigator();
 
@@ -135,6 +136,11 @@ const Navigator = () => {
         <Stack.Screen
           name="HemorrhagePres"
           component={HemorrhagePres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DiarrheaPres"
+          component={DiarrheaPres}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

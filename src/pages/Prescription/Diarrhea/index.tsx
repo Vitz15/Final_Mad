@@ -1,28 +1,29 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Diptheria as Dipth, Hemorrhage as Hemor} from '../../../assets/icon';
+import {Diarrhea, Diptheria as Dipth} from '../../../assets/icon';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const HemorrhagePres = ({navigation, route}) => {
+const DiarrheaPres = ({navigation, route}) => {
   const {uid} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <Hemor style={styles.cardImage} />
+        <Diarrhea style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>
         <View style={styles.textContainer}>
           <View style={styles.prescriptionContainer}>
             <Gap height={34} />
-            <Text style={styles.title}>Subarachnoid hemorrhage</Text>
+            <Text style={styles.title}>Diarhea</Text>
             <Gap height={11} />
             <Text style={styles.prescriptionText}>
-              Subarachnoid hemorrhage is a type of stroke caused by the
-              accumulation of blood in one of the protective layers of the
-              brain. This condition is typically characterized by a sudden
-              severe headache, stiff neck, or vomiting.
+              Diarrhea is a condition characterized by frequent, loose, or
+              watery stools occurring more than three times a day. It is
+              commonly caused by the consumption of food or drink contaminated
+              with viruses, bacteria, or parasites. While it usually resolves
+              with self-care, diarrhea may sometimes require medical attention.
             </Text>
             <Gap height={21} />
             <Text style={styles.prescriptionTitle}>
@@ -30,15 +31,12 @@ const HemorrhagePres = ({navigation, route}) => {
             </Text>
             <Gap height={21} />
             <Text style={styles.prescriptionText}>
-              Medications: Antihypertensive medications (e.g., Labetalol,
-              Nicardipine), Pain relievers (e.g., Acetaminophen, Ibuprofen),
-              Anticonvulsants (e.g., Phenytoin, Levetiracetam), Sedatives (e.g.,
-              Lorazepam), and Surgical interventions if necessary{'\n'}Dosage:
-              As prescribed by a healthcare provider; antihypertensive
-              medications are adjusted to maintain optimal blood pressure, pain
-              relievers are given as needed, anticonvulsants are prescribed to
-              prevent seizures, and sedatives may be used for comfort and
-              safety.
+              Medications: Loperamide (Imodium), Oral Rehydration Salts (ORS),
+              Antibiotics (e.g., Ciprofloxacin, Azithromycin) if bacterial
+              infection is suspected{'\n'}Dosage: As prescribed by a healthcare
+              provider; for Loperamide, typically 2 mg after the first loose
+              stool, then 1 mg after each subsequent loose stool (not to exceed
+              8 mg per day). ORS is taken as directed to prevent dehydration.
             </Text>
           </View>
 
@@ -47,10 +45,11 @@ const HemorrhagePres = ({navigation, route}) => {
             <View style={styles.selection}>
               <Gap height={21} />
               <Text style={styles.adviceText}>
-                • Seek Immediate Medical Attention: If you experience a sudden
-                severe headache, stiff neck, or vomiting, it’s important to get
-                medical help immediately, as subarachnoid hemorrhage is a
-                medical emergency.
+                • Stay hydrated, drink plenty of fluids, especially Oral
+                Rehydration Solutions (ORS), to prevent dehydration, which can
+                occur due to frequent diarrhea.{'\n'}• Avoid dairy and fatty
+                foods, while recovering, avoid dairy products, greasy or spicy
+                foods, and caffeine, as they can worsen symptoms.
               </Text>
             </View>
           </View>
@@ -66,7 +65,7 @@ const HemorrhagePres = ({navigation, route}) => {
   );
 };
 
-export default HemorrhagePres;
+export default DiarrheaPres;
 
 const styles = StyleSheet.create({
   mainContainer: {

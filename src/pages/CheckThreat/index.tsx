@@ -83,7 +83,12 @@ const Threat = ({navigation, route}) => {
             source={Sepsis}
             onPress={() => navigation.navigate('HemorrhagePres', {uid: uid})}
           />
-          <ListBar text="Diarhea   " type="right" source={Diarhea} />
+          <ListBar
+            text="Diarhea   "
+            type="right"
+            source={Diarhea}
+            onPress={() => navigation.navigate('DiarrheaPres', {uid: uid})}
+          />
           <Gap height={30} />
         </View>
       </ScrollView>
