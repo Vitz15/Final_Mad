@@ -36,7 +36,7 @@ const Profile = ({navigation, route}) => {
         if (data) {
           setUserData(data);
           setUsername(data.username);
-          setPhoto(data.photo || null);
+          setPhoto(data.photoBase64 || null);
         } else {
           console.log('No user data found');
         }
@@ -52,13 +52,13 @@ const Profile = ({navigation, route}) => {
       username: username,
     };
     if (photo) {
-      updates.photo = photo;
+      updates.photoBase64 = photo;
     }
 
     update(userRef, updates)
       .then(() => {
         setIsEditing(false);
-        setUserData(prevData => ({...prevData, username, photo}));
+        setUserData(prevData => ({...prevData, username, photoBase64: photo}));
         alert('Profile updated successfully!');
       })
       .catch(error => {
@@ -75,7 +75,6 @@ const Profile = ({navigation, route}) => {
         console.log('ImagePicker Error: ', response.errorMessage);
       } else {
         const selectedPhoto = response.assets[0].uri;
-        setPhoto(selectedPhoto);
         convertImageToBase64(selectedPhoto);
       }
     });
@@ -85,28 +84,23 @@ const Profile = ({navigation, route}) => {
     RNFS.readFile(uri, 'base64')
       .then(base64String => {
         setPhoto(base64String);
-        saveImageToDatabase(base64String);
+        const userRef = ref(db, 'users/' + uid);
+        update(userRef, {photoBase64: base64String})
+          .then(() => {
+            console.log(
+              'Image successfully uploaded and updated in Realtime Database!',
+            );
+            setUserData(prevData => ({
+              ...prevData,
+              photoBase64: base64String,
+            }));
+          })
+          .catch(error => {
+            console.error('Error updating image in Realtime Database:', error);
+          });
       })
       .catch(error => {
         console.error('Error converting image to base64:', error);
-      });
-  };
-
-  const saveImageToDatabase = base64Image => {
-    const userRef = ref(db, 'users/' + uid);
-    update(userRef, {photo: base64Image})
-      .then(() => {
-        console.log('Image successfully uploaded to Realtime Database!');
-        onValue(userRef, snapshot => {
-          const data = snapshot.val();
-          if (data) {
-            setUserData(data);
-            setPhoto(data.photo);
-          }
-        });
-      })
-      .catch(error => {
-        console.error('Error uploading image to Realtime Database:', error);
       });
   };
 
@@ -131,7 +125,7 @@ const Profile = ({navigation, route}) => {
           <TouchableOpacity onPress={pickImage}>
             {photo ? (
               <Image
-                source={{uri: `data:image/jpeg;base64,${photo}`}}
+                source={{uri: `data:image/jpg;base64,${photo}`}}
                 style={styles.profileImage}
               />
             ) : (
