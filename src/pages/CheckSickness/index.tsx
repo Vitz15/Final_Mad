@@ -66,6 +66,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     flexGrow: 0,
-    maxHeight: '93%',
+    maxHeight: '92.5%',
   },
 });
