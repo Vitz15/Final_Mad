@@ -22,6 +22,8 @@ import AsthmaPres from '../pages/Prescription/Asthma';
 import CSFPres from '../pages/Prescription/CSF';
 import HeartAttackPres from '../pages/Prescription/HeartAttack';
 import MeningitisPres from '../pages/Prescription/Meningtis';
+import { Gerdpres } from '../assets/icon';
+import GerdPres from '../pages/Prescription/Gerd';
 
 const Stack = createNativeStackNavigator();
 
@@ -122,6 +124,11 @@ const Navigator = () => {
         <Stack.Screen
           name="MeningitisPres"
           component={MeningitisPres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="GerdPres"
+          component={GerdPres}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
