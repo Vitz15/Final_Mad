@@ -13,7 +13,6 @@ import {getDatabase, ref, onValue, update} from 'firebase/database';
 import {getAuth} from 'firebase/auth';
 import {Button, Gap} from '../../components/atoms/';
 import CustomBottomNav from '../../components/molecules/NavBar';
-import {launchImageLibrary} from 'react-native-image-picker';
 import RNFS from 'react-native-fs';
 
 const Profile = ({navigation, route}) => {
@@ -22,7 +21,7 @@ const Profile = ({navigation, route}) => {
   const [userData, setUserData] = useState(null);
   const [username, setUsername] = useState('');
   const [isEditing, setIsEditing] = useState(false);
-  const [photo, setPhoto] = useState(null); 
+  const [photo, setPhoto] = useState(null);
 
   const auth = getAuth();
   const db = getDatabase();
@@ -36,7 +35,7 @@ const Profile = ({navigation, route}) => {
         if (data) {
           setUserData(data);
           setUsername(data.username);
-          setPhoto(data.photo || null); 
+          setPhoto(data.photo || null);
         } else {
           console.log('No user data found');
         }
@@ -52,7 +51,7 @@ const Profile = ({navigation, route}) => {
       username: username,
     };
     if (photo) {
-      updates.photo = photo; 
+      updates.photo = photo;
     }
 
     update(userRef, updates)
@@ -84,8 +83,8 @@ const Profile = ({navigation, route}) => {
   const convertImageToBase64 = uri => {
     RNFS.readFile(uri, 'base64')
       .then(base64String => {
-        setPhoto(base64String); 
-        saveImageToDatabase(base64String); 
+        setPhoto(base64String);
+        saveImageToDatabase(base64String);
       })
       .catch(error => {
         console.error('Error converting image to base64:', error);
@@ -101,7 +100,7 @@ const Profile = ({navigation, route}) => {
           const data = snapshot.val();
           if (data) {
             setUserData(data);
-            setPhoto(data.photo); 
+            setPhoto(data.photo);
           }
         });
       })
