@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Strokeimage} from '../../../assets/icon/Symptoms';
+import {StrokeImage} from '../../../assets/icon/Symptoms';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
@@ -8,7 +8,7 @@ const StrokeCard = ({navigation}) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <Strokeimage style={styles.cardImage} />
+        <StrokeImage style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>

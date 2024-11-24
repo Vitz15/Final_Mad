@@ -10,7 +10,7 @@ const FeverCard = ({navigation, route}) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <Feverimage style={styles.cardImage} />
+        <FeverImage style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>
