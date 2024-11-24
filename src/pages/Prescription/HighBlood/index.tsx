@@ -42,11 +42,11 @@ const HighBloodPressureCard = ({navigation, route}) => {
             <View style={styles.selection}>
               <Gap height={21} />
               <Text style={styles.adviceText}>
-                • Foods to avoid salty foods. Maximum of 1 teaspoon per day.{' '}
-                {'\n'}• Take medications as prescribed, at the same time each
-                day, to help control blood pressure effectively.{'\n'}• Monitor
-                your blood pressure regularly to ensure it is within the target
-                range. {'\n'}• Maintain a healthy diet low in sodium and rich in
+                • Avoid salty food. Maximum of 1 teaspoon per day. {'\n'}• Take
+                medications as prescribed, at the same time each day, to help
+                control blood pressure effectively.{'\n'}• Monitor your blood
+                pressure regularly to ensure it is within the target range.{' '}
+                {'\n'}• Maintain a healthy diet low in sodium and rich in
                 fruits, vegetables, and whole grains.{'\n'}• Engage in regular
                 physical activity, such as walking or swimming, to help manage
                 blood pressure. {'\n'}• Limit alcohol consumption and avoid
@@ -56,6 +56,7 @@ const HighBloodPressureCard = ({navigation, route}) => {
           </View>
         </View>
       </View>
+      <Gap height={15} />
       <CustomBottomNav
         type="Other"
         onPress={() => navigation.navigate('Home', {uid: uid})}
@@ -70,7 +71,7 @@ export default HighBloodPressureCard;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   cardImageContainer: {
     width: '100%',

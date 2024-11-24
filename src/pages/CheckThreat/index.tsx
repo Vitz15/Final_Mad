@@ -48,7 +48,12 @@ const Threat = ({navigation, route}) => {
             onPress={() => navigation.navigate('Diptheria', {uid: uid})}
           />
           <ListBar text="CSF          " type="right" source={CSF} />
-          <ListBar text="Asthma" type="left" source={Asthma} />
+          <ListBar
+            text="Asthma"
+            type="left"
+            source={Asthma}
+            onPress={() => navigation.navigate('AsthmaPres', {uid: uid})}
+          />
           <ListBar text="Heart Attack" type="right" source={ChestPain} />
           <ListBar text="Meningtis" type="left" source={Malaria} />
           <ListBar text="Gerd         " type="right" source={Gerd} />

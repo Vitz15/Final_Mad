@@ -101,7 +101,7 @@ const CartPage: React.FC = ({navigation, route}) => {
           Alert.alert('Success', 'Your order has been placed successfully!', [
             {
               text: 'OK',
-              onPress: () => navigation.navigate('Home'), // Navigate back to Home or another screen
+              onPress: () => navigation.navigate('Home', {uid: uid}), // Navigate back to Home or another screen
             },
           ]);
         }
@@ -113,7 +113,7 @@ const CartPage: React.FC = ({navigation, route}) => {
     <View style={styles.container}>
       <Top
         type="profile"
-        text="Virus List"
+        text="Cart"
         backgroundColor="#78C194"
         onPress={() => navigation.goBack()}
       />

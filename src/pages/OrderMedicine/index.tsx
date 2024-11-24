@@ -72,7 +72,7 @@ const ProductListScreen = ({navigation, route}) => {
         <Button
           text="Add To Cart"
           type="normal"
-          onPress={() => navigation.navigate('Cart')}
+          onPress={() => navigation.navigate('Cart', {uid: uid})}
         />
       </View>
       <CustomBottomNav
