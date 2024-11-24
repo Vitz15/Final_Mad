@@ -32,7 +32,6 @@ import Presc from './Prescription.svg';
 import Symp from './symptom.svg';
 import About from './AboutUS.svg';
 import ArrowBack from './ArrowBack.svg';
-import Loading from './Loading.json';
 import eyeopen from './eye-open.svg';
 import eyeslash from './eye-slash.svg';
 import Home from './HomeIcon.svg';
@@ -95,7 +94,6 @@ export {
   BottomLeft,
   BottomRight,
   ArrowBack,
-  Loading,
   Home,
   HomeW,
   Profile,
