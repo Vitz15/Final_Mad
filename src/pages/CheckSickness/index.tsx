@@ -65,14 +65,24 @@ const Sickness = ({navigation, route}) => {
             onPress={() => navigation.navigate('ChestPainCard', {uid: uid})}
           />
 
-          <ListBar text="Malaria" type="left" source={Malaria} />
+          <ListBar
+            text="Malaria"
+            type="left"
+            source={Malaria}
+            onPress={() => navigation.navigate('MalariaCard', {uid: uid})}
+          />
           <ListBar
             text="Gerd         "
             type="right"
             source={Gerd}
             onPress={() => navigation.navigate('GerdCard', {uid: uid})}
           />
-          <ListBar text="Sepsis" type="left" source={Sepsis} />
+          <ListBar
+            text="Sepsis"
+            type="left"
+            source={Sepsis}
+            onPress={() => navigation.navigate('DiarheaCard', {uid: uid})}
+          />
           <ListBar
             text="Diarhea    "
             type="right"

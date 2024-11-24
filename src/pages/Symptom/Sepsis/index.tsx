@@ -1,43 +1,46 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {MalariaImage} from '../../../assets/icon/Symptoms';
+import {SepsisImage} from '../../../assets/icon/Symptoms';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const MalariaCard = ({navigation, route}) => {
+const SepsisCard = ({navigation, route}) => {
   const {uid} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <MalariaImage style={styles.cardImage} />
+        <SepsisImage style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>
         <View style={styles.textContainer}>
           <View style={styles.symptomContainer}>
             <Gap height={34} />
-            <Text style={styles.title}>Malaria</Text>
+            <Text style={styles.title}>Sepsis</Text>
             <Gap height={21} />
             <View style={styles.reasonContainer}>
               <View style={styles.selection}>
                 <Text style={styles.reasonText}>
-                  • Fever with chills.
-                  {'\n'}• Sweating.{'\n'}• Headache. {'\n'}• Muscle and joint
-                  aches.
-                  {'\n'}• Jaundice (yellowing of the skin and eyes). {'\n'}•
-                  Shivering or cold feeling followed by high fever
+                  • Fever or low body temperature (below 96.8°F or 36°C).
+                  {'\n'}• Rapid heart rate.{'\n'}• Rapid breathing or difficulty
+                  breathing. {'\n'}• Confusion or disorientataion.
+                  {'\n'}• Extreme shivering or muscle pain. {'\n'}• Sweating or
+                  feeling very cold {'\n'}• Decreased urine output {'\n'}• Skin
+                  rash or discoloration {'\n'}• Low blood pressure (leading to
+                  dizzines or fainting)
                 </Text>
               </View>
             </View>
             <Gap height={21} />
-            <Text style={styles.symptomTitle}>Malaria can be caused by :</Text>
+            <Text style={styles.symptomTitle}>Sepsis can be caused by :</Text>
             <Gap height={21} />
             <Text style={styles.symptomText}>
-              Parasite infection (Plasmodium spesies), Mosquito bites (Anopheles
-              mosquitoes), Travel to areas with malaria prevalence, Weak Immune
-              system, Lack of proper malaria prevention measures, Contaminated
-              blood transfusion (rare), Mother to child transmission (in rare
-              cases).
+              Bacterial infection, Fungal infection, Viral infection, Infections
+              from surgery or injury, Respiratory infections, (e.g., pneunomia),
+              Urinary tract infections(UTIs), Abdominal infections (e.g.,
+              appendicts, diverculitis), Bloodstream infections, Weakened immune
+              system, Chronic diseases (e.g., diabetes, kidney disesase),
+              Invasive medical devices (e.g., catheters, ventilators).
             </Text>
           </View>
         </View>
@@ -51,7 +54,7 @@ const MalariaCard = ({navigation, route}) => {
   );
 };
 
-export default MalariaCard;
+export default SepsisCard;
 
 const styles = StyleSheet.create({
   mainContainer: {
