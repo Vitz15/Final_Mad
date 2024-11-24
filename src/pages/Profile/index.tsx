@@ -141,7 +141,7 @@ const Profile = ({navigation, route}) => {
             <Text style={styles.dataName}>Username</Text>
             {isEditing ? (
               <TextInput
-                style={styles.data}
+                style={styles.dataEdit}
                 value={username}
                 onChangeText={setUsername}
               />
@@ -231,6 +231,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'black',
     marginLeft: 35,
+    marginTop: 10,
   },
   data: {
     fontFamily: 'SF-Display-Pro-Regular',
@@ -238,6 +239,13 @@ const styles = StyleSheet.create({
     color: 'black',
     marginLeft: 43,
     marginTop: 20,
+  },
+  dataEdit: {
+    fontFamily: 'SF-Display-Pro-Regular',
+    fontSize: 14,
+    color: 'black',
+    marginLeft: 40,
+    marginBottom: -14,
   },
   line: {
     borderBottomColor: '#000000',

@@ -48,6 +48,8 @@ import Feverimage from './FeverImage.svg';
 import Strokeimage from './StrokeImage.svg';
 import BloodSugar from './BloodSugar.svg';
 import NullP from './Null.jpg';
+import Diptheria from './Diptheria.svg';
+
 export {
   NullP,
   Strokeimage,
@@ -99,4 +101,5 @@ export {
   Profile,
   ProfileW,
   BloodSugar,
+  Diptheria,
 };

@@ -4,7 +4,8 @@ import {HighBlood} from '../../../assets/icon';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const HighBloodPressureCard = ({navigation}) => {
+const HighBloodPressureCard = ({navigation, route}) => {
+  const {uid} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
@@ -57,8 +58,8 @@ const HighBloodPressureCard = ({navigation}) => {
       </View>
       <CustomBottomNav
         type="Other"
-        onPress={() => navigation.navigate('Home')}
-        onPress2={() => navigation.navigate('Profile')}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
       />
     </View>
   );
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontFamily: 'SF-Pro-Display-Bold',
     fontSize: 20,
-    color: '#333',
+    color: 'black',
   },
   prescriptionContainer: {
     width: '100%',
@@ -107,12 +108,12 @@ const styles = StyleSheet.create({
   prescriptionTitle: {
     fontFamily: 'SF-Pro-Display-Medium',
     fontSize: 16,
-    color: '#333',
+    color: 'black',
   },
   prescriptionText: {
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 14,
-    color: '#555',
+    color: 'black',
   },
   adviceContainer: {
     width: '100%',
@@ -120,12 +121,12 @@ const styles = StyleSheet.create({
   adviceTitle: {
     fontFamily: 'SF-Pro-Display-Medium',
     fontSize: 16,
-    color: '#333',
+    color: 'black',
   },
   adviceText: {
     fontFamily: 'SF-Pro-Display-Regular',
     fontSize: 14,
-    color: '#555',
+    color: 'black',
   },
   selection: {
     paddingHorizontal: 15,

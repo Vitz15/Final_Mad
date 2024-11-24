@@ -17,6 +17,7 @@ import HealthRoutine from '../pages/HealthRoutine';
 import HighBloodPressureCard from '../pages/Prescription/HighBlood';
 import BloodSugarPres from '../pages/Prescription/BloodSugar';
 import FlashMessage from 'react-native-flash-message';
+import Diptheria from '../pages/Prescription/Diptheria';
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -91,6 +92,11 @@ const Navigator = () => {
         <Stack.Screen
           name="BloodSugarPres"
           component={BloodSugarPres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Diptheria"
+          component={Diptheria}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

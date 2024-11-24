@@ -1,41 +1,45 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {BloodSugar} from '../../../assets/icon';
+import {Diptheria as Dipth} from '../../../assets/icon';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const BloodSugarPres = ({navigation, route}) => {
+const Diptheria = ({navigation, route}) => {
   const {uid} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <BloodSugar style={styles.cardImage} />
+        <Dipth style={styles.cardImage} />
       </View>
+
       <View style={styles.cardContainer}>
         <View style={styles.textContainer}>
           <View style={styles.prescriptionContainer}>
             <Gap height={34} />
-            <Text style={styles.title}>Blood Sugar</Text>
+            <Text style={styles.title}>Diptheria</Text>
             <Gap height={11} />
             <Text style={styles.prescriptionText}>
-              Normal blood sugar levels generally do not rely on a single fixed
-              number. This is because blood sugar levels can fluctuate, for
-              example, before and after meals or before sleeping. In healthy
-              individuals, it is important to keep blood sugar levels stable
-              within the normal range. This helps prevent insulin resistance or
-              the risk of developing diabetes. Meanwhile, for people with
-              diabetes, it is crucial to control blood sugar levels to prevent
-              further organ damage.
+              Diphtheria is a contagious disease that can be spread through
+              coughing, sneezing, or open wounds. Symptoms include sore throat
+              and breathing difficulties. The primary cause of diphtheria is an
+              infection by the bacterium Corynebacterium diphtheriae, which
+              attacks the mucous membranes in the nose and throat, and it can
+              also affect the skin. This disease can affect people of all ages
+              and poses a risk of serious infection that can be
+              life-threatening. Treatment includes antibiotics and antitoxins to
+              eliminate the bacteria.
             </Text>
             <Gap height={21} />
             <Text style={styles.prescriptionTitle}>
-              Prescription by Dr. Gracia Fensynthia :
+              Prescription by Dr. Pittara:
             </Text>
             <Gap height={21} />
             <Text style={styles.prescriptionText}>
-              Medications: Metformin, Glibenclamide, Insulin, Sitagliptin
-              Dosage: As prescribed by a healthcare provider, typically once or
-              twice daily
+              Medications: Antibiotics (e.g., Penicillin, Erythromycin),
+              Antitoxin for diphtheria{'\n'}Dosage: As prescribed by a
+              healthcare provider; antibiotics typically administered daily,
+              while antitoxin dosage depends on severity and is given to
+              neutralize toxins
             </Text>
           </View>
 
@@ -44,15 +48,15 @@ const BloodSugarPres = ({navigation, route}) => {
             <View style={styles.selection}>
               <Gap height={21} />
               <Text style={styles.adviceText}>
-                • Monitor blood sugar levels regularly, at least 2-3 times a
-                day. {'\n'}• Maintain a balanced diet, focusing on low glycemic
-                index foods and avoiding sugary snacks.{'\n'}• Ensure adequate
-                hydration and aim for at least 7-8 hours of sleep per night.
+                • Follow treatment schedule, take antibiotics exactly as
+                prescribed to ensure the complete elimination of the bacteria.
+                Do not skip doses.
               </Text>
             </View>
           </View>
         </View>
       </View>
+      <Gap height={46} />
       <CustomBottomNav
         type="Other"
         onPress={() => navigation.navigate('Home', {uid: uid})}
@@ -62,7 +66,7 @@ const BloodSugarPres = ({navigation, route}) => {
   );
 };
 
-export default BloodSugarPres;
+export default Diptheria;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -90,7 +94,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textContainer: {
-    paddingBottom: 100,
+    paddingBottom: 55,
   },
   title: {
     marginTop: 10,

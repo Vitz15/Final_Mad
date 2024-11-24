@@ -33,15 +33,20 @@ const Threat = ({navigation, route}) => {
             text="High Blood"
             type="left"
             source={High}
-            onPress={() => navigation.navigate('HighBloodPres')}
+            onPress={() => navigation.navigate('HighBloodPres', {uid: uid})}
           />
           <ListBar
             text="Blood Sugar"
             type="right"
             source={Sugar}
-            onPress={() => navigation.navigate('BloodSugarPres')}
+            onPress={() => navigation.navigate('BloodSugarPres', {uid: uid})}
           />
-          <ListBar text="Diphteria" type="left" source={Diphteria} />
+          <ListBar
+            text="Diphteria"
+            type="left"
+            source={Diphteria}
+            onPress={() => navigation.navigate('Diptheria', {uid: uid})}
+          />
           <ListBar text="CSF          " type="right" source={CSF} />
           <ListBar text="Asthma" type="left" source={Asthma} />
           <ListBar text="Heart Attack" type="right" source={ChestPain} />
