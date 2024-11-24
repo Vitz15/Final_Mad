@@ -26,7 +26,12 @@ const Sickness = ({navigation, route}) => {
         <Search placeholder="Find Your Symptom" icon={SearchLogo} />
         <Text style={styles.Title}>Where does it hurt You?</Text>
         <View>
-          <ListBar text="Fever" type="left" source={Fever} />
+          <ListBar
+            text="Fever"
+            type="left"
+            source={Fever}
+            onPress={() => navigation.navigate('Fever', {uid: uid})}
+          />
           <ListBar text="Pneunomia" type="right" source={Pneunomia} />
 
           <ListBar text="Stroke" type="left" source={Stroke} />

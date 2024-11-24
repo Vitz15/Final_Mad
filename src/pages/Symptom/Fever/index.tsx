@@ -4,7 +4,9 @@ import {Feverimage} from '../../../assets/icon';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const FeverCard = ({navigation}) => {
+const FeverCard = ({navigation, route}) => {
+  const {uid} = route.params;
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
@@ -41,8 +43,8 @@ const FeverCard = ({navigation}) => {
       </View>
       <CustomBottomNav
         type="Other"
-        onPress2={() => navigation.navigate('Profile')}
-        onPress={() => navigation.navigate('Home')}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
       />
     </View>
   );
