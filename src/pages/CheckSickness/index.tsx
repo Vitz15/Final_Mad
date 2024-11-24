@@ -18,33 +18,44 @@ import {
 import {Gap} from '../../components/atoms';
 import CustomBottomNav from '../../components/molecules/NavBar';
 
-const Sickness = navigation => {
+const Sickness = ({navigation, route}) => {
+  const {uid} = route.params;
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      <Search placeholder="Find Your Symptom" icon={SearchLogo} />
-      <Text style={styles.Title}>Where does it hurt You?</Text>
-      <View>
-        <ListBar text="Fever" type="left" source={Fever} />
-        <ListBar text="Pneunomia" type="right" source={Pneunomia} />
+    <View style={styles.anjay}>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+        <Search placeholder="Find Your Symptom" icon={SearchLogo} />
+        <Text style={styles.Title}>Where does it hurt You?</Text>
+        <View>
+          <ListBar text="Fever" type="left" source={Fever} />
+          <ListBar text="Pneunomia" type="right" source={Pneunomia} />
 
-        <ListBar text="Stroke" type="left" source={Stroke} />
-        <ListBar text="Influenza" type="right" source={Flu} />
+          <ListBar text="Stroke" type="left" source={Stroke} />
+          <ListBar text="Influenza" type="right" source={Flu} />
 
-        <ListBar text="Asthma" type="left" source={Asthma} />
-        <ListBar text="Chest Pain  " type="right" source={ChestPain} />
+          <ListBar text="Asthma" type="left" source={Asthma} />
+          <ListBar text="Chest Pain  " type="right" source={ChestPain} />
 
-        <ListBar text="Malaria" type="left" source={Malaria} />
-        <ListBar text="Gerd         " type="right" source={Gerd} />
-        <ListBar text="Sepsis" type="left" source={Sepsis} />
-        <ListBar text="Diarhea    " type="right" source={Diarhea} />
-      </View>
-    </ScrollView>
+          <ListBar text="Malaria" type="left" source={Malaria} />
+          <ListBar text="Gerd         " type="right" source={Gerd} />
+          <ListBar text="Sepsis" type="left" source={Sepsis} />
+          <ListBar text="Diarhea    " type="right" source={Diarhea} />
+        </View>
+      </ScrollView>
+      <CustomBottomNav
+        type="Other"
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
+      />
+    </View>
   );
 };
 
 export default Sickness;
 
 const styles = StyleSheet.create({
+  anjay: {
+    backgroundColor: 'white',
+  },
   Title: {
     textAlign: 'center',
     fontFamily: 'SF-Pro-Display-Bold',
@@ -54,5 +65,7 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: 'white',
+    flexGrow: 0,
+    maxHeight: '93%',
   },
 });
