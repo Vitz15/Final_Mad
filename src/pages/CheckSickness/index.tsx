@@ -66,9 +66,19 @@ const Sickness = ({navigation, route}) => {
           />
 
           <ListBar text="Malaria" type="left" source={Malaria} />
-          <ListBar text="Gerd         " type="right" source={Gerd} />
+          <ListBar
+            text="Gerd         "
+            type="right"
+            source={Gerd}
+            onPress={() => navigation.navigate('GerdCard', {uid: uid})}
+          />
           <ListBar text="Sepsis" type="left" source={Sepsis} />
-          <ListBar text="Diarhea    " type="right" source={Diarhea} />
+          <ListBar
+            text="Diarhea    "
+            type="right"
+            source={Diarhea}
+            onPress={() => navigation.navigate('DiarheaCard', {uid: uid})}
+          />
         </View>
       </ScrollView>
       <CustomBottomNav

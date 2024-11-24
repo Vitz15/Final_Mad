@@ -1,58 +1,57 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {GerdImage} from '../../../assets/icon/Symptoms';
+import {DiarheaImage} from '../../../assets/icon/Symptoms';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const GerdCard = ({navigation, route}) => {
+const DiarheaCard = ({navigation, route}) => {
   const {uid} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <GerdImage style={styles.cardImage} />
+        <DiarheaImage style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>
         <View style={styles.textContainer}>
           <View style={styles.symptomContainer}>
             <Gap height={34} />
-            <Text style={styles.title}>Gerd</Text>
+            <Text style={styles.title}>Diarhea</Text>
             <Gap height={21} />
             <View style={styles.reasonContainer}>
               <View style={styles.selection}>
                 <Text style={styles.reasonText}>
-                  • Hearthburn or burning sensation in the chest. {'\n'}•
-                  Regurgitation of food or sour liquid.{'\n'}• Difficulty
-                  swallowing. {'\n'}• Coughing or wheezing, especially at night.
-                  {'\n'}• Sore throat or hoarseness. {'\n'}• Chest pain or
-                  discomfort.
-                  {'\n'}• Nausea.{'\n'}• Feeling of a lump in the throat.{'\n'}•
-                  Bad breath
+                  • Frequent, loose, or watery stools.
+                  {'\n'}• Abdominal cramps or discomfort.{'\n'}• Bloating or
+                  gas. {'\n'}• Urgency to use the bathroom.
+                  {'\n'}• Nausea or vomiting. {'\n'}• Dehydration (dry mouth,
+                  excessive thirst, dark-colored urine).
+                  {'\n'}• Fever (in some cases). {'\n'}• Fatique or general
+                  weakness.
                 </Text>
               </View>
             </View>
             <Gap height={21} />
-            <Text style={styles.symptomTitle}>Gerd can be caused by :</Text>
+            <Text style={styles.symptomTitle}>Diarhea can be caused by :</Text>
             <Gap height={21} />
             <Text style={styles.symptomText}>
-              Weak lower esophageal sphincter, Obesity, Hiatal hernia,
-              Pregnancy, Smoking Certain medications, Eating large meals, Lying
-              down after eating, Consumption of acidic or spicy foods, Alcohol
-              or caffeine intake
+              Viral infection, Bacterial infection, Parasitic infection, Food
+              intolerance, Medications (e.g., antibiotics), Stress or anxiety,
+              Digestive disorders (e.g., IBS), Contaminated food or waters.
             </Text>
           </View>
         </View>
       </View>
       <CustomBottomNav
         type="Other"
-        onPress2={() => navigation.navigate('Profile')}
-        onPress={() => navigation.navigate('Home')}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
       />
     </View>
   );
 };
 
-export default GerdCard;
+export default DiarheaCard;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textContainer: {
-    paddingBottom: 88,
+    paddingBottom: 255,
   },
   title: {
     marginTop: 10,

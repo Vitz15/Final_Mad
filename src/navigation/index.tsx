@@ -30,6 +30,8 @@ import StrokeCard from '../pages/Symptom/Stroke';
 import AsthmaCard from '../pages/Symptom/Asthma';
 import InfluenzaCard from '../pages/Symptom/Influenza';
 import ChestPainCard from '../pages/Symptom/ChestPain';
+import DiarheaCard from '../pages/Symptom/Diarhea';
+import GerdCard from '../pages/Symptom/Gerd';
 
 const Stack = createNativeStackNavigator();
 
@@ -175,6 +177,16 @@ const Navigator = () => {
         <Stack.Screen
           name="ChestPainCard"
           component={ChestPainCard}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DiarheaCard"
+          component={DiarheaCard}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="GerdCard"
+          component={GerdCard}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
