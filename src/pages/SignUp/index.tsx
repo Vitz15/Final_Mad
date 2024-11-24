@@ -6,7 +6,7 @@ import {Lock, Mail, User} from '../../assets/icon';
 import {showMessage} from 'react-native-flash-message';
 import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 import {getDatabase, ref, set, get} from 'firebase/database';
-
+import FlashMessage from 'react-native-flash-message';
 const SignUp = ({navigation}) => {
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
@@ -16,7 +16,13 @@ const SignUp = ({navigation}) => {
   const createUser = async () => {
     const auth = getAuth();
     const db = getDatabase();
-
+    if (!fullName || !username || !email || !password) {
+      showMessage({
+        message: 'All fields are required. Please fill in all fields.',
+        type: 'danger',
+      });
+      return;
+    }
     try {
       const defaultPhotoSnapshot = await get(ref(db, 'users/Image'));
       const defaultPhotoBase64 = defaultPhotoSnapshot.exists()

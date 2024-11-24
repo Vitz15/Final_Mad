@@ -16,6 +16,7 @@ import Profile from '../pages/Profile';
 import HealthRoutine from '../pages/HealthRoutine';
 import HighBloodPressureCard from '../pages/Prescription/HighBlood';
 import BloodSugarPres from '../pages/Prescription/BloodSugar';
+import FlashMessage from 'react-native-flash-message';
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -93,6 +94,7 @@ const Navigator = () => {
           options={{headerShown: false}}
         />
       </Stack.Navigator>
+      <FlashMessage position="top" />
     </CartProvider>
   );
 };
