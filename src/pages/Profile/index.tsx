@@ -115,7 +115,12 @@ const Profile = ({navigation, route}) => {
   return (
     <>
       <View style={styles.container}>
-        <Top type="profile" text="User Profile" backgroundColor="#ffffff" />
+        <Top
+          type="profile"
+          text="User Profile"
+          backgroundColor="#ffffff"
+          onPress={() => navigation.goBack()}
+        />
         <View style={styles.profileContainer}>
           <TouchableOpacity onPress={pickImage}>
             {photo ? (

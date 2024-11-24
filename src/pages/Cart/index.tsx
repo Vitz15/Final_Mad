@@ -9,7 +9,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import {CartContext, CartItem} from '../../context/CartContext';
-import {Button} from '../../components/atoms';
+import {Button, Gap} from '../../components/atoms';
+import Top from '../../components/molecules/Top';
 
 import {
   getDatabase,
@@ -23,8 +24,8 @@ import {app} from '../../config/Firebase'; // Your Firebase app config
 import {Loading} from '../../components/molecules';
 import CustomBottomNav from '../../components/molecules/NavBar';
 
-
-const CartPage: React.FC = ({navigation}) => {
+const CartPage: React.FC = ({navigation, route}) => {
+  const {uid} = route.params;
   const cartContext = useContext(CartContext);
 
   if (!cartContext) {
@@ -110,10 +111,10 @@ const CartPage: React.FC = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Button
-        style={styles.title}
-        text="Cart"
-        type="arrow-back"
+      <Top
+        type="profile"
+        text="Virus List"
+        backgroundColor="#78C194"
         onPress={() => navigation.goBack()}
       />
       {cartItems.length > 0 ? (
@@ -169,6 +170,7 @@ const CartPage: React.FC = ({navigation}) => {
               type="normal"
               onPress={handleCheckout} // Handle checkout button press
             />
+            <Gap height={20} />
           </View>
         </>
       ) : (
@@ -182,6 +184,13 @@ const CartPage: React.FC = ({navigation}) => {
           <Text style={styles.loadingText}>Processing your order...</Text>
         </View>
       )}
+      <View>
+        <CustomBottomNav
+          type="Other"
+          onPress2={() => navigation.navigate('Profile', {uid: uid})}
+          onPress={() => navigation.navigate('Home', {uid: uid})}
+        />
+      </View>
     </View>
   );
 };
@@ -297,7 +306,6 @@ const styles = StyleSheet.create({
 
     fontWeight: 'bold',
     color: 'black',
-
   },
   checkoutButton: {
     marginTop: 20,
@@ -326,6 +334,5 @@ const styles = StyleSheet.create({
     transform: [{translateX: 0}, {translateY: -350}],
     textAlign: 'center',
     color: '#888',
-
   },
 });
