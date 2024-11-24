@@ -1,64 +1,58 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {PneunomiaImage} from '../../../assets/icon/Symptoms';
+import {InfluenzaImage} from '../../../assets/icon/Symptoms';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const PneunomiaCard = ({navigation, route}) => {
+const InfluenzaCard = ({navigation, route}) => {
   const {uid} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <PneunomiaImage style={styles.cardImage} />
+        <InfluenzaImage style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>
         <View style={styles.textContainer}>
           <View style={styles.symptomContainer}>
             <Gap height={34} />
-            <Text style={styles.title}>Pneunomia</Text>
+            <Text style={styles.title}>Influenza</Text>
             <Gap height={21} />
             <View style={styles.reasonContainer}>
               <View style={styles.selection}>
                 <Text style={styles.reasonText}>
-                  • Cough, often persistent, may produce mucus or blood. {'\n'}•
-                  Shortness of breath, difficulty breathing even with light
-                  activity.{'\n'}• Chest pain, sharp or stabbing pain when
-                  taking deep breaths or coughing. {'\n'}• Fever, elevated body
-                  temperature, often above 38°C (100.4°F).
-                  {'\n'}• Chills and sweating, feeling cold followed by episodes
-                  of sweating. {'\n'}• Fatigue, extreme tiredness and weakness.
-                  {'\n'}• Loss of appetite, reduced desire to eat.{'\n'}•
-                  Confusion or mental changes, especially common in older adults
-                  or those with weakened immune systems.{'\n'}• Muscle aches,
-                  general discomfort or soreness in muscles.{'\n'}• Bluish skin
-                  or lips, in severe cases due to lack of oxygen.
+                  • Sudden fever.
+                  {'\n'}• Cough.{'\n'}• Sore throat. {'\n'}• Runny or stuffy
+                  nose.
+                  {'\n'}• Muscle or body aches. {'\n'}• Headache.
+                  {'\n'}• Fatique or tiredness. {'\n'}• Chills and sweats.
+                  {'\n'}• Loss of appetite.
                 </Text>
               </View>
             </View>
             <Gap height={21} />
             <Text style={styles.symptomTitle}>
-              Pneunomia can be caused by :
+              Influenza can be caused by :
             </Text>
             <Gap height={21} />
             <Text style={styles.symptomText}>
-              Viral infections, Bacterial infections, Fungal infections,
-              Aspiration, Weak immune system, Inhalation of toxic substances,
-              Underlying chronic diseases, Environmental factors
+              Viral infection (Influenza Virus), Close contact with infected
+              individuals, Poor hygiene, Seasonal changes, Weak immune system,
+              High Population density, Smoking, Chronic respiratory conditions.
             </Text>
           </View>
         </View>
       </View>
       <CustomBottomNav
         type="Other"
-        onPress2={() => navigation.navigate('Profile')}
-        onPress={() => navigation.navigate('Home')}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
       />
     </View>
   );
 };
 
-export default PneunomiaCard;
+export default InfluenzaCard;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -85,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textContainer: {
-    paddingBottom: 88,
+    paddingBottom: 255,
   },
   title: {
     marginTop: 10,

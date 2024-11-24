@@ -1,64 +1,60 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {PneunomiaImage} from '../../../assets/icon/Symptoms';
+import {ChestPainImage} from '../../../assets/icon/Symptoms';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const PneunomiaCard = ({navigation, route}) => {
+const ChestPainCard = ({navigation, route}) => {
   const {uid} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <PneunomiaImage style={styles.cardImage} />
+        <ChestPainImage style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>
         <View style={styles.textContainer}>
           <View style={styles.symptomContainer}>
             <Gap height={34} />
-            <Text style={styles.title}>Pneunomia</Text>
+            <Text style={styles.title}>Chest Pain</Text>
             <Gap height={21} />
             <View style={styles.reasonContainer}>
               <View style={styles.selection}>
                 <Text style={styles.reasonText}>
-                  • Cough, often persistent, may produce mucus or blood. {'\n'}•
-                  Shortness of breath, difficulty breathing even with light
-                  activity.{'\n'}• Chest pain, sharp or stabbing pain when
-                  taking deep breaths or coughing. {'\n'}• Fever, elevated body
-                  temperature, often above 38°C (100.4°F).
-                  {'\n'}• Chills and sweating, feeling cold followed by episodes
-                  of sweating. {'\n'}• Fatigue, extreme tiredness and weakness.
-                  {'\n'}• Loss of appetite, reduced desire to eat.{'\n'}•
-                  Confusion or mental changes, especially common in older adults
-                  or those with weakened immune systems.{'\n'}• Muscle aches,
-                  general discomfort or soreness in muscles.{'\n'}• Bluish skin
-                  or lips, in severe cases due to lack of oxygen.
+                  • Discomfort, tightness, or pressure in the chest.
+                  {'\n'}• Pain radiating to the arm, jaw, nect, back, or
+                  stomach.{'\n'}• Shortness of breath. {'\n'}• Dizziness or
+                  lightheadedness.
+                  {'\n'}• Nausea or vomiting. {'\n'}• Sweating.
+                  {'\n'}• Fatique or weakness. {'\n'}• Rapid or irregular
+                  heartbeat.
                 </Text>
               </View>
             </View>
             <Gap height={21} />
             <Text style={styles.symptomTitle}>
-              Pneunomia can be caused by :
+              Chest Pain can be caused by :
             </Text>
             <Gap height={21} />
             <Text style={styles.symptomText}>
-              Viral infections, Bacterial infections, Fungal infections,
-              Aspiration, Weak immune system, Inhalation of toxic substances,
-              Underlying chronic diseases, Environmental factors
+              Heart attack, Angina, Gastroesophegeal reflux disease (GERD),
+              Panic attacks, Pulmonary embolism, Pleusiry, Pericarditis,
+              Costochondiritis, Aotic dissection, Muscle strain, Anxiety or
+              stress.
             </Text>
           </View>
         </View>
       </View>
       <CustomBottomNav
         type="Other"
-        onPress2={() => navigation.navigate('Profile')}
-        onPress={() => navigation.navigate('Home')}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
       />
     </View>
   );
 };
 
-export default PneunomiaCard;
+export default ChestPainCard;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -85,7 +81,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textContainer: {
-    paddingBottom: 88,
+    paddingBottom: 255,
   },
   title: {
     marginTop: 10,

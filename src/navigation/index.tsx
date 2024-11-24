@@ -8,7 +8,6 @@ import Sickness from '../pages/CheckSickness';
 import Threat from '../pages/CheckThreat';
 import Virus from '../pages/VirusList';
 import CartPage from '../pages/Cart';
-import CustomBottomNav from '../components/molecules/NavBar';
 import ProductListScreen from '../pages/OrderMedicine';
 import {CartProvider} from '../context/CartContext';
 import AboutUs from '../pages/AboutUs';
@@ -22,10 +21,15 @@ import AsthmaPres from '../pages/Prescription/Asthma';
 import CSFPres from '../pages/Prescription/CSF';
 import HeartAttackPres from '../pages/Prescription/HeartAttack';
 import MeningitisPres from '../pages/Prescription/Meningtis';
-import {Gerdpres} from '../assets/icon';
 import GerdPres from '../pages/Prescription/Gerd';
 import HemorrhagePres from '../pages/Prescription/Hemorrhage';
 import DiarrheaPres from '../pages/Prescription/Diarrhea';
+import FeverCard from '../pages/Symptom/Fever';
+import PneunomiaCard from '../pages/Symptom/Pneunomia';
+import StrokeCard from '../pages/Symptom/Stroke';
+import AsthmaCard from '../pages/Symptom/Asthma';
+import InfluenzaCard from '../pages/Symptom/Influenza';
+import ChestPainCard from '../pages/Symptom/ChestPain';
 
 const Stack = createNativeStackNavigator();
 
@@ -141,6 +145,36 @@ const Navigator = () => {
         <Stack.Screen
           name="DiarrheaPres"
           component={DiarrheaPres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="FeverCard"
+          component={FeverCard}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="PneunomiaCard"
+          component={PneunomiaCard}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="StrokeCard"
+          component={StrokeCard}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="AsthmaCard"
+          component={AsthmaCard}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="InfluenzaCard"
+          component={InfluenzaCard}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ChestPainCard"
+          component={ChestPainCard}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

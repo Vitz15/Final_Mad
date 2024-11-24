@@ -6,10 +6,6 @@ import CustomBottomNav from '../../../components/molecules/NavBar';
 
 const FeverCard = ({navigation, route}) => {
   const {uid} = route.params;
-<<<<<<< HEAD
-
-=======
->>>>>>> dd987edd78df1ee1f27ac7b84fbef3dd2ba3e3ee
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>

@@ -30,15 +30,40 @@ const Sickness = ({navigation, route}) => {
             text="Fever"
             type="left"
             source={Fever}
-            onPress={() => navigation.navigate('Fever', {uid: uid})}
+            onPress={() => navigation.navigate('FeverCard', {uid: uid})}
           />
-          <ListBar text="Pneunomia" type="right" source={Pneunomia} />
+          <ListBar
+            text="Pneunomia"
+            type="right"
+            source={Pneunomia}
+            onPress={() => navigation.navigate('PneunomiaCard', {uid: uid})}
+          />
 
-          <ListBar text="Stroke" type="left" source={Stroke} />
-          <ListBar text="Influenza" type="right" source={Flu} />
+          <ListBar
+            text="Stroke"
+            type="left"
+            source={Stroke}
+            onPress={() => navigation.navigate('StrokeCard', {uid: uid})}
+          />
+          <ListBar
+            text="Influenza"
+            type="right"
+            source={Flu}
+            onPress={() => navigation.navigate('InfluenzaCard', {uid: uid})}
+          />
 
-          <ListBar text="Asthma" type="left" source={Asthma} />
-          <ListBar text="Chest Pain  " type="right" source={ChestPain} />
+          <ListBar
+            text="Asthma"
+            type="left"
+            source={Asthma}
+            onPress={() => navigation.navigate('AsthmaCard', {uid: uid})}
+          />
+          <ListBar
+            text="Chest Pain  "
+            type="right"
+            source={ChestPain}
+            onPress={() => navigation.navigate('ChestPainCard', {uid: uid})}
+          />
 
           <ListBar text="Malaria" type="left" source={Malaria} />
           <ListBar text="Gerd         " type="right" source={Gerd} />
