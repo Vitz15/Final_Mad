@@ -48,6 +48,15 @@ import Feverimage from './Symptoms/FeverImage.svg';
 import Strokeimage from './Symptoms/StrokeImage.svg';
 import BloodSugar from './BloodSugar.svg';
 import NullP from './Null.jpg';
+import Diptheria from './Diptheria.svg';
+import AsthmaPres from './asthmaPres.svg';
+import CSFLeak from './CSFLeak.svg';
+import Diarrhea from './Diarrhea.svg';
+import Gerdpres from './Gerdpres.svg'
+import Heartattack from './heartattack.svg'
+import Hemorrhage from './hemorrhage.svg'
+import Meningitis from './meningitis.svg'
+
 export {
   NullP,
   Strokeimage,
@@ -99,4 +108,12 @@ export {
   Profile,
   ProfileW,
   BloodSugar,
+  Diptheria,
+  AsthmaPres,
+  CSFLeak,
+  Diarrhea,
+  Gerdpres,
+  Heartattack,
+  Hemorrhage,
+  Meningitis
 };

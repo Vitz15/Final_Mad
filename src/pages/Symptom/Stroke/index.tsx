@@ -4,7 +4,8 @@ import {StrokeImage} from '../../../assets/icon/Symptoms';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const StrokeCard = ({navigation}) => {
+const StrokeCard = ({navigation, route}) => {
+  const {uid} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
