@@ -96,7 +96,7 @@ const Virus = ({navigation, route}) => {
           <View style={styles.last} />
         </View>
       </ScrollView>
-      <Gap height={35} />
+      <Gap height={33} />
       <CustomBottomNav
         type="Other"
         onPress2={() => navigation.navigate('Profile', {uid: uid})}

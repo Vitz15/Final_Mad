@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   routineContainer: {
     backgroundColor: 'white',
     flexGrow: 0,
-    maxHeight: '85.8%',
+    maxHeight: '85.6%',
   },
   scrollContent: {
     alignItems: 'center',
