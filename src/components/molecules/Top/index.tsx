@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {Back} from '../../../assets/icon';
+import {ArrowBack, Back} from '../../../assets/icon';
 
 const Top = ({
   name,
@@ -9,6 +9,7 @@ const Top = ({
   type,
   text,
   navigation,
+  onPress,
 }) => {
   if (type === 'profile') {
     return (
@@ -17,8 +18,11 @@ const Top = ({
           styles.usercontainer,
           {backgroundColor: backgroundColor || '#ffffff'},
         ]}>
-        <TouchableOpacity activeOpacity={0.5} style={styles.backButton}>
-          <Back />
+        <TouchableOpacity
+          activeOpacity={0.5}
+          style={styles.backButton}
+          onPress={onPress}>
+          <ArrowBack />
         </TouchableOpacity>
         <Text style={styles.title}>{text}</Text>
       </View>
@@ -51,7 +55,7 @@ export default Top;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#78C194',
-    paddingVertical: 30,
+    paddingVertical: 22,
     paddingHorizontal: 30,
     borderBottomRightRadius: 20,
     borderBottomLeftRadius: 20,
@@ -62,8 +66,8 @@ const styles = StyleSheet.create({
   },
   profileImage: {
     borderRadius: 50,
-    width: 50,
-    height: 50,
+    width: 65,
+    height: 65,
     marginRight: 15,
   },
   profileText: {
@@ -96,12 +100,11 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   backButton: {
-    position: 'absolute',
     left: 10,
     padding: 5,
   },
   title: {
-    flex: 1,
+    flex: 0.9,
     fontFamily: 'SF-Pro-Display-Bold',
     textAlign: 'center',
     fontSize: 20,

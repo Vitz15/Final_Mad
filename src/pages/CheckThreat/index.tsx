@@ -18,13 +18,15 @@ import {
 import {Gap} from '../../components/atoms';
 import CustomBottomNav from '../../components/molecules/NavBar';
 
-const Threat = ({navigation}) => {
+const Threat = ({navigation, route}) => {
+  const {uid} = route.params;
+
   const text = 'Subarachnoid \nHemorrhage';
 
   return (
-    <View>
-      <Search placeholder="What is your concern? " icon={SearchLogo} />
+    <View style={styles.anjay}>
       <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+        <Search placeholder="What is your concern? " icon={SearchLogo} />
         <View>
           <Text style={styles.Title}>Try This Prescription</Text>
           <ListBar
@@ -48,12 +50,13 @@ const Threat = ({navigation}) => {
           <ListBar text={text} type="left" source={Sepsis} />
           <ListBar text="Diarhea   " type="right" source={Diarhea} />
           <Gap height={30} />
-          <CustomBottomNav
-            type="Other"
-            onPress2={() => navigation.navigate('Profile')}
-          />
         </View>
       </ScrollView>
+      <CustomBottomNav
+        type="Other"
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
+      />
     </View>
   );
 };
@@ -61,6 +64,9 @@ const Threat = ({navigation}) => {
 export default Threat;
 
 const styles = StyleSheet.create({
+  anjay: {
+    backgroundColor: 'white',
+  },
   Title: {
     textAlign: 'center',
     fontFamily: 'SF-Pro-Display-Bold',
@@ -70,5 +76,7 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: 'white',
+    flexGrow: 0,
+    maxHeight: '93%',
   },
 });

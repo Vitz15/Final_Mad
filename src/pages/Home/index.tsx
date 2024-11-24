@@ -51,7 +51,7 @@ const Home = ({navigation, route}) => {
       {isDataLoaded ? (
         <Top name={userName} photo={photo} />
       ) : (
-        <Text>Loading...</Text>
+        <Text> Sabar B Loading...</Text>
       )}
 
       <ScrollView showsVerticalScrollIndicator={false} style={styles.scroll}>
@@ -65,7 +65,7 @@ const Home = ({navigation, route}) => {
           <MiniBox
             text="Transaction"
             icon={Trans}
-            onPress={() => navigation.navigate('Cart')}
+            onPress={() => navigation.navigate('Cart', {uid: uid})}
           />
           <MiniBox
             text="Virus List"

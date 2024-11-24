@@ -1,13 +1,19 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {Button, Gap} from '../../components/atoms';
-import {Header, TextInput, WhiteBar, Footer} from '../../components/molecules';
+import {
+  Header,
+  TextInput,
+  WhiteBar,
+  Footer,
+  Loading,
+} from '../../components/molecules';
 import {Lock, Mail, User} from '../../assets/icon';
 import {showMessage} from 'react-native-flash-message';
 import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 import {getDatabase, ref, set, get} from 'firebase/database';
-
 const SignUp = ({navigation}) => {
+  const [loading, setLoading] = useState(false);
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -16,8 +22,15 @@ const SignUp = ({navigation}) => {
   const createUser = async () => {
     const auth = getAuth();
     const db = getDatabase();
-
+    if (!fullName || !username || !email || !password) {
+      showMessage({
+        message: 'All fields are required. Please fill in all fields.',
+        type: 'danger',
+      });
+      return;
+    }
     try {
+
       const defaultPhotoSnapshot = await get(ref(db, 'users/Image'));
       const defaultPhotoBase64 = defaultPhotoSnapshot.exists()
         ? defaultPhotoSnapshot.val()
@@ -29,19 +42,19 @@ const SignUp = ({navigation}) => {
         password,
       );
       const user = userCredential.user;
-
+      setLoading(true);
       await set(ref(db, 'users/' + user.uid), {
         fullName: fullName,
         username: username,
         email: email,
         photoBase64: defaultPhotoBase64,
       });
-
+      
       showMessage({
         message: 'User successfully created!',
         type: 'success',
       });
-
+      setLoading(false);
       navigation.navigate('SignIn');
     } catch (error) {
       showMessage({
@@ -52,39 +65,42 @@ const SignUp = ({navigation}) => {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <Header text="Sign In" text2="Sign Up" type="signPage" padding={95} />
-      <WhiteBar marginLeft={250} />
-      <Text style={styles.Title}>Create An Account</Text>
-      <Gap height={24} />
-      <TextInput
-        placeholder="Full Name"
-        icon={User}
-        onChangeText={value => setFullName(value)}
-      />
-      <Gap height={24} />
-      <TextInput
-        placeholder="Username"
-        icon={User}
-        onChangeText={value => setUsername(value)}
-      />
-      <Gap height={24} />
-      <TextInput
-        placeholder="Email"
-        icon={Mail}
-        onChangeText={value => setEmail(value)}
-      />
-      <Gap height={24} />
-      <TextInput
-        placeholder="Password"
-        icon={Lock}
-        onChangeText={value => setPassword(value)}
-      />
-      <Gap height={52} />
-      <Button text="Sign Up" type="normal" onPress={createUser} />
-      <Gap height={160} />
-      <Footer />
-    </ScrollView>
+    <>
+      <ScrollView style={styles.container}>
+        <Header text="Sign In" text2="Sign Up" type="signPage" padding={95} />
+        <WhiteBar marginLeft={250} />
+        <Text style={styles.Title}>Create An Account</Text>
+        <Gap height={24} />
+        <TextInput
+          placeholder="Full Name"
+          icon={User}
+          onChangeText={value => setFullName(value)}
+        />
+        <Gap height={24} />
+        <TextInput
+          placeholder="Username"
+          icon={User}
+          onChangeText={value => setUsername(value)}
+        />
+        <Gap height={24} />
+        <TextInput
+          placeholder="Email"
+          icon={Mail}
+          onChangeText={value => setEmail(value)}
+        />
+        <Gap height={24} />
+        <TextInput
+          placeholder="Password"
+          icon={Lock}
+          onChangeText={value => setPassword(value)}
+        />
+        <Gap height={52} />
+        <Button text="Sign Up" type="normal" onPress={createUser} />
+        <Gap height={160} />
+        <Footer />
+      </ScrollView>
+      {loading && <Loading />}
+    </>
   );
 };
 

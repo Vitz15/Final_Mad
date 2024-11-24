@@ -41,7 +41,6 @@ const ListBar = ({type, source, text, icon, navigation, onPress}) => {
       />
     );
   }
-  // Fallback if no condition is met
   return null;
 };
 
