@@ -51,7 +51,7 @@ export default Top;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#78C194',
-    paddingVertical: 30,
+    paddingVertical: 22,
     paddingHorizontal: 30,
     borderBottomRightRadius: 20,
     borderBottomLeftRadius: 20,
@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
   },
   profileImage: {
     borderRadius: 50,
-    width: 50,
-    height: 50,
+    width: 65,
+    height: 65,
     marginRight: 15,
   },
   profileText: {
