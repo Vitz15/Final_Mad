@@ -4,13 +4,13 @@ import {BloodSugar} from '../../../assets/icon';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
-const BloodSugarPres = ({navigation}) => {
+const BloodSugarPres = ({navigation, route}) => {
+  const {uid} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
         <BloodSugar style={styles.cardImage} />
       </View>
-
       <View style={styles.cardContainer}>
         <View style={styles.textContainer}>
           <View style={styles.prescriptionContainer}>
@@ -55,8 +55,8 @@ const BloodSugarPres = ({navigation}) => {
       </View>
       <CustomBottomNav
         type="Other"
-        onPress={() => navigation.navigate('Home')}
-        onPress2={() => navigation.navigate('Profile')}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
       />
     </View>
   );
@@ -67,7 +67,7 @@ export default BloodSugarPres;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   cardImageContainer: {
     width: '100%',

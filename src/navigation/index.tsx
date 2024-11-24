@@ -17,6 +17,16 @@ import HealthRoutine from '../pages/HealthRoutine';
 import HighBloodPressureCard from '../pages/Prescription/HighBlood';
 import BloodSugarPres from '../pages/Prescription/BloodSugar';
 import FlashMessage from 'react-native-flash-message';
+import Diptheria from '../pages/Prescription/Diptheria';
+import AsthmaPres from '../pages/Prescription/Asthma';
+import CSFPres from '../pages/Prescription/CSF';
+import HeartAttackPres from '../pages/Prescription/HeartAttack';
+import MeningitisPres from '../pages/Prescription/Meningtis';
+import {Gerdpres} from '../assets/icon';
+import GerdPres from '../pages/Prescription/Gerd';
+import HemorrhagePres from '../pages/Prescription/Hemorrhage';
+import DiarrheaPres from '../pages/Prescription/Diarrhea';
+
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -91,6 +101,46 @@ const Navigator = () => {
         <Stack.Screen
           name="BloodSugarPres"
           component={BloodSugarPres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Diptheria"
+          component={Diptheria}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="AsthmaPres"
+          component={AsthmaPres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="CSFPres"
+          component={CSFPres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HeartAttackPres"
+          component={HeartAttackPres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MeningitisPres"
+          component={MeningitisPres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="GerdPres"
+          component={GerdPres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HemorrhagePres"
+          component={HemorrhagePres}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DiarrheaPres"
+          component={DiarrheaPres}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

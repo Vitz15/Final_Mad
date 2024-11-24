@@ -33,22 +33,62 @@ const Threat = ({navigation, route}) => {
             text="High Blood"
             type="left"
             source={High}
-            onPress={() => navigation.navigate('HighBloodPres')}
+            onPress={() => navigation.navigate('HighBloodPres', {uid: uid})}
           />
           <ListBar
             text="Blood Sugar"
             type="right"
             source={Sugar}
-            onPress={() => navigation.navigate('BloodSugarPres')}
+            onPress={() => navigation.navigate('BloodSugarPres', {uid: uid})}
           />
-          <ListBar text="Diphteria" type="left" source={Diphteria} />
-          <ListBar text="CSF          " type="right" source={CSF} />
-          <ListBar text="Asthma" type="left" source={Asthma} />
-          <ListBar text="Heart Attack" type="right" source={ChestPain} />
-          <ListBar text="Meningtis" type="left" source={Malaria} />
-          <ListBar text="Gerd         " type="right" source={Gerd} />
-          <ListBar text={text} type="left" source={Sepsis} />
-          <ListBar text="Diarhea   " type="right" source={Diarhea} />
+          <ListBar
+            text="Diphteria"
+            type="left"
+            source={Diphteria}
+            onPress={() => navigation.navigate('Diptheria', {uid: uid})}
+          />
+          <ListBar
+            text="CSF          "
+            type="right"
+            source={CSF}
+            onPress={() => navigation.navigate('CSFPres', {uid: uid})}
+          />
+          <ListBar
+            text="Asthma"
+            type="left"
+            source={Asthma}
+            onPress={() => navigation.navigate('AsthmaPres', {uid: uid})}
+          />
+          <ListBar
+            text="Heart Attack"
+            type="right"
+            source={ChestPain}
+            onPress={() => navigation.navigate('HeartAttackPres', {uid: uid})}
+          />
+          <ListBar
+            text="Meningtis"
+            type="left"
+            source={Malaria}
+            onPress={() => navigation.navigate('MeningitisPres', {uid: uid})}
+          />
+          <ListBar
+            text="Gerd         "
+            type="right"
+            source={Gerd}
+            onPress={() => navigation.navigate('GerdPres', {uid: uid})}
+          />
+          <ListBar
+            text={text}
+            type="left"
+            source={Sepsis}
+            onPress={() => navigation.navigate('HemorrhagePres', {uid: uid})}
+          />
+          <ListBar
+            text="Diarhea   "
+            type="right"
+            source={Diarhea}
+            onPress={() => navigation.navigate('DiarrheaPres', {uid: uid})}
+          />
           <Gap height={30} />
         </View>
       </ScrollView>
