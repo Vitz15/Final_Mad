@@ -44,8 +44,8 @@ import Instagram from './instagram.svg';
 import Vector1 from './Vector1.svg';
 import HighBlood from './HighBloodPrescription.svg';
 import Pneunomiaimage from './Pneunomia.svg';
-import Feverimage from './FeverImage.svg';
-import Strokeimage from './StrokeImage.svg';
+import Feverimage from './Symptoms/FeverImage.svg';
+import Strokeimage from './Symptoms/StrokeImage.svg';
 import BloodSugar from './BloodSugar.svg';
 import NullP from './Null.jpg';
 export {
