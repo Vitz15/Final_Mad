@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textContainer: {
-    paddingBottom: 255,
+    paddingBottom: 235,
   },
   title: {
     marginTop: 10,

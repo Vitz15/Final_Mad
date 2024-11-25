@@ -19,8 +19,8 @@ import {
   set,
   serverTimestamp,
   onValue,
-} from 'firebase/database'; // Realtime Database
-import {app} from '../../config/Firebase'; // Your Firebase app config
+} from 'firebase/database'; 
+import {app} from '../../config/Firebase'; 
 import {Loading} from '../../components/molecules';
 import CustomBottomNav from '../../components/molecules/NavBar';
 
@@ -43,18 +43,18 @@ const CartPage: React.FC = ({navigation, route}) => {
   };
 
   const originalPrice = getTotalPrice();
-  const discount = originalPrice * 0.5; // 50% discount
+  const discount = originalPrice * 0.5; 
   const tax = 2000; // tax
   const totalPrice = originalPrice - discount + tax;
 
   const [isLoading, setIsLoading] = useState(false);
-  const [orderId, setOrderId] = useState<string | null>(null); // Store the order ID for confirmation
+  const [orderId, setOrderId] = useState<string | null>(null); 
 
-  // Initialize Realtime Database
+  
   const db = getDatabase(app);
 
   const handleCheckout = async () => {
-    setIsLoading(true); // Show loading spinner when checkout starts
+    setIsLoading(true); 
 
     const checkoutData = {
       items: cartItems.map(item => ({
@@ -68,17 +68,15 @@ const CartPage: React.FC = ({navigation, route}) => {
       discount: discount,
       tax: tax,
       totalPrice: totalPrice,
-      date: new Date().toISOString(), // Adding current date/time for the order
-      timestamp: serverTimestamp(), // Firebase server timestamp
+      date: new Date().toISOString(), 
+      timestamp: serverTimestamp(), 
     };
 
     try {
-      // Generate a new order key
       const newOrderRef = push(ref(db, 'orders'));
-      // Set the order data at the new key location
+
       await set(newOrderRef, checkoutData);
 
-      // Store the order ID for confirmation
       setOrderId(newOrderRef.key);
     } catch (error) {
       console.error('Error placing order: ', error);
@@ -87,11 +85,11 @@ const CartPage: React.FC = ({navigation, route}) => {
         'There was an error placing your order. Please try again.',
       );
     } finally {
-      setIsLoading(false); // Hide loading spinner after finishing
+      setIsLoading(false); 
     }
   };
 
-  // Listen for order confirmation in Firebase using onValue (optional)
+
   React.useEffect(() => {
     if (orderId) {
       const orderRef = ref(db, 'orders/' + orderId);
@@ -101,7 +99,7 @@ const CartPage: React.FC = ({navigation, route}) => {
           Alert.alert('Success', 'Your order has been placed successfully!', [
             {
               text: 'OK',
-              onPress: () => navigation.navigate('Home', {uid: uid}), // Navigate back to Home or another screen
+              onPress: () => navigation.navigate('Home', {uid: uid}), 
             },
           ]);
         }
