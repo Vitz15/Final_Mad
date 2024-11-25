@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Pneunomiaimage} from '../../../assets/icon';
+import {PneunomiaImage} from '../../../assets/icon/Symptoms';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
@@ -9,7 +9,7 @@ const PneunomiaCard = ({navigation, route}) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <Pneunomiaimage style={styles.cardImage} />
+        <PneunomiaImage style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>

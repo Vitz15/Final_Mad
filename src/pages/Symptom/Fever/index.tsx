@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Feverimage} from '../../../assets/icon';
+import {FeverImage} from '../../../assets/icon/Symptoms';
 import {Gap} from '../../../components/atoms';
 import CustomBottomNav from '../../../components/molecules/NavBar';
 
@@ -9,7 +9,7 @@ const FeverCard = ({navigation, route}) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.cardImageContainer}>
-        <Feverimage style={styles.cardImage} />
+        <FeverImage style={styles.cardImage} />
       </View>
 
       <View style={styles.cardContainer}>
@@ -42,8 +42,8 @@ const FeverCard = ({navigation, route}) => {
       </View>
       <CustomBottomNav
         type="Other"
-        onPress2={() => navigation.navigate('Profile')}
-        onPress={() => navigation.navigate('Home')}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
       />
     </View>
   );

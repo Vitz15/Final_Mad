@@ -13,7 +13,6 @@ import {getDatabase, ref, onValue, update} from 'firebase/database';
 import {getAuth} from 'firebase/auth';
 import {Button, Gap} from '../../components/atoms/';
 import CustomBottomNav from '../../components/molecules/NavBar';
-import {launchImageLibrary} from 'react-native-image-picker';
 import RNFS from 'react-native-fs';
 
 const Profile = ({navigation, route}) => {

@@ -26,19 +26,69 @@ const Sickness = ({navigation, route}) => {
         <Search placeholder="Find Your Symptom" icon={SearchLogo} />
         <Text style={styles.Title}>Where does it hurt You?</Text>
         <View>
-          <ListBar text="Fever" type="left" source={Fever} />
-          <ListBar text="Pneunomia" type="right" source={Pneunomia} />
+          <ListBar
+            text="Fever"
+            type="left"
+            source={Fever}
+            onPress={() => navigation.navigate('FeverCard', {uid: uid})}
+          />
+          <ListBar
+            text="Pneunomia"
+            type="right"
+            source={Pneunomia}
+            onPress={() => navigation.navigate('PneunomiaCard', {uid: uid})}
+          />
 
-          <ListBar text="Stroke" type="left" source={Stroke} />
-          <ListBar text="Influenza" type="right" source={Flu} />
+          <ListBar
+            text="Stroke"
+            type="left"
+            source={Stroke}
+            onPress={() => navigation.navigate('StrokeCard', {uid: uid})}
+          />
+          <ListBar
+            text="Influenza"
+            type="right"
+            source={Flu}
+            onPress={() => navigation.navigate('InfluenzaCard', {uid: uid})}
+          />
 
-          <ListBar text="Asthma" type="left" source={Asthma} />
-          <ListBar text="Chest Pain  " type="right" source={ChestPain} />
+          <ListBar
+            text="Asthma"
+            type="left"
+            source={Asthma}
+            onPress={() => navigation.navigate('AsthmaCard', {uid: uid})}
+          />
+          <ListBar
+            text="Chest Pain  "
+            type="right"
+            source={ChestPain}
+            onPress={() => navigation.navigate('ChestPainCard', {uid: uid})}
+          />
 
-          <ListBar text="Malaria" type="left" source={Malaria} />
-          <ListBar text="Gerd         " type="right" source={Gerd} />
-          <ListBar text="Sepsis" type="left" source={Sepsis} />
-          <ListBar text="Diarhea    " type="right" source={Diarhea} />
+          <ListBar
+            text="Malaria"
+            type="left"
+            source={Malaria}
+            onPress={() => navigation.navigate('MalariaCard', {uid: uid})}
+          />
+          <ListBar
+            text="Gerd         "
+            type="right"
+            source={Gerd}
+            onPress={() => navigation.navigate('GerdCard', {uid: uid})}
+          />
+          <ListBar
+            text="Sepsis"
+            type="left"
+            source={Sepsis}
+            onPress={() => navigation.navigate('SepsisCard', {uid: uid})}
+          />
+          <ListBar
+            text="Diarhea    "
+            type="right"
+            source={Diarhea}
+            onPress={() => navigation.navigate('DiarheaCard', {uid: uid})}
+          />
         </View>
       </ScrollView>
       <CustomBottomNav
