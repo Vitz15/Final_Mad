@@ -14,7 +14,7 @@ export default [
     id: '2',
     title: 'Lapian, Jonathan',
     description: 'Toast',
-    image: require('./src/assets/icon/lapianAbout.png'),
+    image: require('./src/assets/icon/LapianFoto.png'),
     background: require('./src/assets/icon/grassBg.jpg'),
     emailtitle: 'Email Address',
     email: 's22310315@student.unklab.ac.id',
