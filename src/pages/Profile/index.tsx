@@ -13,6 +13,7 @@ import {getDatabase, ref, onValue, update} from 'firebase/database';
 import {getAuth} from 'firebase/auth';
 import {Button, Gap} from '../../components/atoms/';
 import CustomBottomNav from '../../components/molecules/NavBar';
+import {launchImageLibrary} from 'react-native-image-picker';
 import RNFS from 'react-native-fs';
 
 const Profile = ({navigation, route}) => {
@@ -140,7 +141,7 @@ const Profile = ({navigation, route}) => {
             <Text style={styles.dataName}>Username</Text>
             {isEditing ? (
               <TextInput
-                style={styles.dataEdit}
+                style={styles.data}
                 value={username}
                 onChangeText={setUsername}
               />
@@ -230,7 +231,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'black',
     marginLeft: 35,
-    marginTop: 10,
   },
   data: {
     fontFamily: 'SF-Display-Pro-Regular',
@@ -238,13 +238,6 @@ const styles = StyleSheet.create({
     color: 'black',
     marginLeft: 43,
     marginTop: 20,
-  },
-  dataEdit: {
-    fontFamily: 'SF-Display-Pro-Regular',
-    fontSize: 14,
-    color: 'black',
-    marginLeft: 40,
-    marginBottom: -14,
   },
   line: {
     borderBottomColor: '#000000',

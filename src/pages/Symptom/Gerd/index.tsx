@@ -45,8 +45,8 @@ const GerdCard = ({navigation, route}) => {
       </View>
       <CustomBottomNav
         type="Other"
-        onPress2={() => navigation.navigate('Profile')}
-        onPress={() => navigation.navigate('Home')}
+        onPress2={() => navigation.navigate('Profile', {uid: uid})}
+        onPress={() => navigation.navigate('Home', {uid: uid})}
       />
     </View>
   );
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textContainer: {
-    paddingBottom: 88,
+    paddingBottom: 220,
   },
   title: {
     marginTop: 10,

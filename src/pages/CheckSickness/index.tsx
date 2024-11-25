@@ -21,81 +21,85 @@ import CustomBottomNav from '../../components/molecules/NavBar';
 const Sickness = ({navigation, route}) => {
   const {uid} = route.params;
   return (
-    <View style={styles.anjay}>
-      <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-        <Search placeholder="Find Your Symptom" icon={SearchLogo} />
-        <Text style={styles.Title}>Where does it hurt You?</Text>
-        <View>
-          <ListBar
-            text="Fever"
-            type="left"
-            source={Fever}
-            onPress={() => navigation.navigate('FeverCard', {uid: uid})}
-          />
-          <ListBar
-            text="Pneunomia"
-            type="right"
-            source={Pneunomia}
-            onPress={() => navigation.navigate('PneunomiaCard', {uid: uid})}
-          />
+    <View style={{flex: 1}}>
+      <View style={styles.anjay}>
+      <Search placeholder="Find Your Symptom" icon={SearchLogo} />
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={styles.container}>
+          <Text style={styles.Title}>Where does it hurt You?</Text>
+          <View>
+            <ListBar
+              text="Fever"
+              type="left"
+              source={Fever}
+              onPress={() => navigation.navigate('FeverCard', {uid: uid})}
+            />
+            <ListBar
+              text="Pneunomia"
+              type="right"
+              source={Pneunomia}
+              onPress={() => navigation.navigate('PneunomiaCard', {uid: uid})}
+            />
 
-          <ListBar
-            text="Stroke"
-            type="left"
-            source={Stroke}
-            onPress={() => navigation.navigate('StrokeCard', {uid: uid})}
-          />
-          <ListBar
-            text="Influenza"
-            type="right"
-            source={Flu}
-            onPress={() => navigation.navigate('InfluenzaCard', {uid: uid})}
-          />
+            <ListBar
+              text="Stroke"
+              type="left"
+              source={Stroke}
+              onPress={() => navigation.navigate('StrokeCard', {uid: uid})}
+            />
+            <ListBar
+              text="Influenza"
+              type="right"
+              source={Flu}
+              onPress={() => navigation.navigate('InfluenzaCard', {uid: uid})}
+            />
 
-          <ListBar
-            text="Asthma"
-            type="left"
-            source={Asthma}
-            onPress={() => navigation.navigate('AsthmaCard', {uid: uid})}
-          />
-          <ListBar
-            text="Chest Pain  "
-            type="right"
-            source={ChestPain}
-            onPress={() => navigation.navigate('ChestPainCard', {uid: uid})}
-          />
+            <ListBar
+              text="Asthma"
+              type="left"
+              source={Asthma}
+              onPress={() => navigation.navigate('AsthmaCard', {uid: uid})}
+            />
+            <ListBar
+              text="Chest Pain  "
+              type="right"
+              source={ChestPain}
+              onPress={() => navigation.navigate('ChestPainCard', {uid: uid})}
+            />
 
-          <ListBar
-            text="Malaria"
-            type="left"
-            source={Malaria}
-            onPress={() => navigation.navigate('MalariaCard', {uid: uid})}
-          />
-          <ListBar
-            text="Gerd         "
-            type="right"
-            source={Gerd}
-            onPress={() => navigation.navigate('GerdCard', {uid: uid})}
-          />
-          <ListBar
-            text="Sepsis"
-            type="left"
-            source={Sepsis}
-            onPress={() => navigation.navigate('SepsisCard', {uid: uid})}
-          />
-          <ListBar
-            text="Diarhea    "
-            type="right"
-            source={Diarhea}
-            onPress={() => navigation.navigate('DiarheaCard', {uid: uid})}
-          />
-        </View>
-      </ScrollView>
-      <CustomBottomNav
-        type="Other"
-        onPress2={() => navigation.navigate('Profile', {uid: uid})}
-        onPress={() => navigation.navigate('Home', {uid: uid})}
-      />
+            <ListBar
+              text="Malaria"
+              type="left"
+              source={Malaria}
+              onPress={() => navigation.navigate('MalariaCard', {uid: uid})}
+            />
+            <ListBar
+              text="Gerd         "
+              type="right"
+              source={Gerd}
+              onPress={() => navigation.navigate('GerdCard', {uid: uid})}
+            />
+            <ListBar
+              text="Sepsis"
+              type="left"
+              source={Sepsis}
+              onPress={() => navigation.navigate('SepsisCard', {uid: uid})}
+            />
+            <ListBar
+              text="Diarhea    "
+              type="right"
+              source={Diarhea}
+              onPress={() => navigation.navigate('DiarheaCard', {uid: uid})}
+            />
+          </View>
+        </ScrollView>
+        <CustomBottomNav
+          type="Other"
+          onPress2={() => navigation.navigate('Profile', {uid: uid})}
+          onPress={() => navigation.navigate('Home', {uid: uid})}
+        />
+      </View>
     </View>
   );
 };
@@ -116,6 +120,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     flexGrow: 0,
-    maxHeight: '92.5%',
+    maxHeight: '83.2%',
   },
 });
